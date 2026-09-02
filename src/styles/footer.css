@@ -1,0 +1,103 @@
+/* Footer enhancements — from Divi footer.html */
+
+#srb-footer.site-footer {
+  border-top: 3px solid var(--primary-color);
+  margin-top: auto;
+}
+
+#srb-footer .brand__logo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#srb-footer .site-footer__brand-divider {
+  width: 48px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: var(--space-3) 0;
+  border-radius: var(--radius-pill);
+}
+
+#srb-footer .site-footer__tagline {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  max-width: 240px;
+  margin: 0;
+}
+
+#srb-footer .site-footer__col h4 {
+  margin-bottom: var(--space-2);
+}
+
+#srb-footer .site-footer__col h4::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  background: var(--primary-color);
+  margin-top: 8px;
+  border-radius: var(--radius-pill);
+}
+
+#srb-footer .site-footer__contact-icon {
+  color: var(--primary-color);
+  width: 1.25rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+#srb-footer .site-footer__social a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 242, 0, 0.1);
+  border: 1px solid rgba(255, 242, 0, 0.18);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+#srb-footer .site-footer__social a:hover {
+  background: var(--primary-color);
+  color: var(--dark);
+  border-color: var(--primary-color);
+}
+
+#srb-footer .site-footer__bottom {
+  font-size: var(--small);
+}
+
+@media (max-width: 768px) {
+  #srb-footer .site-footer__brand {
+    text-align: center;
+  }
+
+  #srb-footer .site-footer__brand-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #srb-footer .site-footer__tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #srb-footer .site-footer__social {
+    justify-content: center;
+  }
+
+  #srb-footer .site-footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

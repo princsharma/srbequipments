@@ -1,0 +1,1203 @@
+<style>
+.et_pb_section:has(#home),
+  .et_pb_section.et_pb_section_0:has(#home) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: clamp(640px, 88vh, 920px);
+    contain: layout;
+  }
+
+  .section--reviews {
+    background: #fff;
+  }
+  .et_pb_row:has(#home),
+  .et_pb_column:has(#home),
+  .et_pb_code:has(#home),
+  .et_pb_code_inner:has(#home) {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    max-width: 100%;
+  }
+  #home .hero {
+    min-height: clamp(640px, 88vh, 920px);
+    padding-bottom: var(--space-5);
+  }
+
+  /* Tighter vertical rhythm between homepage sections */
+  #home .section {
+    padding-top: 0;
+    padding-bottom: clamp(36px, 5vw, 52px);
+  }
+  #home .section--about {
+    padding-top: clamp(36px, 5vw, 52px);
+  }
+  #home .section__head {
+    margin-bottom: var(--space-4);
+  }
+  #home #services.section--services {
+    padding-top: var(--space-4);
+  }
+  #home .cta-banner {
+    padding: var(--space-5) 0;
+  }
+  #home #gallery.section--gallery {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-5);
+  }
+  #home .section--why {
+    padding-top: var(--space-4);
+  }
+  #home .section--process .section__actions {
+    margin-top: var(--space-4);
+  }
+  #home .repair-steps {
+    margin-top: var(--space-4);
+  }
+  #home .feature-grid--five {
+    margin-top: var(--space-4);
+  }
+  #home .hero__inner {
+    align-items: start;
+    min-height: 540px;
+  }
+  #home .hero__content {
+    min-height: 420px;
+  }
+  #home .hero__title {
+    min-height: clamp(2.4rem, 4.8vw, 4.4rem);
+    line-height: 1.05;
+  }
+  #home .hero__lede {
+    min-height: 5.1em;
+  }
+  #home .eyebrow {
+    min-height: 2.2em;
+  }
+  #home .hero__visual {
+    min-height: 540px;
+  }
+  #home .hero__image-card {
+    min-height: 540px;
+    background: var(--surface-dark-2, #121c30);
+  }
+  #home .hero__image-card > img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    display: block;
+  }
+  #home .hero__badge > div,
+  #home .hero__floating-card > div {
+    min-width: 7.5rem;
+  }
+  #home .hero__badge strong,
+  #home .hero__floating-card strong {
+    line-height: 1.2;
+    min-height: 1.2em;
+  }
+  #home .hero__badge small,
+  #home .hero__floating-card small {
+    display: block;
+    line-height: 1.3;
+    min-height: 1.3em;
+  }
+  #home .hero__badge .hero_right_icon,
+  #home .hero__floating-card .hero_right_icon {
+    width: 56px;
+    height: 56px;
+    min-height: 0;
+    object-fit: contain;
+  }
+  #home .service-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #home .image-frame > img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+  }
+  #home .gallery-grid__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  #home .cta-banner__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  #home #gallery .section__actions {
+    position: relative;
+    z-index: 2;
+    margin-top: var(--space-5);
+  }
+  #services .service-card {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card__link {
+    width: fit-content;
+    background: #fff;
+    border: 1px solid var(--primary-color);
+  }
+  #services .service-card__media {
+    height: 190px;
+    aspect-ratio: 715 / 340;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+  }
+  #services .service-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  #services .service-card:hover .service-card__media img {
+  }
+  #services .service-card__body {
+    padding: var(--space-4);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  #services .service-card__body .service-card__link {
+    margin-top: auto;
+  }
+  #services .service-card__badge {
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+  }
+  #services .service-card--featured .service-card__media {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .check-list {
+    padding-left: 0 !important;
+    padding-top: 20px !important;
+  }
+  img.hero_right_icon {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+  }
+  #home .gallery-grid__item {
+    min-height: 0;
+  }
+  #home .feature-grid--five {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  #home .feature-grid--five .feature-card {
+    grid-column: span 2;
+  }
+  #home .feature-grid--five .feature-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  #home .feature-grid--five .feature-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+  #home .repair-steps {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-5) 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    counter-reset: repair-step;
+  }
+  #home .repair-steps li {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    box-shadow: var(--shadow-sm);
+  }
+  #home .repair-steps li:hover {
+    box-shadow: var(--shadow-md);
+  }
+  #home .repair-steps__num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--primary-color);
+    color: var(--dark);
+    font-weight: 900;
+    font-size: 1rem;
+    margin-bottom: var(--space-3);
+  }
+  #home .repair-steps h3 {
+    margin: 0 0 10px;
+    color: var(--dark);
+  }
+  #home .repair-steps p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+  #home .section--process {
+    background: var(--gray-bg);
+  }
+  @media (max-width: 1024px) {
+    #home .repair-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    #home .feature-grid--five {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    #home .feature-grid--five .feature-card,
+    #home .feature-grid--five .feature-card:nth-child(4),
+    #home .feature-grid--five .feature-card:nth-child(5) {
+      grid-column: auto;
+    }
+  }
+  @media (max-width: 640px) {
+    #home .repair-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 1024px) {
+    .et_pb_section:has(#home),
+    .et_pb_section.et_pb_section_0:has(#home) {
+      min-height: clamp(560px, 80vh, 820px);
+    }
+    #home .hero {
+      min-height: clamp(560px, 80vh, 820px);
+    }
+    #home .hero__content { min-height: 360px; }
+    #home .hero__image-card,
+    #home .hero__image-card > img { min-height: 420px; height: 420px; }
+    #home .hero__visual,
+    #home .hero__inner { min-height: 420px; }
+    #home .image-frame > img { height: 380px; }
+  }
+  @media (max-width: 768px) {
+    .et_pb_section:has(#home),
+    .et_pb_section.et_pb_section_0:has(#home) {
+      min-height: clamp(480px, 72vh, 680px);
+    }
+    #home .hero {
+      min-height: clamp(480px, 72vh, 680px);
+    }
+    #home .hero__content { min-height: 280px; }
+    #home .hero__lede { min-height: 4.8em; }
+    #home .hero__image-card,
+    #home .hero__image-card > img { min-height: 320px; height: 320px; }
+    #home,
+    #home .hero,
+    #home .hero__content,
+    #home .container {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+    .et_pb_section:has(#home),
+    .et_pb_row:has(#home),
+    .et_pb_column:has(#home),
+    .et_pb_code_inner:has(#home) {
+      max-width: 100%;
+      overflow-x: clip;
+    }
+  }
+  .pt-0 {
+    padding-top: 0 !important;
+  }
+</style>
+
+<link rel="preload" as="image" href="https://srbequipment.ca/wp-content/uploads/2026/05/Gemini_Generated_Image_h4pvmih4pvmih4pv-1-1-1.webp" fetchpriority="high">
+
+<main id="home">
+          <!-- ============ HERO ============ -->
+          <section class="hero" data-testid="hero">
+            <div class="hero__bg" aria-hidden="true">
+              <div class="hero__grid"></div>
+              <div class="hero__glow hero__glow--y"></div>
+              <div class="hero__glow hero__glow--b"></div>
+            </div>
+    
+            <div class="container hero__inner">
+              <div class="hero__content">
+                <span class="eyebrow eyebrow--light" data-testid="hero-eyebrow">
+                  <span class="eyebrow__dot"></span> Trusted Truck Repair Shop For Commercial Vehicles - Since 2015
+                </span>
+                <h1 class="hero__title" data-testid="hero-title">
+                  Truck & Trailer <em>Repair Shop</em> in Edmonton
+                </h1>
+                <p class="hero__lede">
+                  Red Seal-certified technicians delivering fast truck and trailer repairs, proactive maintenance, and 24/7 roadside service to minimize downtime across Edmonton and surrounding areas.
+                </p>
+    
+                <div class="hero__actions">
+                  <a href="tel:+17808785221" class="btn btn--primary btn--lg" data-testid="hero-call-btn">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    Call Us for Roadside Assistance
+                  </a>
+                  <a href="#services" class="btn btn--ghost btn--lg" data-testid="hero-services-btn">
+                    <i class="fa-solid fa-wrench"></i>
+                    Our Services
+                  </a>
+                </div>
+    
+                <div class="hero__meta">
+                  <div class="hero__phone">
+                    <span class="hero__phone-label">24/7 Roadside Assistance</span>
+                    <a href="tel:+17808785221" class="hero__phone-number">(780) 878-5221</a>
+                  </div>
+                  <div class="hero__rating">
+                    <div class="hero__rating-stars" aria-label="Rated 4.8 out of 5">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <span class="hero__rating-text">
+                      <strong>4.8 / 5.0</strong>
+                      <small>Google Reviews</small>
+                    </span>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="hero__visual" data-testid="hero-visual">
+                <div class="hero__image-card">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/05/Gemini_Generated_Image_h4pvmih4pvmih4pv-1-1-1.webp"
+                    alt="Heavy duty truck being repaired at SRB Equipment workshop"
+                    width="800"
+                    height="600"
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                  />
+                  <div class="hero__badge">
+                    <img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/red-seal-1-150x150.webp" alt="Red Seal" width="56" height="56" decoding="async" />
+                    <div>
+                      <strong>Red Seal</strong>
+                      <small>Certified Mechanics</small>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="hero__floating-card hero__floating-card--top">
+                  <img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/24-7-Emergency-Assistance-150x150.webp" alt="24/7 Service" width="56" height="56" decoding="async" />
+                  <div>
+                    <strong>24/7 Service</strong>
+                    <small>Mobile & In-Shop</small>
+                  </div>
+                </div>
+    
+                <div class="hero__floating-card hero__floating-card--bottom">
+                  <img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/10-year-150x150.webp" alt="10+ years icon" width="56" height="56" decoding="async" />
+                  <div>
+                    <strong>10+ Years</strong>
+                    <small>Heavy-Duty Expertise</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Stats strip -->
+            <div class="container">
+              <div class="hero__stats" data-testid="hero-stats">
+                <div class="hero__stat">
+                  <strong class="hero__stat-num">10<span>+</span></strong>
+                  <span class="hero__stat-label">Years in Business</span>
+                </div>
+                <div class="hero__stat">
+                  <strong class="hero__stat-num">5,000<span>+</span></strong>
+                  <span class="hero__stat-label">Trucks Repaired</span>
+                </div>
+                <div class="hero__stat">
+                  <strong class="hero__stat-num">24<span>/7</span></strong>
+                  <span class="hero__stat-label">Mobile Roadside</span>
+                </div>
+                <!-- <div class="hero__stat">
+                  <strong class="hero__stat-num">100<span>%</span></strong>
+                  <span class="hero__stat-label">Red Seal Techs</span>
+                </div> -->
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ ABOUT ============ -->
+          <section id="about" class="section section--about" data-testid="about">
+            <div class="container two-col two-col--reverse">
+              <div class="two-col__media">
+                <div class="image-frame">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/03/white-semi-truck-repair-in-srb-equipment-workshop-592x539.jpg"
+                    srcset="https://srbequipment.ca/wp-content/uploads/2026/03/white-semi-truck-repair-in-srb-equipment-workshop-592x539.jpg 592w, https://srbequipment.ca/wp-content/uploads/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg 720w"
+                    alt="White semi truck being repaired in SRB Equipment workshop"
+                    width="720"
+                    height="656"
+                    sizes="(max-width: 768px) 100vw, 592px"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                
+                </div>
+              </div>
+              <div class="two-col__content">
+                <span class="eyebrow">About SRB Equipment</span>
+                <h2 class="section__title">
+                  Edmonton's Trusted Truck Repair Shop <em>Since 2015</em>
+                </h2>
+                <p class="section__lede">
+                  For over a decade, SRB Equipment has supported commercial drivers, owner-operators, and fleet managers with dependable truck and trailer repair services in Edmonton. Since 2015, we have built our reputation on honest workmanship, reliable service, and a commitment to keeping hardworking vehicles on the road.
+                </p>
+                <p class="section__lede">
+                  Our shop is staffed by Red Seal-certified mechanics with experience working on a wide range of heavy-duty trucks and trailers. Combined with responsive service and 24/7 roadside assistance, we provide support when and where it is needed most.
+                </p>
+    <p class="section__lede">At SRB Equipment, we believe strong customer relationships are built on trust, consistency, and quality work. Every repair, inspection, and maintenance service is completed with attention to detail so you can get back on the road with confidence and keep your business moving forward.
+                </p>
+                <!-- <ul class="check-list" data-testid="about-features">
+                  <li><span class="check-list__icon" aria-hidden="true">✓</span> Full-service shop & mobile repair under one roof</li>
+                  <li><span class="check-list__icon" aria-hidden="true">✓</span> Honest diagnostics, transparent pricing</li>
+                  <li><span class="check-list__icon" aria-hidden="true">✓</span> Fleet contracts & same-day service available</li>
+                </ul> -->
+    
+                <div class="section__actions">
+                   <a href="tel:+17808785221" class="btn btn--primary" data-testid="about-call-btn">
+                    <i class="fa-solid fa-phone"></i> (780) 878-5221
+                  </a>
+                  <a href="#services" class="btn btn--dark btn--lg" data-testid="about-services-btn">
+                    Explore Services <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+                 
+                </div>
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ SERVICES ============ -->
+          <section id="services" class="section section--services" data-testid="services">
+            <div class="container">
+              <div class="section__head section__head--center">
+                <span class="eyebrow">What We Do</span>
+                <h2 class="section__title">
+                  Services We Provide in Our Truck & Trailer Repair Shop
+                </h2>
+                <p class="section__lede">
+                  You can get a wide range of essential repairs completed in one place. Our facility handles essential mechanical systems for commercial trucks and trailers.
+                </p>
+              </div>
+    
+              <div class="service-grid" data-testid="service-grid">
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2025/11/brake-repair-400x190.jpg" srcset="https://srbequipment.ca/wp-content/uploads/2025/11/brake-repair-400x190.jpg 400w, https://srbequipment.ca/wp-content/uploads/2025/11/brake-repair-768x365.jpg 768w, https://srbequipment.ca/wp-content/uploads/2025/11/brake-repair.jpg 715w" alt="Truck brake repair service" width="715" height="340" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                   
+                    <h3 class="service-card__title">Brake Repair</h3>
+                    <p>Detailed brake inspections and quality repairs so your truck and trailer stop smoothly and safely.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2026/07/coolant-repair-system.webp-400x190.jpg" srcset="https://srbequipment.ca/wp-content/uploads/2026/07/coolant-repair-system.webp-400x190.jpg 400w, https://srbequipment.ca/wp-content/uploads/2026/07/coolant-repair-system.webp-768x365.jpg 768w, https://srbequipment.ca/wp-content/uploads/2026/07/coolant-repair-system.webp 715w" alt="Truck coolant system repair" width="715" height="340" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Coolant System Repair</h3>
+                    <p>We fix coolant system issues to prevent overheating and protect your engine performance.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2025/11/electrical-repair-400x190.jpg" srcset="https://srbequipment.ca/wp-content/uploads/2025/11/electrical-repair-400x190.jpg 400w, https://srbequipment.ca/wp-content/uploads/2025/11/electrical-repair-768x365.jpg 768w, https://srbequipment.ca/wp-content/uploads/2025/11/electrical-repair.jpg 715w" alt="Truck electrical repair" width="715" height="340" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Electrical Repair</h3>
+                    <p>We diagnose and repair electrical problems affecting lights, batteries, wiring, and other systems.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2025/11/suspension-repair-400x190.jpg" srcset="https://srbequipment.ca/wp-content/uploads/2025/11/suspension-repair-400x190.jpg 400w, https://srbequipment.ca/wp-content/uploads/2025/11/suspension-repair-768x365.jpg 768w, https://srbequipment.ca/wp-content/uploads/2025/11/suspension-repair.jpg 715w" alt="Truck suspension repair" width="715" height="340" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Suspension Repair</h3>
+                    <p>We repair suspension components to improve stability, handling, and overall driving comfort.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                   <img src="https://srbequipment.ca/wp-content/uploads/2026/07/heavy-duty-truck-driveline-repair.webp" srcset="https://srbequipment.ca/wp-content/uploads/2026/07/heavy-duty-truck-driveline-repair.webp 400w, https://srbequipment.ca/wp-content/uploads/2026/07/heavy-duty-truck-driveline-repair.webp 768w, https://srbequipment.ca/wp-content/uploads/2026/07/heavy-duty-truck-driveline-repair.webp 715w" alt="Transmission and clutch repair" width="715" height="340" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Transmission & Clutch</h3>
+                    <p>Skilled mechanics identify shifting issues, clutch wear, and transmission faults - then restore smooth performance.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2025/11/DOT-400x190.jpg" srcset="https://srbequipment.ca/wp-content/uploads/2025/11/DOT-400x190.jpg 400w, https://srbequipment.ca/wp-content/uploads/2025/11/DOT-768x365.jpg 768w, https://srbequipment.ca/wp-content/uploads/2025/11/DOT.jpg 715w" alt="Diesel engine repair and overhaul" width="715" height="340" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Engine Repair & Overhaul</h3>
+                    <p>We repair and rebuild engines to restore power, efficiency, and dependable operation.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2026/07/truck-exhaust-repair-system-400x190.webp" srcset="https://srbequipment.ca/wp-content/uploads/2026/07/truck-exhaust-repair-system.webp 400w, https://srbequipment.ca/wp-content/uploads/2026/07/truck-exhaust-repair-system.webp 768w, https://srbequipment.ca/wp-content/uploads/2026/07/truck-exhaust-repair-system.webp 715w" alt="Truck exhaust system repair" width="715" height="339" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">Exhaust System Repair</h3>
+                    <p>A damaged exhaust reduces efficiency and creates compliance issues. We repair exhaust concerns to keep you compliant.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark ">Book Service <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card">
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2026/07/cvip-inspection.webp" srcset="https://srbequipment.ca/wp-content/uploads/2026/07/cvip-inspection.webp 400w, https://srbequipment.ca/wp-content/uploads/2026/07/cvip-inspection.webp 768w, https://srbequipment.ca/wp-content/uploads/2026/07/cvip-inspection.webp 715w" alt="CVIP truck inspection" width="715" height="339" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                    <h3 class="service-card__title">CVIP Inspection</h3>
+                    <p>Thorough CVIP inspections to ensure your truck or trailer meets Alberta safety requirements and stays road-ready.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark ">Book Inspection <i class="fa-solid fa-arrow-right"></i></a>
+                  </div>
+                </article>
+  
+                <article class="service-card service-card--featured">
+                  <span class="service-card__badge">24/7</span>
+                  <div class="service-card__media">
+                    <img src="https://srbequipment.ca/wp-content/uploads/2026/07/mobile-truck-repair.webp" srcset="https://srbequipment.ca/wp-content/uploads/2026/07/mobile-truck-repair.webp 400w, https://srbequipment.ca/wp-content/uploads/2026/07/mobile-truck-repair.webp 768w, https://srbequipment.ca/wp-content/uploads/2026/07/mobile-truck-repair.webp 715w" alt="Mobile truck repair service" width="715" height="339" sizes="(max-width: 768px) 100vw, 398px" loading="lazy" decoding="async">
+                  </div>
+                  <div class="service-card__body">
+                  
+                    <h3 class="service-card__title">Mobile Truck Repair</h3>
+                    <p>Our fully equipped mobile unit delivers on-site diagnostics and 24-hour repair support to get you back on schedule fast.</p>
+                    <a href="tel:+17808785221" class="service-card__link btn btn--outline-dark" style="background: transparent; border: 1px solid var(--primary-color)">Call Now <i class="fa-solid fa-phone"></i></a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ URGENT CTA BANNER ============ -->
+          <section class="cta-banner" data-testid="urgent-cta">
+            <div class="cta-banner__bg" aria-hidden="true">
+              <div class="cta-banner__grid"></div>
+            </div>
+            <div class="container cta-banner__inner pt-0">
+              <div class="cta-banner__icon">
+               <img src="https://srbequipment.ca/wp-content/uploads/2026/06/cal-a-technician-1-1.webp" alt="call a technician icon" width="90" height="90" loading="lazy" decoding="async" />
+              </div>
+              <div class="cta-banner__content">
+                <span class="eyebrow eyebrow--light">Need Urgent Truck Repair Service?</span>
+                <h2 class="cta-banner__title">
+                  Call a Technician Now - We'll Come <em>To Your Yard or Roadside</em>
+                </h2>
+                <p>
+                  When unexpected downtime affects your schedule, SRB Equipment is ready to help. Our mobile technicians provide on-site truck repairs across Edmonton and surrounding areas, helping you get back to work with minimal disruption.
+                </p>
+              </div>
+              <div class="cta-banner__actions">
+                <a href="tel:+17808785221" class="btn btn--dark btn--lg" data-testid="banner-call-btn">
+                  <i class="fa-solid fa-phone-volume"></i> (780) 878-5221
+                </a>
+                <!-- <a href="tel:+17808785221" class="btn btn--outline-dark btn--lg" data-testid="banner-book-btn">
+                  Book My Truck Repair
+                </a> -->
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ GALLERY ============ -->
+          <section id="gallery" class="section section--gallery" data-testid="gallery">
+            <div class="container">
+              <div class="section__head section__head--center">
+                <span class="eyebrow">Our Shop</span>
+                <h2 class="section__title">Our Work <em>in Action</em></h2>
+                <p class="section__lede">A peek inside the SRB Equipment workshop and mobile service unit.</p>
+              </div>
+    
+              <div class="gallery-grid" data-testid="gallery-grid">
+                <a class="gallery-grid__item gallery-grid__item--lg" aria-label="Truck CVIP inspection">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/02/truck-cvip-inspection-in-srb-equipment-shop-400x516.webp"
+                    alt="Truck CVIP inspection in SRB Equipment shop"
+                    width="400"
+                    height="516"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="gallery-grid__caption">Truck CVIP Inspection</span>
+                </a>
+                <a class="gallery-grid__item" aria-label="B620 tank inspection and repair">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/02/b620-tank-inspection-and-repair-image-400x516.webp"
+                    alt="B620 tank inspection and repair"
+                    width="400"
+                    height="516"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="gallery-grid__caption">B620 Tank Inspection</span>
+                </a>
+                <a class="gallery-grid__item" aria-label="Mobile service truck Edmonton">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/02/white-color-mobile-service-truck-edmonton-400x516.webp"
+                    alt="White mobile service truck Edmonton"
+                    width="400"
+                    height="516"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="gallery-grid__caption">Mobile Service Truck</span>
+                </a>
+                <a class="gallery-grid__item" aria-label="Trailer repair">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/02/trailer-repair-in-srb-equipment-shop-400x516.webp"
+                    alt="Trailer repair in SRB Equipment shop"
+                    width="400"
+                    height="516"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <span class="gallery-grid__caption">Trailer Repair</span>
+                </a>
+              </div>
+    
+              <div class="section__actions section__actions--center">
+                <a href="https://srbequipment.ca/gallery/" class="btn btn--outline" data-testid="gallery-view-all">
+                  View Full Gallery <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ WHY CHOOSE US ============ -->
+          <section class="section section--why" data-testid="why-us">
+            <div class="container">
+              <div class="section__head">
+                <span class="eyebrow">Why SRB Equipment</span>
+                <h2 class="section__title">Why Drivers Trust SRB Equipment</h2>
+                <p class="section__lede">
+                  Our commitment to quality repairs, reliable service, and customer satisfaction has earned
+                  the trust of drivers and fleets across Edmonton.
+                </p>
+              </div>
+
+              <div class="feature-grid feature-grid--five">
+                <article class="feature-card">
+                  <span class="feature-card__num" style="color: var(--dark)">01</span>
+                  <span class="feature-card__icon"><img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/red-seal-1-150x150.webp" alt="Red Seal certified" width="56" height="56" loading="lazy" decoding="async" /></span>
+                  <h3 class="feature-card__title">Red Seal-Certified Mechanics</h3>
+                  <p>Experienced technicians delivering accurate diagnostics and dependable repairs for heavy-duty trucks and trailers.</p>
+                </article>
+
+                <article class="feature-card">
+                  <span class="feature-card__num" style="color: var(--dark)">02</span>
+                  <span class="feature-card__icon"><img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/10-year-150x150.webp" alt="Proven experience since 2015" width="56" height="56" loading="lazy" decoding="async" /></span>
+                  <h3 class="feature-card__title">Proven Experience</h3>
+                  <p>Serving Edmonton's trucking industry since 2015 with trusted repair solutions and reliable service.</p>
+                </article>
+
+                <article class="feature-card">
+                  <span class="feature-card__num" style="color: var(--dark)">03</span>
+                  <span class="feature-card__icon"><img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/Minimized-Downtime-150x150.webp" alt="Fast turnaround times" width="56" height="56" loading="lazy" decoding="async" /></span>
+                  <h3 class="feature-card__title">Fast Turnaround Times</h3>
+                  <p>Efficient repairs and timely service to help reduce downtime and keep trucks moving.</p>
+                </article>
+
+                <article class="feature-card">
+                  <span class="feature-card__num" style="color: var(--dark)">04</span>
+                  <span class="feature-card__icon"><img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/Fleet-Continuity-150x150.webp" alt="Complete fleet support" width="56" height="56" loading="lazy" decoding="async" /></span>
+                  <h3 class="feature-card__title">Complete Fleet Support</h3>
+                  <p>Reliable maintenance and repair services designed to keep fleet vehicles operating at their best.</p>
+                </article>
+
+                <article class="feature-card feature-card--accent">
+                  <span class="feature-card__num" style="color: #fff">05</span>
+                  <span class="feature-card__icon" style="background: #fff;"><img class="hero_right_icon" src="https://srbequipment.ca/wp-content/uploads/2026/06/24-7-Emergency-Assistance-150x150.webp" alt="24/7 emergency response" width="56" height="56" loading="lazy" decoding="async" /></span>
+                  <h3 class="feature-card__title">24/7 Emergency Response</h3>
+                  <p>Quick roadside assistance and repair support when unexpected breakdowns disrupt your operations.</p>
+                </article>
+              </div>
+
+              <div class="section__actions section__actions--center">
+                <a href="tel:+17808785221" class="btn btn--primary btn--lg" data-testid="why-quote-btn">
+                  (780) 878-5221 
+                </a>
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ REPAIR PROCESS ============ -->
+          <section class="section section--process" data-testid="repair-process">
+            <div class="container">
+              <div class="section__head section__head--center">
+                <h2 class="section__title">Our Truck and Trailer Repair Process</h2>
+                <p class="section__lede">
+                  We follow a clear repair process to keep your truck operating reliably.
+                </p>
+              </div>
+
+              <ol class="repair-steps">
+                <li>
+                  <span class="repair-steps__num" aria-hidden="true">1</span>
+                  <h3>Detailed Diagnostics</h3>
+                  <p>We begin with a thorough inspection using advanced diagnostic tools to accurately identify mechanical or system issues.</p>
+                </li>
+                <li>
+                  <span class="repair-steps__num" aria-hidden="true">2</span>
+                  <h3>Clear Repair Plan</h3>
+                  <p>Once the problem is identified, we explain the issue, outline the required repairs, and provide a clear service timeline.</p>
+                </li>
+                <li>
+                  <span class="repair-steps__num" aria-hidden="true">3</span>
+                  <h3>Professional Repairs</h3>
+                  <p>Our experienced technicians complete repairs using high-quality parts and proven repair procedures to deliver long-lasting results.</p>
+                </li>
+                <li>
+                  <span class="repair-steps__num" aria-hidden="true">4</span>
+                  <h3>Final Safety Inspection</h3>
+                  <p>Before your truck or trailer leaves the shop, we perform a final inspection to ensure everything operates safely and reliably.</p>
+                </li>
+              </ol>
+
+              <div class="section__actions section__actions--center">
+                <a href="tel:+17808785221" class="btn btn--primary btn--lg" data-testid="process-schedule-btn">
+                 (780) 878-5221
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <!-- ============ TESTIMONIALS ============ -->
+          <section id="reviews" class="section section--reviews" data-testid="reviews">
+            <div class="container">
+        
+                <div class="section__head section__head--center">
+                    <span class="eyebrow">Reviews</span>
+        
+                    <h2 class="section__title">
+                        Trusted by Truckers <em>Like You</em>
+                    </h2>
+        
+                    <div class="reviews-summary">
+        
+                        <div class="reviews-summary__stars" aria-label="Rated 4.8 out of 5">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+        
+                        <strong>4.8 / 5.0</strong>
+        
+                        <span>· Based on verified Google reviews</span>
+        
+                    </div>
+        
+                </div>
+        
+                <!-- Trustindex Reviews -->
+                <div class="review-grid trustindex-wrapper">
+        
+                    [trustindex no-registration=google]
+        
+                </div>
+        
+                <div class="section__actions section__actions--center">
+        
+                    <a href="https://www.google.com/search?sca_esv=6f5a7f2fb1e9ae4b&sxsrf=ANbL-n4Bbe-nF87iLwAiJFPdm5PUhBmZjw:1780295724729&kgmid=/g/11rg770zyg&q=SRB+Equipment&shem=rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=5ca1b3e2eef884db&utm_source=rimspwouoe,sh/x/loc/uni/m1/1#lrd=0x53a021bacc008249:0xd1e1aa7820e0b8a1,1"
+                       class="btn btn--outline"
+                       target="_blank"
+                       rel="noopener">
+        
+                        Read More Reviews
+                        <i class="fa-solid fa-arrow-right"></i>
+        
+                    </a>
+        
+                </div>
+        
+            </div>
+        </section>
+          <!-- <section id="reviews" class="section section--reviews" data-testid="reviews">
+            <div class="container">
+              <div class="section__head section__head--center">
+                <span class="eyebrow">Reviews</span>
+                <h2 class="section__title">Trusted by Truckers <em>Like You</em></h2>
+                <div class="reviews-summary">
+                  <div class="reviews-summary__stars" aria-label="Rated 4.8 out of 5">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                  </div>
+                  <strong>4.8 / 5.0</strong>
+                  <span>· Based on verified Google reviews</span>
+                </div>
+              </div>
+    
+              <div class="review-grid" data-testid="review-grid">
+                <article class="review-card">
+                  <div class="review-card__head">
+                    <span class="review-card__avatar" style="background:#0ea5e9">SC</span>
+                    <div>
+                      <strong>Steph Carvalho</strong>
+                      <span><i class="fa-brands fa-google"></i> Google Review</span>
+                    </div>
+                  </div>
+                  <div class="review-card__stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>
+                    "We are a young company and have tried several mechanical shops and SRB Equipment is
+                    by far the best. Shaun and his team are amazing to work with and so knowledgeable.
+                    We have worked with them for 2 years and they are always there for us — from CVIP
+                    to running out to diagnose breakdowns and everything in between."
+                  </p>
+                </article>
+    
+                <article class="review-card">
+                  <div class="review-card__head">
+                    <span class="review-card__avatar" style="background:#f59e0b">BJ</span>
+                    <div>
+                      <strong>Braeden Jones</strong>
+                      <span><i class="fa-brands fa-google"></i> Google Review</span>
+                    </div>
+                  </div>
+                  <div class="review-card__stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>
+                    "Got me in last minute to do an emergency tire swap. They were fair and more than
+                    helpful. Definitely recommend!"
+                  </p>
+                </article>
+    
+                <article class="review-card">
+                  <div class="review-card__head">
+                    <span class="review-card__avatar" style="background:#10b981">CC</span>
+                    <div>
+                      <strong>Charles Cameron</strong>
+                      <span><i class="fa-brands fa-google"></i> Google Review</span>
+                    </div>
+                  </div>
+                  <div class="review-card__stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>
+                    "We at CDR Rentals have used Shaun as our go-to for our fleet for a couple of years.
+                    Never misses a beat. Professional, personable and fair. Thanks Shaun!"
+                  </p>
+                </article>
+    
+                <article class="review-card">
+                  <div class="review-card__head">
+                    <span class="review-card__avatar" style="background:#8b5cf6">PI</span>
+                    <div>
+                      <strong>Piper</strong>
+                      <span><i class="fa-brands fa-google"></i> Google Review</span>
+                    </div>
+                  </div>
+                  <div class="review-card__stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>
+                    "I have been going to SRB Equipment for the last two years. Shaun has never turned
+                    me away for repairs on my truck. I'm always pleased with the repairs done. He does
+                    my yearly inspection for me as well."
+                  </p>
+                </article>
+    
+                <article class="review-card">
+                  <div class="review-card__head">
+                    <span class="review-card__avatar" style="background:#ef4444">CR</span>
+                    <div>
+                      <strong>Craig Cranna</strong>
+                      <span><i class="fa-brands fa-google"></i> Google Review</span>
+                    </div>
+                  </div>
+                  <div class="review-card__stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>
+                    "Knowledgeable old school mechanic able to troubleshoot and not only rely on a
+                    computer. Reasonable rates and repairs done in a timely manner."
+                  </p>
+                </article>
+    
+                <article class="review-card">
+                  <div class="review-card__head">
+                    <span class="review-card__avatar" style="background:#0f172a">JH</span>
+                    <div>
+                      <strong>Josh Hesse</strong>
+                      <span><i class="fa-brands fa-google"></i> Google Review</span>
+                    </div>
+                  </div>
+                  <div class="review-card__stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                  </div>
+                  <p>
+                    "We have used SRB for all our truck and trailer repairs. Fast efficient service.
+                    Definitely will continue sending all our equipment to SRB."
+                  </p>
+                </article>
+              </div>
+    
+              <div class="section__actions section__actions--center">
+                <a href="https://www.google.com/search?sca_esv=6f5a7f2fb1e9ae4b&sxsrf=ANbL-n4Bbe-nF87iLwAiJFPdm5PUhBmZjw:1780295724729&kgmid=/g/11rg770zyg&q=SRB+Equipment&shem=rimspwouoe&shndl=30&source=sh/x/loc/uni/m1/1&kgs=5ca1b3e2eef884db&utm_source=rimspwouoe,sh/x/loc/uni/m1/1#lrd=0x53a021bacc008249:0xd1e1aa7820e0b8a1,1" class="btn btn--outline" data-testid="read-more-reviews">
+                  Read More Reviews <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </section> -->
+    
+          <!-- ============ TRUSTED BRANDS ============ -->
+          <section class="section section--dark">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <h2 class="section__title">Trusted by Leading Truck Brands</h2>
+      </div>
+      <div class="brand-strip">
+        <div class="brand-strip__item">
+          <img src="https://srbequipment.ca/wp-content/uploads/2025/11/cat.jpg" alt="CAT" width="120" height="48" loading="lazy" decoding="async">
+        </div>
+        <div class="brand-strip__item">
+          <img src="https://srbequipment.ca/wp-content/uploads/2025/11/frightliner.jpg" alt="Freightliner" width="120" height="48" loading="lazy" decoding="async">
+        </div>
+        <div class="brand-strip__item">
+          <img src="https://srbequipment.ca/wp-content/uploads/2025/11/hino.jpg" alt="Hino" width="120" height="48" loading="lazy" decoding="async">
+        </div>
+        <div class="brand-strip__item">
+          <img src="https://srbequipment.ca/wp-content/uploads/2025/11/volvo.jpg" alt="Volvo" width="120" height="48" loading="lazy" decoding="async">
+        </div>
+        <div class="brand-strip__item">
+          <img src="https://srbequipment.ca/wp-content/uploads/2025/11/international.jpg" alt="International" width="120" height="48" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </section>
+    
+          <!-- ============ FAQ ============ -->
+          <section id="faq" class="section section--faq" data-testid="faq">
+            <div class="container two-col two-col--narrow">
+              <div class="two-col__content two-col__content--sticky">
+                <span class="eyebrow">FAQ</span>
+                <h2 class="section__title">Frequently Asked <em>Questions</em></h2>
+                <p class="section__lede">
+                  Quick answers about our truck & trailer repair services. Don't see your question?
+                  Call us anytime.
+                </p>
+                <a href="tel:+17808785221" class="btn btn--primary" data-testid="faq-call-btn">
+                  <i class="fa-solid fa-phone"></i> Talk to a Technician
+                </a>
+              </div>
+    
+              <div class="faq-list" data-testid="faq-list">
+                <details class="faq-item" open>
+                  <summary>
+                    Can I get same-day repair service for my heavy-duty truck?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Yes. We offer same-day truck repair service, both in-shop and on-site. Our certified
+                    technicians use the best diagnostic tools to reduce downtime and get your truck
+                    back on the road quickly in Edmonton.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    Do you offer mobile service for both truck and trailer repairs?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Absolutely. Our fully equipped mobile service unit handles both truck and trailer
+                    repairs at your yard or roadside throughout the Edmonton area and beyond.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    What routine truck service can you perform at my facility?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    We perform oil changes, brake service, DOT/CVIP inspections, fluid top-ups,
+                    lighting, tire checks, suspension, and minor mechanical repairs at your facility.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    Do you provide emergency repairs for cargo trucks?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Yes — we provide 24/7 emergency repair service for cargo trucks, semi-trucks, and
+                    trailers. Call (780) 878-5221 for immediate dispatch.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    Do you offer 24/7 mobile truck repair in Edmonton?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Yes. Our mobile truck repair service is available 24/7 across Edmonton and
+                    surrounding regions for fleet customers and one-time emergencies.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    Can you perform CVIP inspections in Edmonton?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Yes. We are a licensed CVIP inspection facility serving Edmonton and surrounding
+                    areas. We inspect trucks, trailers, and buses in line with Alberta provincial
+                    safety standards.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    Are your diesel truck mechanics certified?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    All of our diesel truck mechanics are Red Seal certified with extensive heavy-duty
+                    experience on Class 8 trucks and trailers.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    Can you perform a full engine overhaul?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Yes. We perform full engine overhauls and in-frame rebuilds on most major diesel
+                    truck engines — CAT, Cummins, Detroit, Volvo, and more.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    What areas do you service around Edmonton?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    We service Edmonton, Sherwood Park, Leduc, Nisku, Spruce Grove, St. Albert, Fort
+                    Saskatchewan, Acheson, and surrounding Alberta communities.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    What are common signs my truck needs immediate repair?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Warning lights, loss of power, unusual noises, smoke, brake issues, leaks,
+                    overheating, or abnormal vibrations — these all warrant immediate inspection.
+                  </p>
+                </details>
+    
+                <details class="faq-item">
+                  <summary>
+                    How long does a typical truck or trailer repair take?
+                    <i class="fa-solid fa-plus"></i>
+                  </summary>
+                  <p>
+                    Most routine repairs are completed the same day. Larger jobs like engine overhauls
+                    or full transmissions vary depending on parts availability. We'll give you a clear
+                    ETA after diagnostics.
+                  </p>
+                </details>
+              </div>
+            </div>
+          </section>
+    
+          <!-- ============ CONTACT + MAP ============ -->
+          <section id="contact" class="section section--contact" data-testid="contact">
+            <div class="container two-col">
+               <div class="two-col__content">
+               <div class="contact-card">
+                  <h3>SRB Equipment</h3>
+                  <ul class="contact-card__list">
+                    <li>
+                      <span class="feature-card__icon" style="background: #fff; padding: 12px;">
+                      <img src="https://srbequipment.ca/wp-content/uploads/2026/06/Edmonton-Alberta-150x150.webp" alt="Edmonton location icon" width="40" height="40" loading="lazy" decoding="async" />
+                      </span>
+                      <div>
+                        <strong>Edmonton, Alberta</strong>
+                        <span>Serving all of Alberta & surrounding regions</span>
+                      </div>
+                    </li>
+                    <li>
+                       <span class="feature-card__icon" style="background: #fff; padding: 12px;">
+                     <img src="https://srbequipment.ca/wp-content/uploads/2026/06/phone-number-150x150.webp" alt="Phone icon" width="40" height="40" loading="lazy" decoding="async" />
+                      </span>
+                      <div>
+                        <strong><a href="tel:+17808785221">(780) 878-5221</a></strong>
+                        <span>24/7 Roadside Assistance</span>
+                      </div>
+                    </li>
+                   
+                    <li>
+                       <span class="feature-card__icon" style="background: #fff; padding: 12px;">
+                     <img src="https://srbequipment.ca/wp-content/uploads/2026/06/24-7-Emergency-Assistance-150x150.webp" alt="24/7 service icon" width="40" height="40" loading="lazy" decoding="async" />
+                      </span>
+                      <div>
+                        <strong>Mon – Fri · 7:00am – 6:00pm</strong>
+                        <span>Roadside service available 24/7</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+               </div> 
+              <div class="two-col__media">
+    
+                <div class="contact-map" data-testid="contact-map">
+                  <iframe
+                    title="SRB Equipment location in Edmonton"
+                    src="https://www.google.com/maps?q=Edmonton%2C%20Alberta&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+    
+  
+    
+        <!-- Floating call button -->
+        <a href="tel:+17808785221" class="floating-call" aria-label="Call SRB Equipment" data-testid="floating-call">
+          <i class="fa-solid fa-phone-volume"></i>
+          <span>(780) 878-5221</span>
+        </a>
+    
+    
+    

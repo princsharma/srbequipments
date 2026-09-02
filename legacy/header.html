@@ -1,0 +1,893 @@
+<!--
+  DIVI — paste this ENTIRE file into:
+  Divi → Theme Builder → Header → Add New Template
+  → Fullwidth Section → Code module → paste here
+
+  Do NOT paste into Footer or page body.
+  Your global styles.css must be loaded in WordPress (child theme or Divi CSS).
+-->
+
+<style>
+    #srb-header-wrap {
+      --utility-bar-height: 42px;
+      --total-header-height: calc(var(--header-height, 90px) + var(--utility-bar-height));
+      width: 100%;
+      max-width: 100vw;
+      height: var(--total-header-height);
+      max-height: var(--total-header-height);
+      overflow: hidden;
+      overflow-x: clip;
+      flex-shrink: 0;
+      position: sticky;
+      top: 0;
+      z-index: 99999;
+    }
+
+    #srb-header-wrap .utility-bar {
+      height: var(--utility-bar-height);
+      min-height: var(--utility-bar-height);
+      max-height: var(--utility-bar-height);
+      flex-shrink: 0;
+      background: var(--surface-dark-1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    #srb-header-wrap .utility-bar__inner {
+      min-height: var(--utility-bar-height);
+      height: var(--utility-bar-height);
+    }
+
+    #srb-header-wrap .utility-bar__item {
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    #srb-header-wrap .utility-bar__promo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 242, 0, 0.1);
+      border: 1px solid rgba(255, 242, 0, 0.28);
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+
+    #srb-header-wrap .utility-bar__promo:hover {
+      background: var(--primary-color);
+      color: var(--dark);
+      border-color: var(--primary-color);
+    }
+
+    #srb-header-wrap .utility-bar__promo i {
+      font-size: 0.72rem;
+      transition: transform var(--transition);
+    }
+
+    #srb-header-wrap .utility-bar__promo:hover i {
+      transform: translateX(3px);
+    }
+  
+    #srb-header-wrap .site-header {
+      --header-height: 90px;
+      height: var(--header-height);
+      min-height: var(--header-height);
+      max-height: var(--header-height);
+      box-sizing: border-box;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      overflow: hidden;
+      transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        backdrop-filter 0.35s ease,
+        -webkit-backdrop-filter 0.35s ease;
+    }
+  
+    #srb-header-wrap .site-header.is-scrolled {
+      height: var(--header-height);
+      min-height: var(--header-height);
+      max-height: var(--header-height);
+    
+     
+  }
+
+    /* Divi fixed-nav must not inflate the SRB header bar on scroll */
+    .et-fixed-header #srb-header-wrap,
+    .et_fixed_nav #srb-header-wrap,
+    .et-l--header #srb-header-wrap,
+    .et_pb_section--fixed-header #srb-header-wrap {
+      height: var(--total-header-height, calc(90px + 42px)) !important;
+      min-height: 0 !important;
+      max-height: var(--total-header-height, calc(90px + 42px)) !important;
+      padding: 0 !important;
+    }
+
+    .et-fixed-header #srb-header-wrap .site-header,
+    .et_fixed_nav #srb-header-wrap .site-header {
+      height: var(--header-height) !important;
+      min-height: var(--header-height) !important;
+      max-height: var(--header-height) !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  
+    #srb-header-wrap .brand__logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  
+    #srb-header-wrap .site-header .site-nav__link {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--small);
+      letter-spacing: 0;
+      text-transform: none;
+      color: rgba(255, 255, 255, 0.82);
+      padding: 8px 0;
+      white-space: nowrap;
+    }
+  
+    #srb-header-wrap .site-header .site-nav__link::after {
+      display: none;
+    }
+  
+    #srb-header-wrap .site-header .site-nav__link:hover,
+    #srb-header-wrap .site-header .site-nav__link.is-active {
+      color: var(--primary-color);
+    }
+  
+    #srb-header-wrap .site-header .site-nav {
+      gap: clamp(14px, 2vw, 28px);
+    }
+  
+    #srb-header-wrap .site-header__inner {
+      height: var(--header-height);
+      min-height: var(--header-height);
+      max-height: var(--header-height);
+      box-sizing: border-box;
+    }
+  
+    #srb-header-wrap .site-header .nav-toggle {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+    }
+  
+    #srb-header-wrap .site-header .nav-toggle span {
+      background: var(--white);
+    }
+  
+    #srb-header-wrap .site-nav__call.btn {
+      padding: 10px 22px;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+  
+    #srb-header-wrap .site-nav__call.btn:hover {
+      color: var(--dark);
+      transform: translateY(-2px);
+    }
+  
+    #srb-header-wrap .nav-dropdown {
+      position: relative;
+    }
+  
+    @media (min-width: 1025px) {
+      #srb-header-wrap .nav-dropdown::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: -20px;
+        right: -20px;
+        height: 16px;
+      }
+    }
+  
+    #srb-header-wrap .nav-dropdown__trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--small);
+      letter-spacing: 0;
+      text-transform: none;
+      padding: 8px 0;
+      color: rgba(255, 255, 255, 0.82);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+  
+    @media (min-width: 1025px) {
+      #srb-header-wrap .nav-dropdown__trigger:hover,
+      #srb-header-wrap .nav-dropdown.is-open .nav-dropdown__trigger,
+      #srb-header-wrap .nav-dropdown:hover .nav-dropdown__trigger {
+        color: var(--primary-color);
+      }
+    }
+  
+    #srb-header-wrap .nav-dropdown__chevron {
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+  
+    #srb-header-wrap .nav-dropdown.is-open .nav-dropdown__chevron,
+    #srb-header-wrap .nav-dropdown:hover .nav-dropdown__chevron {
+      transform: rotate(-135deg) translateY(2px);
+    }
+  
+    #srb-header-wrap .nav-dropdown__menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      min-width: 320px;
+      background: var(--surface-dark-2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: var(--space-2);
+      margin: 0;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+      z-index: 100;
+      overflow: hidden;
+    }
+  
+    #srb-header-wrap .nav-dropdown__menu::before {
+      content: 'Our Services';
+      display: block;
+      padding: 6px 14px 12px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary-color);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      margin-bottom: var(--space-1);
+    }
+  
+    #srb-header-wrap .nav-dropdown.is-open .nav-dropdown__menu,
+    #srb-header-wrap .nav-dropdown:hover .nav-dropdown__menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+  
+    #srb-header-wrap .nav-dropdown__menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: var(--small);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.35;
+      border-radius: var(--radius-sm);
+      border-left: 3px solid transparent;
+      transition: color var(--transition), background var(--transition), border-color var(--transition);
+    }
+  
+    #srb-header-wrap .nav-dropdown__menu a::after {
+      content: '→';
+      font-size: 0.95rem;
+      color: var(--primary-color);
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity var(--transition), transform var(--transition);
+      flex-shrink: 0;
+    }
+  
+    #srb-header-wrap .nav-dropdown__menu a:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.07);
+      border-left-color: var(--primary-color);
+    }
+  
+    #srb-header-wrap .nav-dropdown__menu a:hover::after {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  
+    #srb-header-wrap .site-nav__drawer-head {
+      display: none;
+    }
+  
+    @media (min-width: 1025px) {
+      #srb-header-wrap .site-nav__link--hide-lg {
+        display: none;
+      }
+
+      /* Let Services dropdown extend below the fixed-height header bar */
+      #srb-header-wrap,
+      #srb-header-wrap .site-header {
+        overflow: visible;
+      }
+
+      #srb-header-wrap .nav-dropdown__menu {
+        z-index: 100000;
+      }
+
+      #srb-header-wrap .site-header > .site-nav {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: var(--container);
+        padding: 0 var(--space-4);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        pointer-events: none;
+        gap: clamp(14px, 2vw, 28px);
+        overflow: visible;
+        z-index: 2;
+      }
+
+      #srb-header-wrap .site-header > .site-nav > * {
+        pointer-events: auto;
+      }
+    }
+  
+    #srb-header-wrap .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      z-index: 99997;
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+  
+    #srb-header-wrap .nav-overlay.is-visible {
+      display: block;
+      opacity: 1;
+    }
+  
+    html.srb-nav-open {
+      overflow: hidden;
+    }
+  
+    #srb-header-wrap .nav-toggle.is-active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+  
+    #srb-header-wrap .nav-toggle.is-active span:nth-child(2) {
+      opacity: 0;
+    }
+  
+    #srb-header-wrap .nav-toggle.is-active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  
+    @media (max-width: 1024px) {
+      #srb-header-wrap {
+        --utility-bar-height: 36px;
+      }
+
+      #srb-header-wrap .utility-bar__item--hide-sm {
+        display: none;
+      }
+
+      #srb-header-wrap .utility-bar__inner {
+        justify-content: center;
+      }
+
+      #srb-header-wrap .utility-bar__right {
+        width: 100%;
+        justify-content: center;
+      }
+
+      #srb-header-wrap .site-header {
+        --header-height: 76px;
+        z-index: 99990;
+        overflow-x: clip;
+        width: 100%;
+        max-width: 100vw;
+      }
+  
+      #srb-header-wrap .site-header__inner {
+        overflow: hidden;
+        position: relative;
+        z-index: 99995;
+        width: 100%;
+      }
+  
+      #srb-header-wrap .brand__logo {
+        width: 60px;
+        height: 60px;
+      }
+  
+      #srb-header-wrap .nav-toggle {
+        display: inline-flex !important;
+        position: relative;
+        flex-shrink: 0;
+        cursor: pointer;
+        pointer-events: auto !important;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+  
+      #srb-header-wrap .nav-overlay,
+      body > #srbNavOverlay.nav-overlay {
+        z-index: 999991 !important;
+      }
+  
+      #srb-header-wrap .site-header {
+        z-index: 999993 !important;
+      }
+  
+      #srb-header-wrap .site-header__inner,
+      #srb-header-wrap .nav-toggle {
+        z-index: 999994 !important;
+      }
+  
+      #srb-header-wrap .nav-overlay.is-visible {
+        display: block !important;
+        pointer-events: auto !important;
+      }
+  
+      #srb-header-wrap .site-header > .site-nav,
+      #srbSiteNav.site-nav,
+      body > #srbSiteNav.site-nav {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 0;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        padding: calc(var(--header-height, 76px) + var(--space-4)) var(--space-5) var(--space-6) !important;
+        background: var(--surface-dark-1) !important;
+        border-left: none;
+        box-shadow: none;
+        transform: translate3d(100%, 0, 0) !important;
+        transition: transform 0.3s ease;
+        z-index: 999992 !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        pointer-events: none;
+        margin: 0;
+        visibility: hidden;
+        box-sizing: border-box;
+      }
+  
+      #srb-header-wrap .site-header > .site-nav.is-open,
+      #srbSiteNav.site-nav.is-open {
+        transform: translate3d(0, 0, 0) !important;
+        pointer-events: auto !important;
+        visibility: visible;
+      }
+  
+      #srbSiteNav.site-nav > *:not(.site-nav__drawer-head),
+      #srb-header-wrap .site-header > .site-nav > *:not(.site-nav__drawer-head) {
+        align-self: stretch !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+  
+      .site-nav__drawer-head {
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--header-height, 76px);
+        padding: 0 var(--space-5);
+        background: var(--surface-dark-1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 2;
+        box-sizing: border-box;
+      }
+  
+      .site-nav__drawer-head .brand__logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+  
+      #srbSiteNav.site-nav .site-nav__link,
+      #srb-header-wrap .site-header > .site-nav .site-nav__link,
+      body > #srbSiteNav.site-nav .site-nav__link {
+        display: block !important;
+        width: 100% !important;
+        padding: 16px 0 !important;
+        min-height: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        white-space: normal;
+        text-align: left !important;
+        font-family: var(--font-body) !important;
+        font-size: 1.0625rem !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+        line-height: 1.4 !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        box-sizing: border-box;
+        position: static !important;
+      }
+  
+      #srbSiteNav.site-nav .site-nav__link::after,
+      #srb-header-wrap .site-header > .site-nav .site-nav__link::after {
+        display: none !important;
+      }
+
+      #srbSiteNav.site-nav .site-nav__link:hover,
+      #srbSiteNav.site-nav .site-nav__link:focus,
+      #srbSiteNav.site-nav .site-nav__link:active,
+      body > #srbSiteNav.site-nav .site-nav__link:hover,
+      body > #srbSiteNav.site-nav .site-nav__link:focus,
+      body > #srbSiteNav.site-nav .site-nav__link:active {
+        background: transparent !important;
+        color: var(--primary-color) !important;
+      }
+  
+      #srbSiteNav .nav-dropdown,
+      #srb-header-wrap .site-header > .site-nav .nav-dropdown {
+        align-self: stretch !important;
+        width: 100% !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+      }
+  
+      #srbSiteNav .nav-dropdown__trigger,
+      #srb-header-wrap .site-header > .site-nav .nav-dropdown__trigger,
+      body > #srbSiteNav.site-nav .nav-dropdown__trigger {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+        font-family: var(--font-body) !important;
+        font-size: 1.0625rem !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+        padding: 16px 0 !important;
+        min-height: 48px;
+        box-sizing: border-box;
+        color: rgba(255, 255, 255, 0.92) !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        -webkit-tap-highlight-color: transparent;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      #srbSiteNav .nav-dropdown__trigger:hover,
+      #srbSiteNav .nav-dropdown__trigger:focus,
+      #srbSiteNav .nav-dropdown__trigger:active,
+      body > #srbSiteNav.site-nav .nav-dropdown__trigger:hover,
+      body > #srbSiteNav.site-nav .nav-dropdown__trigger:focus,
+      body > #srbSiteNav.site-nav .nav-dropdown__trigger:active {
+        background: transparent !important;
+        color: rgba(255, 255, 255, 0.92) !important;
+        outline: none;
+      }
+
+      #srbSiteNav .nav-dropdown.is-open .nav-dropdown__trigger,
+      body > #srbSiteNav.site-nav .nav-dropdown.is-open .nav-dropdown__trigger {
+        background: transparent !important;
+        color: var(--primary-color) !important;
+      }
+  
+      #srbSiteNav .nav-dropdown__menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: none;
+        border: none;
+        border-radius: var(--radius-sm);
+        padding: var(--space-1);
+        min-width: 0;
+        display: none;
+        background: rgba(255, 255, 255, 0.04);
+        margin-bottom: var(--space-2);
+      }
+  
+      #srbSiteNav .nav-dropdown__menu::before {
+        display: none;
+      }
+  
+      #srbSiteNav .nav-dropdown.is-open .nav-dropdown__menu {
+        display: block !important;
+      }
+  
+      #srbSiteNav .nav-dropdown__menu a {
+        padding: 12px 12px;
+        margin-bottom: 2px;
+        font-size: 0.95rem !important;
+        color: rgba(255, 255, 255, 0.78) !important;
+      }
+  
+      #srbSiteNav .nav-dropdown__menu a::after {
+        opacity: 0.5;
+        transform: translateX(0);
+      }
+  
+      #srbSiteNav .site-nav__call.btn,
+      #srb-header-wrap .site-header > .site-nav .site-nav__call.btn {
+        margin-top: var(--space-5);
+        margin-bottom: 0;
+        width: 100% !important;
+        justify-content: center;
+        border-bottom: none;
+        padding: 16px 24px !important;
+        flex-shrink: 0;
+        align-self: stretch !important;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      #srb-header-wrap .site-header {
+        --header-height: 68px;
+      }
+  
+      #srb-header-wrap .brand__logo {
+        width: 52px;
+        height: 52px;
+      }
+  
+      #srb-header-wrap .site-header__inner {
+        gap: var(--space-2);
+      }
+      #srb-header-wrap .site-nav__drawer-head .brand__logo {
+        width: 52px;
+        height: 52px;
+      }
+    }
+  </style>
+  
+  <div id="srb-header-wrap">
+    <div class="nav-overlay" id="srbNavOverlay" aria-hidden="true"></div>
+
+    <div class="utility-bar" id="srbUtilityBar">
+      <div class="container utility-bar__inner">
+        <div class="utility-bar__left">
+          <a href="tel:+17808785221" class="utility-bar__item">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            (780) 878-5221
+          </a>
+          <!-- <span class="utility-bar__divider utility-bar__item--hide-sm" aria-hidden="true"></span>
+          <span class="utility-bar__item utility-bar__item--hide-sm">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            Mon – Sat: 8:00AM – 5:00PM
+          </span> -->
+        </div>
+        <div class="utility-bar__right">
+          <a href="/best-truck-repair-shop-in-edmonton" class="utility-bar__item utility-bar__promo">
+            Best Truck Repair Shops in Edmonton
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <header class="site-header">
+      <div class="container site-header__inner">
+  
+        <a href="/" class="brand" aria-label="SRB Equipment — Home">
+          <img
+            class="brand__logo"
+            src="https://srbequipment.ca/wp-content/uploads/2026/06/logo-1.webp"
+            alt="SRB Equipment logo"
+            width="72"
+            height="72"
+          >
+        </a>
+  
+        <button
+          type="button"
+          class="nav-toggle"
+          id="srbNavToggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="srbSiteNav"
+          onclick="window.srbDiviToggleMenu(event)"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+  
+      </div>
+  
+      <nav class="site-nav" id="srbSiteNav" aria-label="Main navigation">
+        <div class="site-nav__drawer-head">
+          <a href="/" class="brand" aria-label="SRB Equipment — Home">
+            <img
+              class="brand__logo"
+              src="https://staging2.srbequipment.ca/wp-content/uploads/2026/05/image-24-jukebox-bg-removed.webp"
+              alt="SRB Equipment logo"
+              width="60"
+              height="60"
+            >
+          </a>
+        </div>
+        <a href="/" class="site-nav__link">Home</a>
+        <a href="/about-us" class="site-nav__link">About us</a>
+        <a href="/gallery" class="site-nav__link">Gallery</a>
+        <a href="/blog" class="site-nav__link">Blog</a>
+        <a href="/best-truck-repair-shop-in-edmonton/" class="site-nav__link site-nav__link--hide-lg">Repair Shops</a>
+  
+        <div class="nav-dropdown" id="srbServicesDropdown">
+          <button
+            type="button"
+            class="nav-dropdown__trigger site-nav__link"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-controls="srbServicesMenu"
+            id="srbServicesTrigger"
+            onclick="window.srbDiviToggleServices(event)"
+          >
+            Services
+            <span class="nav-dropdown__chevron" aria-hidden="true"></span>
+          </button>
+          <ul class="nav-dropdown__menu" id="srbServicesMenu" role="menu">
+      
+            <li role="none"><a href="/mobile-service-truck-edmonton" role="menuitem">Mobile Service Truck Edmonton</a></li>
+            <li role="none"><a href="/services/cvip-inspections/" role="menuitem">CVIP Inspections</a></li>
+            <li role="none"><a href="/services/routine-service/" role="menuitem">Routine Service</a></li>
+            <li role="none"><a href="services/engine-repair" role="menuitem">Engine Repair</a></li>
+            <li role="none"><a href="services/air-conditioning" role="menuitem">Air Conditioning</a></li>
+            <li role="none"><a href="services/emission-system-repair" role="menuitem">Emission System Repair/Service</a></li>
+          </ul>
+        </div>
+  
+        <a href="/contact-us" class="site-nav__link">Contact us</a>
+        <a href="/faq" class="site-nav__link">FAQs</a>
+        <a href="tel:+1(780) 878-5221
+" class="site-nav__call btn btn--primary">Call Us</a>
+      </nav>
+    </header>
+  </div>
+  
+  <script>
+    (function () {
+      var MOBILE = 1024;
+      var wrap = document.getElementById('srb-header-wrap');
+      var header = wrap ? wrap.querySelector('.site-header') : null;
+      var toggle = document.getElementById('srbNavToggle');
+      var nav = document.getElementById('srbSiteNav');
+      var overlay = document.getElementById('srbNavOverlay');
+  
+      if (!toggle || !nav) return;
+  
+      function getHeaderHeight() {
+        if (window.innerWidth <= 480) return '68px';
+        if (window.innerWidth <= MOBILE) return '76px';
+        return '90px';
+      }
+
+      function getUtilityBarHeight() {
+        if (window.innerWidth <= 1024) return '36px';
+        return '42px';
+      }
+
+      function setHeight() {
+        var h = getHeaderHeight();
+        var ub = getUtilityBarHeight();
+        if (wrap) {
+          wrap.style.setProperty('--utility-bar-height', ub);
+          wrap.style.setProperty('--total-header-height', 'calc(' + h + ' + ' + ub + ')');
+        }
+        if (header) header.style.setProperty('--header-height', h);
+        if (nav) nav.style.setProperty('--header-height', h);
+        document.documentElement.style.setProperty('--header-height', h);
+        document.documentElement.style.setProperty('--utility-bar-height', ub);
+        document.documentElement.style.setProperty('--total-header-height', 'calc(' + h + ' + ' + ub + ')');
+      }
+  
+      function portal() {
+        var mobile = window.innerWidth <= MOBILE;
+        if (mobile) {
+          if (overlay && overlay.parentNode !== document.body) document.body.appendChild(overlay);
+          if (nav.parentNode !== document.body) document.body.appendChild(nav);
+        } else {
+          if (overlay && wrap && overlay.parentNode === document.body) wrap.insertBefore(overlay, wrap.firstChild);
+          if (nav && header && nav.parentNode === document.body) header.appendChild(nav);
+        }
+      }
+  
+      function menu(open) {
+        nav.classList.toggle('is-open', open);
+        toggle.classList.toggle('is-active', open);
+        if (overlay) {
+          overlay.classList.toggle('is-visible', open);
+          overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+        }
+        document.documentElement.classList.toggle('srb-nav-open', open);
+        toggle.setAttribute('aria-expanded', open);
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        if (!open) {
+          var dd = document.getElementById('srbServicesDropdown');
+          var btn = document.getElementById('srbServicesTrigger');
+          if (dd) dd.classList.remove('is-open');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+      }
+  
+      window.srbDiviToggleMenu = function (e) {
+        if (e) e.preventDefault();
+        portal();
+        setHeight();
+        menu(!nav.classList.contains('is-open'));
+        return false;
+      };
+  
+      window.srbDiviToggleServices = function (e) {
+        if (e) e.preventDefault();
+        if (window.innerWidth > MOBILE) return false;
+        var dd = document.getElementById('srbServicesDropdown');
+        var btn = document.getElementById('srbServicesTrigger');
+        if (!dd || !btn) return false;
+        var open = dd.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open);
+        return false;
+      };
+  
+      var SCROLL_THRESHOLD = 200;
+      function updateScrollState() {
+        if (!header) return;
+        header.classList.toggle('is-scrolled', window.scrollY > SCROLL_THRESHOLD);
+        setHeight();
+      }
+      window.addEventListener('scroll', updateScrollState, { passive: true });
+      portal();
+      setHeight();
+      updateScrollState();
+  
+      window.addEventListener('resize', function () {
+        portal();
+        setHeight();
+      });
+  
+      if (overlay) overlay.addEventListener('click', function () { menu(false); });
+  
+      nav.querySelectorAll('.site-nav__link:not(.nav-dropdown__trigger):not(.site-nav__call), .nav-dropdown__menu a, .site-nav__drawer-head a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (window.innerWidth <= MOBILE) menu(false);
+        });
+      });
+  
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') menu(false);
+      });
+    })();
+  </script>
+  

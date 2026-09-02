@@ -1,0 +1,223 @@
+<!--
+  DIVI — paste this ENTIRE file into:
+  Divi → Theme Builder → Footer → Code module
+
+  Requires global styles.css loaded in WordPress.
+-->
+
+<style>
+  /* Footer — page-specific premium enhancements */
+  #srb-footer.site-footer {
+    border-top: 3px solid var(--primary-color);
+  }
+
+  #srb-footer .brand__logo {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  #srb-footer .site-footer__brand-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: var(--space-3) 0;
+    border-radius: var(--radius-pill);
+  }
+
+  #srb-footer .site-footer__tagline {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.55;
+    max-width: 240px;
+    margin: 0;
+  }
+
+  #srb-footer .site-footer__col h4 {
+    margin-bottom: var(--space-2);
+  }
+
+  #srb-footer .site-footer__col h4::after {
+    content: '';
+    display: block;
+    width: 42px;
+    height: 3px;
+    background: var(--primary-color);
+    margin-top: var(--space-2);
+    border-radius: var(--radius-pill);
+  }
+
+  #srb-footer .site-footer__col ul {
+    gap: 12px;
+    margin-top: var(--space-3);
+  }
+
+  #srb-footer .site-footer__col a {
+    font-size: var(--small);
+    line-height: 1.45;
+    transition: color var(--transition), padding-left var(--transition);
+  }
+
+  #srb-footer .site-footer__col a:hover {
+    padding-left: 4px;
+  }
+
+  #srb-footer .site-footer__contact li {
+    align-items: center;
+    gap: var(--space-2);
+    line-height: 1.5;
+    font-size: var(--small);
+  }
+
+  #srb-footer .site-footer__contact-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 242, 0, 0.12);
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+    margin-top: 2px;
+  }
+
+  #srb-footer .site-footer__social {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
+  }
+
+  #srb-footer .site-footer__social a {
+    color: var(--primary-color);
+    background: rgba(255, 242, 0, 0.1);
+    border: 1px solid rgba(255, 242, 0, 0.18);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  #srb-footer .site-footer__social a:hover {
+    background: var(--primary-color);
+    color: var(--dark);
+    border-color: var(--primary-color);
+  }
+
+  #srb-footer .site-footer__bottom {
+    font-size: var(--small);
+  }
+
+  @media (max-width: 768px) {
+    #srb-footer .site-footer__brand {
+      text-align: center;
+    }
+
+    #srb-footer .site-footer__brand-divider {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #srb-footer .site-footer__tagline {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #srb-footer .site-footer__social {
+      justify-content: center;
+    }
+
+    #srb-footer .site-footer__bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<footer class="site-footer" id="srb-footer">
+  <div class="site-footer__bg" aria-hidden="true">
+    <div class="site-footer__grid"></div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a href="/" class="brand brand--light" aria-label="SRB Equipment — Home">
+          <img
+            class="brand__logo"
+            src="https://srbequipment.ca/wp-content/uploads/2026/06/logo-1.webp"
+            alt="SRB Equipment logo"
+            width="88"
+            height="88"
+          >
+        </a>
+        <div class="site-footer__brand-divider" aria-hidden="true"></div>
+        <p class="site-footer__tagline">Truck and Trailer Repair Shop in Edmonton</p>
+        <p>Trusted truck and trailer repair specialists serving Edmonton with quality maintenance, inspections, diagnostics, and repair solutions for commercial vehicles.</p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="/mobile-service-truck-edmonton">Mobile Service Truck Edmonton</a></li>
+          <li><a href="https://srbequipment.ca/services/emission-system-repair-service/">Emission System Repair/Service</a></li>
+          <li><a href="/services/cvip-inspections">CVIP Inspections</a></li>
+          <li><a href="/services/air-conditioning">Air Conditioning</a></li>
+          <li><a href="/services/routine-service">Routine Service</a></li>
+          <li><a href="/services/engine-repair">Engine Repair</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/gallery">Gallery</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="https://srbequipment.ca/faq/">FAQ’s</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col site-footer__contact">
+        <h4>Contact</h4>
+        <ul>
+          <li>
+            <span class="site-footer__contact-icon" aria-hidden="true">📞</span>
+            <a href="tel:+17808785221">(780) 878-5221</a>
+          </li>
+          <li>
+            <span class="site-footer__contact-icon" aria-hidden="true">✉</span>
+            <a href="mailto:info@srbequipment.ca">info@srbequipment.ca</a>
+          </li>
+          <li>
+            <span class="site-footer__contact-icon" aria-hidden="true">📍</span>
+            <span>15304 Yellowhead Trail, Edmonton, AB T5V 1A1, Canada</span>
+          </li>
+        </ul>
+
+        <div class="site-footer__social">
+          <a href="https://www.facebook.com/srbequipment" aria-label="Facebook">FB</a>
+          <a href="https://x.com/srbequipment" aria-label="X">X</a>
+          <a href="https://www.instagram.com/srb_equipment/" aria-label="Instagram">IG</a>
+          <a href="https://www.pinterest.com/srb_equipment/" aria-label="Pinterest">PT</a>
+          <a href="https://www.youtube.com/channel/UC77ZEfElEuK_NJZz4Vl3McA" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© 2026 SRB Equipment. All rights reserved.</p>
+      <div class="site-footer__legal">
+        <a href="/privacy-policy">Privacy Policy</a>
+         · 
+        <a>Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,370 @@
+<style>
+.hero.faq-page-hero {
+  min-height: auto;
+  padding: calc(120px + var(--safe-top)) 0 var(--space-6);
+  overflow: visible;
+}
+.faq-page-hero .hero__inner {
+  display: block;
+  text-align: center;
+  min-height: auto;
+}
+.faq-page-hero .hero__title {
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  margin: 0 0 var(--space-2);
+}
+.faq-page-hero .hero__lede {
+  max-width: none;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+.faq-page-hero .hero__mountains {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    linear-gradient(165deg, transparent 42%, rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.06) 44%, transparent 44%),
+    linear-gradient(155deg, transparent 52%, rgba(255, 255, 255, 0.05) 52%, rgba(255, 255, 255, 0.05) 54%, transparent 54%);
+  clip-path: polygon(0 100%, 8% 58%, 18% 72%, 28% 48%, 38% 65%, 48% 38%, 58% 55%, 68% 32%, 78% 50%, 88% 28%, 96% 45%, 100% 35%, 100% 100%);
+}
+  .faq-page-panel {
+    background: var(--gray-bg);
+    border-radius: 0 var(--radius-xl) 0 0;
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .faq-page-panel .section__title {
+    color: var(--dark-light);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: var(--space-4);
+  }
+  .faq-page .faq-list {
+    gap: 12px;
+  }
+  .faq-page .faq-item:not([open]) {
+    border-color: transparent;
+    background: transparent;
+  }
+  .faq-page .faq-item:not([open]) summary {
+    background: var(--primary-color);
+    color: var(--dark);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+  }
+  .faq-page .faq-item:not([open]) summary i {
+    background: rgba(15, 23, 42, 0.12);
+    color: var(--dark);
+  }
+  .faq-page .faq-item:not([open]) summary:hover {
+    background: #fff62e;
+  }
+  .faq-page .faq-item[open] summary {
+    border-bottom: 1px solid var(--border);
+  }
+  .faq-page .faq-item ul {
+    margin: 0 0 var(--space-3);
+    padding-left: 1.25rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+  .faq-page .faq-item ul li {
+    margin-bottom: 8px;
+  }
+  .faq-page .faq-item p + p {
+    margin-top: var(--space-3);
+  }
+  .faq-page .faq-item strong {
+    color: var(--dark);
+  }
+  .faq-page-cta {
+    position: relative;
+    background: var(--surface-dark-1);
+    color: var(--white);
+    padding: var(--space-7) 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  .faq-page-cta__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .faq-page-cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+  }
+  .faq-page-cta__bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 12, 22, 0.78);
+  }
+  .faq-page-cta .container {
+    position: relative;
+    z-index: 1;
+  }
+  .faq-page-cta h2 {
+    color: var(--white);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    margin-bottom: var(--space-2);
+  }
+  .faq-page-cta h2::after { display: none; }
+  .faq-page-cta p {
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0 0 var(--space-4);
+    font-size: 1.05rem;
+  }
+  .faq-page-cta__phone {
+    font-weight: 900;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    color: var(--primary-color);
+    letter-spacing: 0.02em;
+  }
+  .faq-page-cta__phone:hover {
+    color: #fff62e;
+  }
+</style>
+
+
+<main>
+    <!-- ============ HERO ============ -->
+    <section class="hero faq-page-hero" data-testid="faq-hero" aria-labelledby="faq-heading">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__mountains"></div>
+        <div class="hero__glow hero__glow--y"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 id="faq-heading" class="hero__title">Frequently Asked Questions</h1>
+          <p class="hero__lede">
+            Here are some frequently asked questions that fleet owners or truck drivers inquiries often
+            from us.
+          </p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- ============ FAQ LIST ============ -->
+    <section id="faq" class="section faq-page-panel faq-page" data-testid="faq">
+      <div class="container">
+        <h2 class="section__title">General Questions</h2>
+  
+        <div class="faq-list" data-testid="faq-list">
+          <details class="faq-item" open>
+            <summary>
+              Do you offer roadside assistance?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Yes, we offer roadside assistance. We are always ready to help you. Our mobile truck repair
+              service is fully equipped with the latest tooling and technology to facilitate Edmonton's
+              most advanced roadside truck repair service. You can call us at
+              <a href="tel:+17808785221">(780) 878-5221</a> to learn more about roadside assistance
+              services.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              Why should I come to SRB Equipment?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>There are multiple reasons to bring your truck for repair to the SRB Equipment. Let me show you some of the few.</p>
+            <ul>
+              <li>We offer quality and professional services at the most affordable rates.</li>
+              <li>We offer a more comprehensive range of services, from tire replacement, CVIP inspections, and preventive maintenance to complete engine repair.</li>
+              <li>Apart from truck repair services, we also offer trailer repair services under the same roof.</li>
+              <li>We offer 24*7 professional customer support services.</li>
+              <li>We have an impressive list of thousands of satisfied customers across Edmonton.</li>
+            </ul>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              Do I need to get a CVIP Inspection for my vehicle?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              A CVIP inspection is essential because the process ensures your vehicle that treks across
+              Canadian highways is adequately maintained and safe. Safety is the most important and
+              apparent reason to inspect your vehicle. A vehicle defect found during an inspection could
+              save you from roadside breakdowns.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              How long will it take for a tow truck to arrive?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              It's better to take roadside assistance services than towing services. Bringing a damaged
+              truck to the truck repair shop costs you human resources and more service charges, except
+              for your repair bills. Call
+              <a href="tel:+17808785221">(780) 878-5221</a> to book roadside assistance services from
+              SRB Equipment to save time.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              What type of payments are accepted?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              We accept a more comprehensive range of payment options, from debit cards, credit cards,
+              and cash to digital payments.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              How do you charge for road service?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              The cost of roadside assistance depends on many factors like which type of truck repair you
+              need, whether it's a simple tire replacement or engine repair. Additionally, how far does
+              your truck needs repairs from the truck repair shop that provides your roadside assistance
+              services? You can call us at
+              <a href="tel:+17808785221">(780) 878-5221</a> anytime to know more. One thing is sure we
+              offer the most affordable rates in town.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              Do you rebuild or refurbish trailers?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Yes, SRB Equipment is a truck and trailer repair shop in Edmonton. Our team is dedicated to
+              providing the best trailer repair services in Edmonton. We are fully equipped for repairs
+              by a trained, certified team of heavy-duty mechanics.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              What should I do if my truck starts to overheat?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              If you are in an overheated vehicle, do not try to drive farther and follow these steps to
+              avoid injury and further damage to your vehicle.
+            </p>
+            <p><strong>Pull Over Immediately</strong> — After feeling the engine's high temperature or hearing an alarm, you must pull over immediately. Continuing to drive will make things worse.</p>
+            <p><strong>Don't Pop the Hood Until It's Cool</strong> — Wait several minutes before popping the hood. A good idea to see if it's hot is to carefully touch the back of your hand on the hood.</p>
+            <p><strong>Turn the Heater on</strong> — If you're still moving because of emergencies, you can turn your heater on to eliminate some of that heat. It won't cool down your engine but will help avoid a disaster.</p>
+            <p><strong>Open the Windows</strong> — Opening a window could be an excellent way for some heat escape.</p>
+            <p><strong>Get Some Help</strong> — The best action is to have the vehicle towed to your nearest truck repair shop or call the roadside assistance team.</p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              What services do you offer?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              We offer a comprehensive range of services, from wheel alignment, preventive maintenance,
+              and trailer repairs to complete engine repair. We also provide roadside assistance or
+              mobile service truck.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              What are the business hours of the garage?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Working hours are Mon–Sat: 8 am – 5 pm. Sunday closed. Feel free to contact us at
+              <a href="tel:+17808785221">(780) 878-5221</a> if you need any emergency repairs.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              Do you offer preventative maintenance services?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Yes, we offer preventive maintenance service or routine services. During preventative
+              maintenance, our mechanic checks the various components of your truck and takes care of all
+              necessary adjustments, repairs, lubrications, or replacements. As a result, your vehicle
+              will stay in better condition, thus reducing unexpected breakdowns.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              How often do you need a CVIP?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Trucks and trailers need an annual CVIP Inspection, whereas a bus needs one every six
+              months.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              How often do I need an oil change?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              On average, you will want to get heavy-duty commercial vehicle service, including an oil
+              change, no later than 30,000 miles and around 5,000 miles for light-duty to be on the safe
+              side. There are several factors impact when your oil should be changed, including Oil
+              quality, Driving habits, Engine condition, and Driving conditions
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              Are your mechanics licensed?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Yes, our mechanics are licensed and professionals as well. They help you get on the road
+              again as soon as possible without compromising quality. We have served the community with
+              outstanding, efficient truck repairs, servicing, and maintenance for many years.
+            </p>
+          </details>
+  
+          <details class="faq-item">
+            <summary>
+              How often should I rotate the tires on my truck?
+              <i class="fa-solid fa-plus"></i>
+            </summary>
+            <p>
+              Rotate your tire in every preventive maintenance. Your mechanics will rotate your tires when
+              you go for regular maintenance. Neglecting to rotate tires is a significant cause of
+              premature tire wear.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  
+    <!-- ============ CTA ============ -->
+    <section id="contact" class="faq-page-cta" data-testid="faq-cta">
+      <div class="faq-page-cta__bg" aria-hidden="true">
+        <img
+          src="https://srbequipment.ca/wp-content/uploads/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
+          alt=""
+        />
+      </div>
+      <div class="container">
+        <h2>Have a Different Question?</h2>
+        <p>Call us anytime</p>
+        <a href="tel:+17808785221" class="faq-page-cta__phone">(780) 878-5221</a>
+      </div>
+    </section>
+  </main>
+  

@@ -1,0 +1,719 @@
+
+<style>
+    /* Truck Engine Repair — page-only (uses global style.css) */
+  
+    .hero--cinematic {
+      padding: 0;
+      min-height: clamp(480px, 72vh, 620px);
+      display: flex;
+      align-items: flex-end;
+      text-align: left;
+    }
+    .hero--cinematic .hero__photo {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero--cinematic .hero__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero--cinematic .hero__photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(8, 12, 22, 0.55) 0%, rgba(8, 12, 22, 0.25) 50%, rgba(8, 12, 22, 0.9) 100%),
+        linear-gradient(90deg, rgba(8, 12, 22, 0.85) 0%, rgba(8, 12, 22, 0.4) 60%, rgba(8, 12, 22, 0.7) 100%);
+    }
+    .hero--cinematic .container {
+      position: relative;
+      z-index: 1;
+      padding-top: 148px !important;
+      padding-bottom: var(--space-6);
+    }
+    .hero--cinematic .hero__grid,
+    .hero--cinematic .hero__glow { display: none; }
+    .hero--cinematic .hero__title {
+      max-width: 900px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .hero--cinematic .hero__price {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      color: var(--primary-color);
+      font-weight: 800;
+      margin: 0 0 var(--space-4);
+    }
+  
+    .image-frame img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      background: var(--gray-bg);
+    }
+    .image-frame--short img { height: 420px; min-height: 280px; }
+  
+    /* Premium service grid */
+    .premium-band {
+      margin: var(--space-5) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, var(--surface-dark-1) 0%, var(--dark-light) 100%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 242, 0, 0.15);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+    .premium-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--overlay-grid);
+      background-size: var(--overlay-grid-size);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .premium-band > * { position: relative; z-index: 1; }
+    .premium-band__label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: var(--space-4);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 242, 0, 0.14);
+      border: 1px solid rgba(255, 242, 0, 0.35);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary-color);
+    }
+  
+    .service-icon-grid {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-2);
+    }
+    .service-icon-grid li {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: var(--space-3);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+    }
+    .service-icon-grid li:hover {
+      background: rgba(255, 242, 0, 0.08);
+      border-color: rgba(255, 242, 0, 0.35);
+      transform: translateY(-3px);
+    }
+    .service-icon-grid__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--primary-color);
+      color: var(--dark);
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-yellow);
+      flex-shrink: 0;
+    }
+    .service-icon-grid__label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      line-height: 1.2;
+      color: var(--white);
+      letter-spacing: 0.01em;
+    }
+    .service-icon-grid li.is-accent {
+      background: rgba(255, 242, 0, 0.12);
+      border-color: rgba(255, 242, 0, 0.4);
+    }
+    .service-icon-grid li.is-accent .service-icon-grid__icon {
+      background: var(--white);
+    }
+  
+    /* Premium symptom grid */
+    .symptom-block {
+      margin-top: var(--space-5);
+    }
+    .symptom-icon-grid {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-4) 0 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: var(--space-2);
+    }
+    .symptom-icon-grid li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+    .symptom-icon-grid li:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(255, 242, 0, 0.6);
+    }
+    .symptom-icon-grid__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--dark);
+      color: var(--primary-color);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .symptom-icon-grid__label {
+      font-weight: 600;
+      font-size: 0.92rem;
+      line-height: 1.35;
+      color: var(--dark);
+    }
+  
+    /* Premium help list (diesel section) */
+    .help-cards {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-4) 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-3);
+    }
+    .help-cards li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: var(--space-4);
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.45;
+    }
+    .help-cards__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--primary-color);
+      color: var(--dark);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  
+    .alert-bar {
+      background: var(--primary-color);
+      color: var(--dark);
+      padding: var(--space-4) var(--space-5);
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      line-height: 1.4;
+      border-radius: var(--radius-md);
+      margin: var(--space-5) 0 var(--space-4);
+      box-shadow: var(--shadow-yellow);
+    }
+  
+    .image-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+    }
+    .image-duo img {
+      width: 100%;
+      height: clamp(280px, 40vw, 420px);
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+  
+    .cta-gradient {
+      background: linear-gradient(90deg, var(--dark) 0%, var(--primary-color) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: var(--space-7) var(--space-4);
+    }
+    .cta-gradient p {
+      color: rgba(255, 255, 255, 0.88);
+      margin: 0 0 var(--space-2);
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+    }
+    .cta-gradient h2 {
+      color: var(--white);
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      margin: var(--space-2) 0 var(--space-4);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .cta-gradient .cta-gradient__sub {
+      font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+      margin-bottom: var(--space-4);
+    }
+  
+    .subsection-title {
+      font-size: var(--h3);
+      margin-top: var(--space-6);
+      margin-bottom: var(--space-3);
+    }
+    .subsection-title--flush {
+      margin-top: var(--space-2);
+    }
+  
+    .review-card--simple {
+      text-align: center;
+    }
+    .review-card--simple .review-card__stars {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-3);
+    }
+    .review-card--simple strong {
+      display: block;
+      margin-top: var(--space-3);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+  
+    @media (max-width: 1100px) {
+      .service-icon-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .image-duo { grid-template-columns: 1fr; }
+      .service-icon-grid { grid-template-columns: repeat(2, 1fr); }
+      .help-cards { grid-template-columns: 1fr; }
+      .premium-band { padding: var(--space-4); }
+    }
+  </style>
+  
+  <main>
+    <!-- Hero -->
+    <section class="hero hero--cinematic" data-testid="hero">
+      <div class="hero__photo" aria-hidden="true">
+        <img
+          src="https://staging4.srbequipment.ca/wp-content/uploads/2025/11/DOT.jpg"
+          alt="Truck engine repair in Edmonton"
+          loading="eager"
+        />
+      </div>
+      <div class="hero__bg">
+        <div class="hero__grid"></div>
+        <div class="hero__glow hero__glow--y"></div>
+      </div>
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="hero__title">Truck Engine Repair in Edmonton</h1>
+          <p class="hero__price">Starting at $133/ hr.</p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--ghost btn--lg">Book an Appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Intro & services list -->
+    <section class="section" data-testid="intro">
+      <div class="container">
+        <div class="two-col">
+          <div class="two-col__content">
+            <h2 class="section__title">Offering Engine Repair Services For More Than Decades</h2>
+            <p>
+              SRB Equipment has specialized in Engine repairing from many years now! Engines are the heart
+              of all vehicles that requires special attention and expertise.
+            </p>
+            <p>
+              We have brought this expertise with the help of our proficient professionals that are certified
+              in delivering excellence to the vehicle's heart with high-quality engine repair services.
+            </p>
+            <p>Our team is committed to getting your truck back on the road with the following diesel engine repair services!</p>
+          </div>
+          <div class="two-col__media">
+            <div class="image-frame image-frame--short">
+              <img
+                src="https://staging4.srbequipment.ca/wp-content/uploads/2025/10/truck-repair.jpg"
+                alt="SRB Equipment diesel engine repair in Edmonton"
+                loading="lazy"
+              />
+              <div class="image-frame__sticker">Engine Repair · Edmonton</div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="premium-band">
+          <span class="premium-band__label"><i class="fa-solid fa-bolt"></i> Diesel Engine Services</span>
+          <ul class="service-icon-grid">
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+              <span class="service-icon-grid__label">Engine Repairs</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-arrows-rotate"></i></span>
+              <span class="service-icon-grid__label">Engine Rebuild</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-filter"></i></span>
+              <span class="service-icon-grid__label">Engine Blockage Repair</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-smog"></i></span>
+              <span class="service-icon-grid__label">Exhaust and Emissions Control</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-truck-front"></i></span>
+              <span class="service-icon-grid__label">Fleet Maintenance</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-fan"></i></span>
+              <span class="service-icon-grid__label">Turbocharger Repair</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-stethoscope"></i></span>
+              <span class="service-icon-grid__label">Engine Diagnostics</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-layer-group"></i></span>
+              <span class="service-icon-grid__label">Out Frame / In Frame Rebuilds</span>
+            </li>
+            <li>
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-industry"></i></span>
+              <span class="service-icon-grid__label">Major Engine Overhauls</span>
+            </li>
+            <li class="is-accent">
+              <span class="service-icon-grid__icon"><i class="fa-solid fa-plus"></i></span>
+              <span class="service-icon-grid__label">And Many More!</span>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="symptom-block">
+          <div class="two-col two-col--reverse">
+            <div class="two-col__content">
+              <span class="eyebrow"><span class="eyebrow__dot"></span> Warning Signs</span>
+              <h3 class="subsection-title subsection-title--flush">
+                Some Indications Which Helps You To Know Your Engine Requires Repairing!
+              </h3>
+              <p>
+                Do you know that engines also give indications that it needs repair?
+              </p>
+              <p>
+                Engines make considerable noise that can sometimes be complicated to deal with! Here are a few
+                indications that your Engine needs repair!
+              </p>
+            </div>
+            <div class="two-col__media">
+              <div class="image-frame image-frame--short">
+                <img
+                  src="https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Mechanic diagnosing a diesel engine"
+                  loading="lazy"
+                />
+                <div class="image-frame__stat">
+                  <strong>Early</strong>
+                  <span>Detection Saves Cost</span>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <ul class="symptom-icon-grid">
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-gas-pump"></i></span>
+              <span class="symptom-icon-grid__label">Diminished Fuel Efficiency</span>
+            </li>
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-key"></i></span>
+              <span class="symptom-icon-grid__label">The Engine gets difficult to start</span>
+            </li>
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-oil-can"></i></span>
+              <span class="symptom-icon-grid__label">Enhanced Oil Consumption</span>
+            </li>
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-gauge-simple"></i></span>
+              <span class="symptom-icon-grid__label">Noticeable power decrease</span>
+            </li>
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-cloud"></i></span>
+              <span class="symptom-icon-grid__label">Excessive exhaust smoke</span>
+            </li>
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-volume-high"></i></span>
+              <span class="symptom-icon-grid__label">Rattling noise from the Engine</span>
+            </li>
+            <li>
+              <span class="symptom-icon-grid__icon"><i class="fa-solid fa-gauge-high"></i></span>
+              <span class="symptom-icon-grid__label">Trouble accelerating</span>
+            </li>
+          </ul>
+  
+          <div class="alert-bar">
+            Experiencing any of the issues? Connect today with Engine Repair Experts!
+          </div>
+  
+          <div class="section__actions">
+            <a href="#contact" class="btn btn--dark btn--lg">Connect Now</a>
+          </div>
+        </div>
+  
+        <p>
+          These can be strong indications that your Engine might require repair, and detecting these
+          early can play an imperative role in the longevity and greater health of the Engine.
+        </p>
+        <p>
+          With the complete diagnosis of the engine issues and repair services, SRB Equipment provide
+          preventive maintenance services to keep the engines working at optimal performance and save the
+          owners from costly repairs later!
+        </p>
+      </div>
+    </section>
+  
+    <!-- Diesel engine repairs -->
+    <section class="section section--gray" data-testid="diesel-repairs">
+      <div class="container">
+        <div class="image-duo">
+          <img
+            src="https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Mechanic working on diesel engine components"
+            loading="lazy"
+          />
+          <img
+            src="https://images.pexels.com/photos/3806287/pexels-photo-3806287.jpeg?auto=compress&cs=tinysrgb&w=800"
+            alt="Technicians rebuilding a heavy-duty truck engine"
+            loading="lazy"
+          />
+        </div>
+  
+        <h2 class="section__title">High-Quality Diesel Engine Repairs and Rebuilds</h2>
+        <p>
+          Being the truck engine repair and rebuild specialist in the Edmonton, our team of professionals
+          is proficient in handling everything related to engine rebuilding and repairing, including
+          cylinder heads maintenance, piston ring replacements, overhaul kits, and other services to make
+          sure that the powered trucks run as smooth as new ones!
+        </p>
+  
+        <h3 class="subsection-title">Get Professional help today!</h3>
+        <ul class="help-cards">
+          <li>
+            <span class="help-cards__icon"><i class="fa-solid fa-truck-medical"></i></span>
+            Urgently require the truck repair services?
+          </li>
+          <li>
+            <span class="help-cards__icon"><i class="fa-solid fa-calendar-check"></i></span>
+            Or looking for regular heavy-duty maintenance only?
+          </li>
+          <li>
+            <span class="help-cards__icon"><i class="fa-solid fa-circle-check"></i></span>
+            We have got it all covered!
+          </li>
+        </ul>
+  
+        <div class="section__actions">
+          <a href="tel:+17808785221" class="btn btn--primary btn--lg">
+            <i class="fa-solid fa-phone-volume"></i> Call Now
+          </a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- CTA banner -->
+    <section class="cta-gradient" data-testid="cta-banner">
+      <div class="container">
+        <p>SRB Equipment Keep You and Your Business Up and Running</p>
+        <p class="cta-gradient__sub">Call the Expert Now</p>
+        <h2>#1 Truck Engine Repair Shop in Edmonton</h2>
+        <a href="tel:+17808785221" class="btn btn--dark btn--lg">
+          <i class="fa-solid fa-phone-volume"></i> Call Now
+        </a>
+      </div>
+    </section>
+  
+    <!-- Reviews -->
+    <section id="reviews" class="section section--reviews" data-testid="reviews">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <span class="eyebrow">Reviews</span>
+          <h2 class="section__title">Trusted by Truckers <em>Like You</em></h2>
+          <div class="reviews-summary">
+            <div class="reviews-summary__stars" aria-label="Rated 4.8 out of 5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <strong>4.8 / 5.0</strong>
+            <span>· Based on verified Google reviews</span>
+          </div>
+        </div>
+  
+        <div class="review-grid" data-testid="review-grid">
+          <article class="review-card">
+            <div class="review-card__head">
+              <span class="review-card__avatar" style="background:#0ea5e9">SC</span>
+              <div>
+                <strong>Steph Carvalho</strong>
+                <span><i class="fa-brands fa-google"></i> Google Review</span>
+              </div>
+            </div>
+            <div class="review-card__stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "We are a young company and have tried several mechanical shops and SRB Equipment is
+              by far the best. Shaun and his team are amazing to work with and so knowledgeable.
+              We have worked with them for 2 years and they are always there for us — from CVIP
+              to running out to diagnose breakdowns and everything in between."
+            </p>
+          </article>
+  
+          <article class="review-card">
+            <div class="review-card__head">
+              <span class="review-card__avatar" style="background:#f59e0b">BJ</span>
+              <div>
+                <strong>Braeden Jones</strong>
+                <span><i class="fa-brands fa-google"></i> Google Review</span>
+              </div>
+            </div>
+            <div class="review-card__stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "Got me in last minute to do an emergency tire swap. They were fair and more than
+              helpful. Definitely recommend!"
+            </p>
+          </article>
+  
+          <article class="review-card">
+            <div class="review-card__head">
+              <span class="review-card__avatar" style="background:#10b981">CC</span>
+              <div>
+                <strong>Charles Cameron</strong>
+                <span><i class="fa-brands fa-google"></i> Google Review</span>
+              </div>
+            </div>
+            <div class="review-card__stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "We at CDR Rentals have used Shaun as our go-to for our fleet for a couple of years.
+              Never misses a beat. Professional, personable and fair. Thanks Shaun!"
+            </p>
+          </article>
+  
+          <article class="review-card">
+            <div class="review-card__head">
+              <span class="review-card__avatar" style="background:#8b5cf6">PI</span>
+              <div>
+                <strong>Piper</strong>
+                <span><i class="fa-brands fa-google"></i> Google Review</span>
+              </div>
+            </div>
+            <div class="review-card__stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "I have been going to SRB Equipment for the last two years. Shaun has never turned
+              me away for repairs on my truck. I'm always pleased with the repairs done. He does
+              my yearly inspection for me as well."
+            </p>
+          </article>
+  
+          <article class="review-card">
+            <div class="review-card__head">
+              <span class="review-card__avatar" style="background:#ef4444">CR</span>
+              <div>
+                <strong>Craig Cranna</strong>
+                <span><i class="fa-brands fa-google"></i> Google Review</span>
+              </div>
+            </div>
+            <div class="review-card__stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "Knowledgeable old school mechanic able to troubleshoot and not only rely on a
+              computer. Reasonable rates and repairs done in a timely manner."
+            </p>
+          </article>
+  
+          <article class="review-card">
+            <div class="review-card__head">
+              <span class="review-card__avatar" style="background:#0f172a">JH</span>
+              <div>
+                <strong>Josh Hesse</strong>
+                <span><i class="fa-brands fa-google"></i> Google Review</span>
+              </div>
+            </div>
+            <div class="review-card__stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p>
+              "We have used SRB for all our truck and trailer repairs. Fast efficient service.
+              Definitely will continue sending all our equipment to SRB."
+            </p>
+          </article>
+        </div>
+  
+        <div class="section__actions section__actions--center">
+          <a href="#" class="btn btn--outline" data-testid="read-more-reviews">
+            Read More Reviews <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Contact -->
+    <section id="contact" class="section section--contact" data-testid="contact">
+      <div class="container two-col two-col--narrow">
+        <div class="two-col__content">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Book Your Engine Repair Service</h2>
+            <p class="section__lede">Call SRB Equipment for diesel engine repair, rebuilds, and diagnostics in Edmonton.</p>
+            <div class="section__actions section__actions--center">
+              <a href="tel:+17808785221" class="btn btn--primary btn--lg">
+                <i class="fa-solid fa-phone-volume"></i> (780) 878-5221
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="two-col__media">
+          <div class="image-frame image-frame--short">
+            <img
+              src="https://staging4.srbequipment.ca/wp-content/uploads/2025/10/truck-repair-1.jpg"
+              alt="Book truck engine repair at SRB Equipment Edmonton"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  

@@ -1,0 +1,381 @@
+<style>
+#srb-gallery {
+      background: var(--gray-bg);
+    }
+  
+    #srb-gallery .gallery-hero {
+      padding: clamp(72px, 12vw, 140px) 0;
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+  
+    #srb-gallery .gallery-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+  
+    #srb-gallery .gallery-hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  
+    #srb-gallery .gallery-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(11, 18, 32, 0.72) 0%, rgba(11, 18, 32, 0.88) 100%),
+        radial-gradient(circle at 20% 20%, rgba(255, 242, 0, 0.12), transparent 45%);
+    }
+  
+    #srb-gallery .gallery-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+  
+    #srb-gallery .gallery-hero .section__head {
+      max-width: 680px;
+    }
+  
+    #srb-gallery .gallery-hero h1 {
+      color: var(--white);
+      margin-bottom: var(--space-3);
+    }
+  
+    #srb-gallery .gallery-grid-section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+  
+    #srb-gallery .gallery-page__grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+  
+    #srb-gallery .gallery-page__item {
+      position: relative;
+      display: block;
+      grid-column: span 2;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      background: var(--white);
+      aspect-ratio: 4 / 3;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    #srb-gallery .gallery-page__item--feature {
+      grid-column: span 3;
+      aspect-ratio: 16 / 10;
+    }
+  
+    #srb-gallery .gallery-page__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  
+    #srb-gallery .gallery-page__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(11, 18, 32, 0.42);
+      opacity: 0;
+    }
+  
+    #srb-gallery .gallery-page__zoom {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      color: var(--dark);
+      font-size: 1.75rem;
+      font-weight: 900;
+      line-height: 52px;
+      text-align: center;
+      box-shadow: var(--shadow-yellow);
+    }
+  
+    #srb-gallery .gallery-page__item:hover img,
+    #srb-gallery .gallery-page__item:focus-visible img {
+    }
+  
+    #srb-gallery .gallery-page__item:hover .gallery-page__overlay,
+    #srb-gallery .gallery-page__item:focus-visible .gallery-page__overlay {
+      opacity: 1;
+    }
+  
+    #srb-gallery .gallery-page__item:hover .gallery-page__zoom,
+    #srb-gallery .gallery-page__item:focus-visible .gallery-page__zoom {
+    }
+  
+    #srb-gallery .gallery-page__item:focus-visible {
+      outline: 3px solid var(--primary-color);
+      outline-offset: 3px;
+    }
+  
+    #srb-gallery .gallery-cta {
+      background: var(--white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+    }
+  
+    #srb-gallery .gallery-cta .section__head {
+      margin-bottom: 0;
+      max-width: 560px;
+    }
+  
+    #srb-gallery .gallery-cta__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+  
+    @media (max-width: 1024px) {
+      #srb-gallery .gallery-page__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+  
+      #srb-gallery .gallery-page__item,
+      #srb-gallery .gallery-page__item--feature {
+        grid-column: span 1;
+        aspect-ratio: 4 / 3;
+      }
+    }
+  
+    @media (max-width: 640px) {
+      #srb-gallery .gallery-hero {
+        padding: var(--space-6) 0;
+      }
+  
+      #srb-gallery .gallery-page__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+      }
+  
+      #srb-gallery .gallery-cta {
+        padding: var(--space-5);
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+  
+      #srb-gallery .gallery-cta__actions {
+        justify-content: center;
+        flex-direction: column;
+      }
+  
+      #srb-gallery .gallery-cta__actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+</style>
+
+
+</head>
+  
+  
+  <main id="srb-gallery">
+    <section class="section gallery-hero section--dark">
+      <div class="gallery-hero__bg" aria-hidden="true">
+        <img
+          src="https://srbequipment.ca/wp-content/uploads/2025/11/truck-repair-in-shop.jpg"
+          alt=""
+          width="1920"
+          height="720"
+        >
+      </div>
+      <div class="container">
+        <div class="section__head section__head--center">
+          <h1>Gallery</h1>
+          <span class="eyebrow eyebrow--light mb-20"><span class="eyebrow__dot" aria-hidden="true"></span> Inside Our Workshop</span>
+          <p class="section__lede">A look at the engines, frames, and heavy-duty repairs our Edmonton team handles every day — in the shop and on the road.</p>
+        </div>
+      </div>
+    </section>
+  
+    <section class="section gallery-grid-section">
+      <div class="container">
+        <div class="gallery-page__grid">
+            <a target="_blank" rel="noopener" class="gallery-page__item gallery-page__item--feature" href="https://srbequipment.ca/wp-content/uploads/2022/08/20220306_094231-2-scaled-e1662368914529.jpg" aria-label="SRB Equipment workshop photo">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/20220306_094231-2-scaled-e1662368914529.jpg" alt="SRB Equipment workshop photo" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item gallery-page__item--feature" href="https://srbequipment.ca/wp-content/uploads/2022/08/20220306_094142-1-scaled.jpg" aria-label="SRB Equipment workshop photo">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/20220306_094142-1-scaled.jpg" alt="SRB Equipment workshop photo" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220506_090628-2-scaled.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220506_090628-2-scaled.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/20220306_094231-1-scaled.jpg" aria-label="SRB Equipment workshop photo">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/20220306_094231-1-scaled.jpg" alt="SRB Equipment workshop photo" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220827_132313-scaled.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220827_132313-scaled.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220826_081906-scaled.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220826_081906-scaled.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220822_185418-scaled.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220822_185418-scaled.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220819_164822-scaled.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20220819_164822-scaled.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20201106_130317_01.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20201106_130317_01.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20201007_175302_01-1.jpg" aria-label="SRB Equipment shop and repair work">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/08/IMG_20201007_175302_01-1.jpg" alt="SRB Equipment shop and repair work" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/09/Frame-and-cross-member-repairs-SRB-image-scaled.jpg" aria-label="Frame And Cross Member Repairs SRB Image">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/09/Frame-and-cross-member-repairs-SRB-image-scaled.jpg" alt="Frame And Cross Member Repairs SRB Image" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/09/Frame-and-cross-member-repairs-edmonton_image-scaled.jpg" aria-label="Frame And Cross Member Repairs Edmonton">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/09/Frame-and-cross-member-repairs-edmonton_image-scaled.jpg" alt="Frame And Cross Member Repairs Edmonton" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/09/Frame-and-cross-member-repairs_image-scaled.jpg" aria-label="Frame And Cross Member Repairs">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/09/Frame-and-cross-member-repairs_image-scaled.jpg" alt="Frame And Cross Member Repairs" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2022/12/Engine-component-repairs_image.jpeg" aria-label="Engine Component Repairs">
+              <img src="https://srbequipment.ca/wp-content/uploads/2022/12/Engine-component-repairs_image.jpeg" alt="Engine Component Repairs" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down.jpeg" aria-label="Fresh Dd15 Tear Down">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down.jpeg" alt="Fresh Dd15 Tear Down" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-1.jpeg" aria-label="Fresh Dd15 Tear Down 1">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-1.jpeg" alt="Fresh Dd15 Tear Down 1" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-2.jpeg" aria-label="Fresh Dd15 Tear Down 2">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-2.jpeg" alt="Fresh Dd15 Tear Down 2" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-3.jpeg" aria-label="Fresh Dd15 Tear Down 3">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-3.jpeg" alt="Fresh Dd15 Tear Down 3" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-4.jpeg" aria-label="Fresh Dd15 Tear Down 4">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/03/fresh-dd15-tear-down-4.jpeg" alt="Fresh Dd15 Tear Down 4" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/truck-repair_image-scaled.jpg" aria-label="Truck Repair">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/truck-repair_image-scaled.jpg" alt="Truck Repair" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/diesel-truck-repair_image-scaled.jpg" aria-label="Diesel Truck Repair">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/diesel-truck-repair_image-scaled.jpg" alt="Diesel Truck Repair" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/engine-repair_image-scaled.jpg" aria-label="Engine Repair">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/engine-repair_image-scaled.jpg" alt="Engine Repair" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/split-cylinder-shaft-repair_image-scaled.jpg" aria-label="Split Cylinder Shaft Repair">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/split-cylinder-shaft-repair_image-scaled.jpg" alt="Split Cylinder Shaft Repair" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/Casting-Repair-Services_image-scaled.jpg" aria-label="Casting Repair Services">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/Casting-Repair-Services_image-scaled.jpg" alt="Casting Repair Services" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/Diesel-Fuel-Injector_image-scaled.jpg" aria-label="Diesel Fuel Injector">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/Diesel-Fuel-Injector_image-scaled.jpg" alt="Diesel Fuel Injector" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/shift-split-cylinder-shaft_image-scaled.jpg" aria-label="Shift Split Cylinder Shaft">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/shift-split-cylinder-shaft_image-scaled.jpg" alt="Shift Split Cylinder Shaft" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2023/12/shift-split-cylinder-repair-scaled.jpg" aria-label="Shift Split Cylinder Repair">
+              <img src="https://srbequipment.ca/wp-content/uploads/2023/12/shift-split-cylinder-repair-scaled.jpg" alt="Shift Split Cylinder Repair" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2024/09/2b4a77a6-8601-479e-888e-f5ea31118092.jpg" aria-label="SRB Equipment workshop photo">
+              <img src="https://srbequipment.ca/wp-content/uploads/2024/09/2b4a77a6-8601-479e-888e-f5ea31118092.jpg" alt="SRB Equipment workshop photo" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2024/09/0a6b8469-d45a-4d51-90cd-7767fbb6b92a.jpg" aria-label="SRB Equipment workshop photo">
+              <img src="https://srbequipment.ca/wp-content/uploads/2024/09/0a6b8469-d45a-4d51-90cd-7767fbb6b92a.jpg" alt="SRB Equipment workshop photo" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2024/09/2a86406e-e4ad-42e6-bfc6-3a0397a82f00.jpg" aria-label="SRB Equipment workshop photo">
+              <img src="https://srbequipment.ca/wp-content/uploads/2024/09/2a86406e-e4ad-42e6-bfc6-3a0397a82f00.jpg" alt="SRB Equipment workshop photo" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2025/04/cvip-inspections-are-our-specialty-image.jpeg" aria-label="Cvip Inspections Are Our Specialty Image">
+              <img src="https://srbequipment.ca/wp-content/uploads/2025/04/cvip-inspections-are-our-specialty-image.jpeg" alt="Cvip Inspections Are Our Specialty Image" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2025/04/lights-and-wiring-we-at-srb-will-diagnose-and-repair-your-electrical-to-manufacture-specs.jpeg" aria-label="Lights And Wiring We At Srb Will Diagnose And Repair Your Electrical To Manufacture Specs">
+              <img src="https://srbequipment.ca/wp-content/uploads/2025/04/lights-and-wiring-we-at-srb-will-diagnose-and-repair-your-electrical-to-manufacture-specs.jpeg" alt="Lights And Wiring We At Srb Will Diagnose And Repair Your Electrical To Manufacture Specs" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2026/02/white-color-mobile-service-truck-edmonton.jpg" aria-label="White Color Mobile Service Truck Edmonton">
+              <img src="https://srbequipment.ca/wp-content/uploads/2026/02/white-color-mobile-service-truck-edmonton.jpg" alt="White Color Mobile Service Truck Edmonton" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+            <a target="_blank" rel="noopener" class="gallery-page__item" href="https://srbequipment.ca/wp-content/uploads/2026/02/image-18.jpg" aria-label="Image 18">
+              <img src="https://srbequipment.ca/wp-content/uploads/2026/02/image-18.jpg" alt="Image 18" loading="lazy" width="800" height="600">
+              <span class="gallery-page__overlay" aria-hidden="true"><span class="gallery-page__zoom">+</span></span>
+            </a>
+        </div>
+      </div>
+    </section>
+  
+    <section class="section">
+      <div class="container">
+        <div class="gallery-cta">
+          <div class="section__head">
+            <h2 class="section__title">Need Expert Truck Repair?</h2>
+            <p class="section__lede">Book in-shop service or call our 24/7 mobile team — we keep your fleet moving.</p>
+          </div>
+          <div class="gallery-cta__actions">
+            <a href="tel:+17808785221" class="phone-pill">
+              <span class="phone-pill__icon" aria-hidden="true">📞</span>
+              <span class="phone-pill__meta">
+                <small>Call Now</small>
+                <strong>(780) 878-5221</strong>
+              </span>
+            </a>
+            <a href="/contact-us" class="btn btn--dark btn--lg">Book an Appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  </html>

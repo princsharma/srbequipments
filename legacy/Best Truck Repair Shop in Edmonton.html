@@ -1,0 +1,938 @@
+<style>
+/* Best Truck Repair Shop in Edmonton — page-only (uses global style.css) */
+
+  /* Light split hero */
+  .hero--light {
+    background: var(--gray-bg);
+    color: var(--dark);
+    min-height: auto;
+    padding: calc(120px + var(--safe-top)) 0 var(--space-7);
+    overflow: visible;
+  }
+  .hero--light .hero__bg,
+  .hero--light .hero__grid,
+  .hero--light .hero__glow { display: none; }
+  .hero--light .hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    min-height: auto;
+  }
+  .hero--light .hero__title {
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    margin-bottom: var(--space-3);
+  }
+  .hero--light .hero__title em {
+    color: var(--dark);
+    font-style: normal;
+  }
+  .hero--light .hero__title em::after {
+    display: block;
+    background: var(--primary-color);
+    opacity: 0.85;
+  }
+  .hero--light .hero__lede {
+    color: var(--text);
+    max-width: 520px;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: var(--space-4);
+  }
+  .hero--light .hero__visual {
+    min-height: auto;
+  }
+  .hero--light .hero__image-card {
+    min-height: auto;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+  .hero--light .hero__image-card > img {
+    height: clamp(320px, 38vw, 460px);
+  }
+
+  /* Trust strip */
+  .trust-strip--compact {
+    background: var(--dark);
+    color: var(--white);
+    padding: var(--space-3) 0;
+  }
+  .trust-strip--compact .trust-strip__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    text-align: center;
+    padding-top: 0 !important;
+  }
+  .trust-strip--compact strong {
+    display: block;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    color: var(--primary-color);
+    line-height: 1.1;
+  }
+  .trust-strip--compact span {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  /* Area tags */
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0;
+    justify-content: center;
+  }
+  .area-tags a {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--white);
+    border: 1px solid var(--border);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--dark-light);
+    cursor: pointer;
+  }
+  .area-tags a:hover {
+    border-color: var(--primary-color);
+    background: rgba(255, 242, 0, 0.14);
+    color: var(--dark);
+  }
+
+  /* Shop listing grid */
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  .shop-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    scroll-margin-top: calc(var(--total-header-height, 132px) + 20px);
+  }
+  .shop-card:hover {
+    box-shadow: var(--shadow-md);
+    border-color: rgba(255, 242, 0, 0.5);
+  }
+
+  .shop-card__media {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--gray-bg);
+  }
+  .shop-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .shop-card:hover .shop-card__media img {
+  }
+  .shop-card__rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    border-radius: var(--radius-sm);
+    background: var(--dark);
+    color: var(--primary-color);
+    font-weight: 900;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shop-card__body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--space-3);
+    gap: 8px;
+  }
+  .shop-card__title {
+    margin: 0;
+  }
+  .shop-card__area {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    width: fit-content;
+    padding: 3px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 242, 0, 0.14);
+    border: 1px solid rgba(255, 242, 0, 0.3);
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--dark-light);
+  }
+  .shop-card__area i {
+    color: var(--primary-dark);
+    font-size: 0.68rem;
+  }
+  .shop-card--featured .shop-card__area {
+    background: rgba(255, 242, 0, 0.12);
+    border-color: rgba(255, 242, 0, 0.28);
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .shop-card--featured .shop-card__area i { color: var(--primary-color); }
+  .shop-card__stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    line-height: 1;
+    min-height: 14px;
+  }
+  .shop-card__star {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .shop-card__star--half {
+    position: relative;
+    display: inline-block;
+    color: rgba(15, 23, 42, 0.12);
+  }
+  .shop-card__star--half::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--primary-color);
+  }
+  .shop-card__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+  .shop-card__meta span {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.45;
+  }
+  .shop-card__meta i {
+    color: var(--primary-dark);
+    margin-top: 3px;
+    flex-shrink: 0;
+    width: 14px;
+    text-align: center;
+  }
+  .shop-card__quote {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    background: var(--gray-bg);
+    border-left: 3px solid var(--primary-color);
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .shop-card__desc-wrap {
+    flex: 1;
+  }
+  .shop-card__desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .shop-card__desc-wrap:not(.is-expanded) .shop-card__desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .shop-card__see-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 6px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--primary-dark);
+    cursor: pointer;
+  }
+  .shop-card__see-more:hover { color: var(--dark); }
+  .shop-card__see-more.is-hidden { display: none; }
+  .shop-card--featured .shop-card__see-more { color: var(--primary-color); }
+  .shop-card--featured .shop-card__see-more:hover { color: var(--white); }
+  .shop-card__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: var(--space-1) 0 0;
+  }
+  .shop-card__highlights li {
+    padding: 4px 8px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 242, 0, 0.14);
+    border: 1px solid rgba(255, 242, 0, 0.35);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--dark-light);
+  }
+  .shop-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    margin-top: auto;
+    padding-top: 6px;
+  }
+  .shop-card__footer .btn {
+    padding: 8px 14px;
+    font-size: 0.72rem;
+  }
+
+  /* Featured SRB card — full width */
+  .shop-card--featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    border-color: rgba(255, 242, 0, 0.35);
+    background: linear-gradient(135deg, var(--surface-dark-1) 0%, var(--dark-light) 100%);
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .shop-card--featured:hover {
+    border-color: var(--primary-color);
+  }
+  .shop-card--featured .shop-card__media {
+    aspect-ratio: auto;
+    min-height: 100%;
+  }
+  .shop-card--featured .shop-card__media img {
+    height: 100%;
+    min-height: 260px;
+  }
+  .shop-card--featured .shop-card__rank {
+    background: var(--primary-color);
+    color: var(--dark);
+    padding: 10px 18px;
+    font-size: clamp(1.45rem, 2.8vw, 2rem);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-yellow);
+  }
+  .shop-card--featured .shop-card__body {
+    padding: var(--space-3) var(--space-4);
+    gap: 10px;
+  }
+  .shop-card--featured .shop-card__quote {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+  .shop-card--featured .shop-card__title { color: var(--white); }
+  .shop-card--featured .shop-card__stars { color: var(--primary-color); }
+  .shop-card--featured .shop-card__star { color: var(--primary-color); }
+  .shop-card--featured .shop-card__star--half {
+    color: rgba(255, 255, 255, 0.2);
+  }
+  .shop-card--featured .shop-card__star--half::before {
+    color: var(--primary-color);
+  }
+  .shop-card--featured .shop-card__meta { color: rgba(255, 255, 255, 0.72); }
+  .shop-card--featured .shop-card__meta i { color: var(--primary-color); }
+  .shop-card--featured .shop-card__quote {
+    background: rgba(255, 255, 255, 0.06);
+    border-left-color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .shop-card--featured .shop-card__desc { color: rgba(255, 255, 255, 0.72); }
+  .shop-card--featured .shop-card__highlights li {
+    background: rgba(255, 242, 0, 0.12);
+    border-color: rgba(255, 242, 0, 0.3);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .shop-card--featured .shop-card__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--primary-color);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    width: fit-content;
+  }
+
+  .section--listings {
+    padding-top: var(--space-6);
+  }
+
+  @media (max-width: 1200px) {
+    .shop-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 1024px) {
+    .hero--light .hero__inner { grid-template-columns: 1fr; }
+    .hero--light .hero__visual { order: -1; }
+    .shop-card--featured { grid-template-columns: 1fr; }
+    .shop-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .shop-grid { grid-template-columns: 1fr; }
+    .trust-strip--compact .trust-strip__grid { grid-template-columns: 1fr; }
+    .hero--light { padding-top: calc(100px + var(--safe-top)); }
+  }
+</style>
+
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero hero--light">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Updated 2026</span>
+          <h1 class="hero__title">Best Truck Repair Shop <em>in Edmonton</em></h1>
+          <p class="hero__lede">
+            You can rely on the specialists to repair your vehicle professionally and safely get you back on the road. Here is the list of truck repair shop in Edmonton, provides CVIP Inspections, Engine Repair, Emission System Repair/Service, Air Conditioning, Oil Changes, Tire Maintenance, and much more.
+          </p>
+          <div class="hero__actions">
+            <a href="#listings" class="btn btn--dark btn--lg">View All Shops</a>
+            <a href="tel:+17808785221" class="btn btn--outline btn--lg">Call SRB Equipment</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <div class="hero__image-card">
+            <img
+              src="https://srbequipment.ca/wp-content/uploads/2022/09/best-truck-repair-in-edmonton_image-1.jpg"
+              alt="Best Truck Repair in Edmonton"
+              width="800"
+              height="600"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <div class="trust-strip trust-strip--compact">
+    <div class="container trust-strip__grid">
+      <div>
+        <strong>15</strong>
+        <span>Top-Rated Shops</span>
+      </div>
+      <div>
+        <strong>Edmonton</strong>
+        <span>Alberta (AB)</span>
+      </div>
+      <div>
+        <strong>2026</strong>
+        <span>Updated List</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listings -->
+  <section id="listings" class="section section--listings section--gray">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <span class="eyebrow"><span class="eyebrow__dot"></span> Local Directory</span>
+        <h2 class="section__title">Find <em>Truck Repair Shop</em> Near Me</h2>
+        <p class="section__lede">Compare trusted truck and trailer repair shops across Edmonton and surrounding neighbourhoods.</p>
+        <ul class="area-tags" aria-label="Edmonton neighbourhoods served">
+          <li><a href="#shop-1" class="area-tag" data-shop="shop-1">Edmonton</a></li>
+          <li><a href="#shop-3" class="area-tag" data-shop="shop-3">Terra Losa</a></li>
+          <li><a href="#shop-2" class="area-tag" data-shop="shop-2">Canora</a></li>
+          <li><a href="#shop-4" class="area-tag" data-shop="shop-4">Glenora</a></li>
+          <li><a href="#shop-5" class="area-tag" data-shop="shop-5">Oliver</a></li>
+          <li><a href="#shop-6" class="area-tag" data-shop="shop-6">Woodcroft</a></li>
+          <li><a href="#shop-7" class="area-tag" data-shop="shop-7">Caernarvon</a></li>
+          <li><a href="#shop-8" class="area-tag" data-shop="shop-8">Glengarry</a></li>
+          <li><a href="#shop-9" class="area-tag" data-shop="shop-9">Westwood</a></li>
+          <li><a href="#shop-10" class="area-tag" data-shop="shop-10">Maple Ridge</a></li>
+          <li><a href="#shop-12" class="area-tag" data-shop="shop-12">Balwin</a></li>
+          <li><a href="#shop-11" class="area-tag" data-shop="shop-11">Beverly</a></li>
+          <li><a href="#shop-13" class="area-tag" data-shop="shop-13">Bergman</a></li>
+          <li><a href="#shop-14" class="area-tag" data-shop="shop-14">Newton</a></li>
+          <li><a href="#shop-15" class="area-tag" data-shop="shop-15">Westmount</a></li>
+        </ul>
+      </div>
+
+      <div class="shop-grid">
+
+        <!-- #1 Featured — SRB Equipment -->
+        <article id="shop-1" class="shop-card shop-card--featured">
+          <div class="shop-card__media">
+            <img
+              src="https://srbequipment.ca/wp-content/uploads/2022/09/SRB-Equipment-Truck-Trailer-repair-shop_image.jpg"
+              alt="SRB Equipment - Truck & Trailer repair shop"
+              width="800"
+              height="600"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+            <span class="shop-card__rank">#1</span>
+          </div>
+          <div class="shop-card__body">
+            <span class="shop-card__badge"><i class="fa-solid fa-star"></i> Editor's Pick</span>
+            <h3 class="shop-card__title">SRB EQUIPMENT | Truck and Trailer Repair Shop</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Edmonton</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 98 15304 Yellowhead Trail, Edmonton, AB T5V 1A1, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 5:00PM</span>
+              <span><i class="fa-solid fa-phone"></i> <a href="tel:+17808785221">(780) 878-5221</a></span>
+            </div>
+            <blockquote class="shop-card__quote">"SRB is a hidden jewel! This is where I get my CVIP's, and any other repairs I need. Shaun has always been very thorough, and would advise if something is close to being replaced. Certainly would recommend this place!"</blockquote>
+            <p class="shop-card__desc">SRB Equipment team has a wide range of capabilities with the heavy-duty truck, semi-truck, and trailer repair also nationally recognized for its quality and commitment to outstanding customer service. Specializing exclusively on heavy-duty vehicles with complex engineering needs that require expertise not found anywhere else! Reduce your exposure by hiring SRB Equipment to take care of truck repairs from start-up through overhauls or rebuild projects and let them handle anything.</p>
+            <ul class="shop-card__highlights">
+              <li>Offers repairs from the wheels to engine repair</li>
+              <li>Repairs all makes and model</li>
+              <li>Fully equipped mobile fleet</li>
+              <li>Excellent customer service</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--primary">Call Now</a>
+              <a href="https://srbequipment.ca/contact-us/" class="btn btn--ghost">Get a Quote</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #2 -->
+        <article id="shop-2" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck_repair_mechanic_image.jpg" alt="Truck Repair Mechanic" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#2</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Truck Repair Shop Near Me – Canora</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Canora</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 153 St NW, Edmonton, AB T5P 2B7, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 5:00PM · Sun: Closed</span>
+            </div>
+            <blockquote class="shop-card__quote">"Good service and very polite peoples and affordable price😊"</blockquote>
+            <p class="shop-card__desc">A truck repair shop near me offers some of the best services for truck repair. They provide services for fixing the brake, drive lines, and suspension. They also offer commercial inspections for the safety of semi-trucks. Customer service is also good but could be better.</p>
+            <ul class="shop-card__highlights">
+              <li>Not offer mobile service truck</li>
+              <li>Inspection available</li>
+              <li>The location is also good</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #3 -->
+        <article id="shop-3" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/trailer-repair-shop_image.jpg" alt="Trailer Repair Shop" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#3</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Trailer Repair Shop</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Terra Losa</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 9760 176 St NW, Edmonton, AB T5T 5Z5, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 9:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Quality of work and professionalism is unparalleled. From diagnosis to repaired, in half of the time of the truck shop chain we use to use. Thanks guys for helping us out all the time!!"</blockquote>
+            <p class="shop-card__desc">They are a newly opened trailer repair shop, opened in 2019. It is a service center dedicated to only trailer repairs. You can get back to the road within the minimum time frame.</p>
+            <ul class="shop-card__highlights">
+              <li>Trailer-dedicated repair shop</li>
+              <li>New to business</li>
+              <li>Quick services</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #4 -->
+        <article id="shop-4" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck_mechanic_edmonton-_image.jpg" alt="Semi Truck Repair Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#4</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Semi Truck Repair Near Me</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Glenora</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 138 St NW, Edmonton, AB T5N 2J3, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Monday – Sunday: 9:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Excellent service. All work is completed in a timely manner and is done with the utmost care. The staff are very knowledgeable and polite."</blockquote>
+            <p class="shop-card__desc">Best known for providing repairs for semi trucks repair services in Edmonton. They will quickly solve all your semi truck problems with their diagnostic equipment and vast knowledge of semi-duty vehicles. Their customer service is also exceptional.</p>
+            <ul class="shop-card__highlights">
+              <li>Offer service only for semi trucks</li>
+              <li>Mobile services are not available</li>
+              <li>Maintenance available</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #5 -->
+        <article id="shop-5" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck-engine-repair-_image.jpg" alt="Diesel Truck Repair Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#5</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Edmonton Diesel Truck Repair</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Oliver</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 10205 119 St NW, Edmonton, AB T5K 1Z3, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Very good service. experienced team. Job gets done on time.!!!"</blockquote>
+            <p class="shop-card__desc">This diesel truck repair shop in Edmonton is always at your service to help you through difficult times. The center has a team of professionals who know to repair diesel trucks completely. They use the latest tools and technology to help you to get back on the road as soon as possible. With a vast knowledge of diesel truck repair, they deserved to be on the list.</p>
+            <ul class="shop-card__highlights">
+              <li>Offers service only for diesel truck</li>
+              <li>Situated in a prime location</li>
+              <li>Certified technicians</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #6 -->
+        <article id="shop-6" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck-repair_image.jpg" alt="Truck and Trailer Repair Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#6</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Truck and Trailer Repair Near Me</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Woodcroft</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 136 St NW, Edmonton, AB T5M 1M3, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Excellent, great management & staff, extremely knowledgeable and a fair price."</blockquote>
+            <p class="shop-card__desc">Their extensive service area ensures you get best-in-class service, precisely what you need when you need it. Their comprehensive repair facility is designed to help get you back on the road and keep moving you forward.</p>
+            <ul class="shop-card__highlights">
+              <li>Completer truck and trailer repair</li>
+              <li>Well-equipped</li>
+              <li>Impressive Customer service</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #7 -->
+        <article id="shop-7" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck-repair-shop-near-me_image.jpg" alt="Truck Repair Shop Near ME" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#7</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Diesel Truck Repair Edmonton</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Caernarvon</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 151 Ave NW, Edmonton, AB T5X 1C6, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00 AM to 5:00 PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"They deserves 5 stars because the staff was professional and friendly. The work was quick and the pricing was right."</blockquote>
+            <p class="shop-card__desc">A fully equipped diesel truck repair shop that deals with only diesel trucks. From preventive maintenance to engine repair, they'll give the same customer care regardless of the job's size. They also offer new and used parts to suit your truck repair needs. Their solid work and dedication make them a contender for the best truck repair in Edmonton.</p>
+            <ul class="shop-card__highlights">
+              <li>Offer service for specific makes and models</li>
+              <li>Offers services for diesel trucks only</li>
+              <li>Dedicated and professional staff</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #8 -->
+        <article id="shop-8" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck-repair-near-me_image.jpg" alt="Truck Repair Near Me" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#8</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Heavy Truck Repair Edmonton</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Glengarry</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 135 Ave, Edmonton, AB T5E 1N5, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 5:00PM · Sun: Closed</span>
+            </div>
+            <blockquote class="shop-card__quote">"They deserves 5 stars because they are a team of highly professional and talented doctors who understand the needs of their patients"</blockquote>
+            <p class="shop-card__desc">As one of the services with the best heavy truck repair in Edmonton, they are one of the go-tos when your truck needs highly dedicated work. They'll fix your vehicle as efficiently and quickly as possible. They've served Edmonton for around five years, so they know their job.</p>
+            <ul class="shop-card__highlights">
+              <li>Specialized in heavy-duty truck</li>
+              <li>Not in business for semi-duty truck</li>
+              <li>If they don't have it, they will find it</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #9 -->
+        <article id="shop-9" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/trailer-repair-_image.jpg" alt="Truck Mechanic Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#9</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Truck Mechanic Edmonton</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Westwood</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 103 St NW, Edmonton, AB T5G 2J7, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Monday – Sunday: 8:00AM to 5:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"A great company to do business with. Lots of experience and great customer service!"</blockquote>
+            <p class="shop-card__desc">This company employs more than 10+ professionals and offers services all over Edmonton. So if you are looking for a truck repair station to get your truck looked at, this is the one you should be looking for. There is no doubt that you will get good service from here.</p>
+            <ul class="shop-card__highlights">
+              <li>Holds expertise in the semi-duty truck</li>
+              <li>Offers mobile service in some parts of Edmonton</li>
+              <li>Professional staff and mechanics</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #10 -->
+        <article id="shop-10" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/heavy-duty-truck-repair-_image.jpg" alt="Heavy Duty Truck Repair" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#10</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Diesel Engine Repair Edmonton</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Maple Ridge</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 2 Post Rd NW, Edmonton, AB T6P 1E5, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 6:00PM · Sun: Closed</span>
+            </div>
+            <blockquote class="shop-card__quote">"Awesome guys that are knowledgeable in the business they are in! They care about taking care of their customers and figuring out the problem and then getting you back on the road!"</blockquote>
+            <p class="shop-card__desc">This truck repair company has been in business for many years and provides various services such as brake jobs, wheel alignment, preventive maintenance, and many more. All you have to do is reach out to them, and their mechanic will contact you soon.</p>
+            <ul class="shop-card__highlights">
+              <li>Offer service for only diesel engine repair</li>
+              <li>24/7 customer support</li>
+              <li>Can handle fleet maintenance</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #11 -->
+        <article id="shop-11" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/diesel-engine-repair-_image.jpg" alt="Diesel Engine Repair Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#11</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Edmonton Truck Repair Shop</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Beverly</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 11611 40 St NW, Edmonton, AB T5W 0Y1, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Deal with these guys ALL the time. They go above and beyond and their prices are always fair. Very nice people."</blockquote>
+            <p class="shop-card__desc">They are equipped to handle trucks of all kinds. The center offers engine repair, wheel alignment, filter cleaning, replacement brakes, and general maintenance services. So you see that this center has a lot to offer its customers.</p>
+            <ul class="shop-card__highlights">
+              <li>Offers a wide range of services</li>
+              <li>Exceptional customer support</li>
+              <li>Does not provide mobile service truck</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #12 -->
+        <article id="shop-12" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/heavy-truck-repair-_image.jpg" alt="Heavy Truck Repair Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#12</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Heavy Duty Truck Repair Edmonton</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Balwin</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 13007-13017 73 St NW, Edmonton, AB T5C 0T6, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 5:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Great service and easy going guys, they get the job done on time and there rates are really good.👍"</blockquote>
+            <p class="shop-card__desc">Heavy-duty truck repair Edmonton offers high-quality work. Their facilities have been updated to cater to heavy-duty truck repairs and maintenance. Their good customer service and up-to-date tech for better auto care make them one of the options for the best truck repair in Edmonton.</p>
+            <ul class="shop-card__highlights">
+              <li>Offer service only for a heavy-duty trucks</li>
+              <li>Electrical work is satisfying</li>
+              <li>Struggle with semi-duty trucks</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #13 -->
+        <article id="shop-13" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck-mechanic_image.jpg" alt="Complete Truck & Trailer Repair Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#13</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Commercial Vehicle Inspection Near Me</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Bergman</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 44 St NW, Edmonton, AB T5W 4W8, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"Great place to bring my truck. Fast, and friendly service. Had an emergency that I needed repaired right away, and they got me in when I arrived."</blockquote>
+            <p class="shop-card__desc">It is a place that offers complete truck and trailer repair in Edmonton. You can expect high-quality services but with hefty bills. It could be better to say that this repair shop provides high-quality services at affordable rates. They offer services such as truck, trailer, and commercial vehicle inspection.</p>
+            <ul class="shop-card__highlights">
+              <li>Full range of services</li>
+              <li>Maintenance available</li>
+              <li>Well-equipped</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #14 -->
+        <article id="shop-14" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/heavy-duty-truck-repair_edmonton.jpg" alt="Edmonton Diesel Truck Repair" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#14</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Edmonton Diesel Truck Repair</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Newton</span>
+            <div class="shop-card__stars" aria-label="4.5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star shop-card__star--half">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 53 St NW, Edmonton, AB T5W 3L7, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 9:00AM to 6:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"They were able to perform the work quickly and kept you up to date. Overall great service! Thank you!"</blockquote>
+            <p class="shop-card__desc">They perform a wide range of diesel truck repair services on both semi and heavy-duty diesel trucks. Edmonton diesel truck repair makes sure work gets done quickly and correctly. They are a full-service heavy truck shop that handles everything from wheel alignment to suspension, driveline, diagnostics, and more. Lastly, they stand behind their work with customer assistance.</p>
+            <ul class="shop-card__highlights">
+              <li>Offers great customer assistance</li>
+              <li>No, perform a repair on all make and models</li>
+              <li>Doesn't offer mobile service trucks in Edmonton</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #15 -->
+        <article id="shop-15" class="shop-card">
+          <div class="shop-card__media">
+            <img src="https://srbequipment.ca/wp-content/uploads/2022/09/truck_mechanic-in-edmonton-_image.jpg" alt="Truck Repair in Edmonton" loading="lazy" decoding="async" width="800" height="600" />
+            <span class="shop-card__rank">#15</span>
+          </div>
+          <div class="shop-card__body">
+            <h3 class="shop-card__title">Truck Repair in Edmonton</h3>
+            <span class="shop-card__area"><i class="fa-solid fa-location-dot"></i> Westmount</span>
+            <div class="shop-card__stars" aria-label="5 out of 5 stars"><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span><span class="shop-card__star">★</span></div>
+            <div class="shop-card__meta">
+              <span><i class="fa-solid fa-location-dot"></i> 10598-10474 123 St NW, Edmonton, AB, Canada</span>
+              <span><i class="fa-solid fa-clock"></i> Mon – Sat: 8:00AM to 5:00PM</span>
+            </div>
+            <blockquote class="shop-card__quote">"They always make sure my vehicle is safe and never do any unnecessary work, and my truck is always cleaner leaving there than when I arrived."</blockquote>
+            <p class="shop-card__desc">It could be a great source of truck repair in Edmonton, with extensive knowledge of semi-duty truck repair. They set their business in the prime location of Edmonton, which can easily be accessible if you need a nearby repair shop. Their inventory is also vast, with parts of heavy-duty makes and models.</p>
+            <ul class="shop-card__highlights">
+              <li>Large Inventory</li>
+              <li>Shop on prime location</li>
+              <li>Professional staff</li>
+            </ul>
+            <div class="shop-card__footer">
+              <a href="tel:+17808785221" class="btn btn--dark">Call Now</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="cta-banner__bg">
+      <div class="cta-banner__grid"></div>
+    </div>
+    <div class="container cta-banner__inner" style="padding-top: 0;">
+      <div class="cta-banner__icon" aria-hidden="true">
+       <img src="https://srbequipment.ca/wp-content/uploads/2026/06/cal-a-technician-1-1.webp" alt="Call a technician" width="100" height="100">
+      </div>
+      <div>
+        <h2 class="cta-banner__title">Need Reliable Truck Repair <em>in Edmonton?</em></h2>
+        <p>SRB Equipment is your trusted partner for CVIP inspections, engine repair, emission systems, air conditioning, and full heavy-duty truck & trailer service.</p>
+      </div>
+      <div class="cta-banner__actions">
+        <a href="tel:+17808785221" class="btn btn--dark btn--lg">Call (780) 878-5221</a>
+      </div>
+    </div>
+  </section>
+
+</main>

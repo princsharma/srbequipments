@@ -1,0 +1,357 @@
+<style>
+    /* Truck Maintenance Services — page-only styles */
+    .hero.hero--service {
+      min-height: clamp(420px, 55vh, 560px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero--service .hero__title {
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero--service .hero__price {
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      color: rgba(255, 255, 255, 0.92);
+      margin: 0 0 var(--space-4);
+    }
+    .hero--service .hero__tagline {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 640px;
+      margin: 0 auto var(--space-4);
+      line-height: 1.65;
+    }
+    .btn--white {
+      background: var(--white);
+      color: var(--dark);
+      border-color: var(--white);
+    }
+    .btn--white:hover {
+      background: var(--primary-color);
+      color: var(--dark);
+      border-color: var(--primary-color);
+    }
+    .image-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+    .image-duo img {
+      width: 100%;
+      height: clamp(280px, 40vw, 420px);
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .text-link {
+      display: inline-block;
+      margin: var(--space-3) 0;
+      font-weight: 600;
+      color: var(--dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .text-link:hover { color: var(--primary-dark); }
+    .subheading-sm {
+      font-size: clamp(1.15rem, 2vw, 1.4rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin: var(--space-4) 0 var(--space-3);
+    }
+    #more-services .service-card {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    #more-services .service-card__media {
+      height: 190px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    #more-services .service-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    #more-services .service-card:hover .service-card__media img {
+    }
+    #more-services .service-card__body {
+      padding: var(--space-4);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    #more-services .service-card__body .service-card__link {
+      margin-top: auto;
+    }
+    .review-grid--simple {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .review-card--simple {
+      text-align: center;
+    }
+    .review-card--simple .review-card__stars {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-3);
+    }
+    .review-card--simple strong {
+      display: block;
+      margin-top: var(--space-3);
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+    @media (max-width: 768px) {
+      .image-duo { grid-template-columns: 1fr; }
+      .review-grid--simple { grid-template-columns: 1fr; }
+    }
+    </style>
+    
+    <link rel="preload" as="image" href="https://srbequipment.ca/wp-content/uploads/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg" fetchpriority="high">
+    
+    <main>
+      <!-- ============ HERO ============ -->
+      <section class="hero hero--service" data-testid="hero">
+        <div class="hero__photo" aria-hidden="true">
+          <img
+            src="https://srbequipment.ca/wp-content/uploads/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
+            alt="Truck maintenance services in Edmonton"
+            width="1600"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+        <div class="container">
+          <h1 class="hero__title">Truck Maintenance Services in Edmonton</h1>
+          <p class="hero__price">Starting at $133/ hr.</p>
+          <p class="hero__tagline">Fast, valuable, and effective truck repairs at competitive prices!</p>
+          <a href="#contact" class="btn btn--white btn--lg">Book an Appointment</a>
+        </div>
+      </section>
+    
+      <!-- ============ INTRO ============ -->
+      <section class="section" data-testid="intro">
+        <div class="container">
+          <p>
+            Routine services and regular maintenance keep the vehicle engines and heavy-duty equipment a
+            longer lifespan and guaranteed value. Our team of experts has in-depth and first-hand knowledge
+            of repairing all types of heavy-duty vehicles and equipment, including dozers, cranes,
+            excavators, rock trucks, dozers, and other machinery.
+          </p>
+          <p>
+            To ensure a high level of heavy-duty maintenance services, we continually stay updated with the
+            latest tools and technologies to deliver quality services with the desired modern approach. With
+            exclusive access to the latest tools, parts, and pieces of machinery, we have the ability to
+            enhance your experience with quality and efficient heavy equipment repairs.
+          </p>
+    
+          <p><strong>Are you looking for :</strong></p>
+          <ul class="check-list check-list--two-col">
+            <li><i class="fa-solid fa-circle-check"></i> Heavy-duty truck repairs</li>
+            <li><i class="fa-solid fa-circle-check"></i> Mobile truck repairs</li>
+            <li><i class="fa-solid fa-circle-check"></i> Emergency repairs</li>
+            <li><i class="fa-solid fa-circle-check"></i> Fleet maintenance</li>
+            <li><i class="fa-solid fa-circle-check"></i> Wheel alignments</li>
+            <li><i class="fa-solid fa-circle-check"></i> Engine repairs</li>
+          </ul>
+          <p><strong>Or any other! We have got it all covered!</strong></p>
+    
+          <div class="section__actions">
+            <a href="#contact" class="btn btn--primary btn--lg">Connect Now</a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ IMAGE DUO ============ -->
+      <section class="section section--gray" data-testid="gallery">
+        <div class="container">
+          <div class="image-duo">
+            <img
+              src="https://srbequipment.ca/wp-content/uploads/2025/11/suspension-repair.jpg"
+              alt="Heavy-duty truck axle and suspension maintenance"
+              width="715"
+              height="340"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src="https://srbequipment.ca/wp-content/uploads/2025/11/DOT.jpg"
+              alt="Mechanic performing truck engine maintenance"
+              width="715"
+              height="340"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ PARTNER ============ -->
+      <section class="section" data-testid="partner">
+        <div class="container">
+          <h2 class="section__title">SRB Equipment — Your Regular Truck Services Partner!</h2>
+          <p>
+            Not only fixing the heavy-duty truck repairs, but our team of professionals is also dedicated
+            to maintaining preventive and routine services leading to reduced breakdowns while running on
+            the road and lesser financial investments.
+          </p>
+          <p>
+            Our team endeavors to deliver high-quality and value-for-money services, guaranteeing maximum
+            productivity for the vehicle's operations. And while maintaining the higher standard in the
+            services with the utmost care, our safety programs are updated well with the higher
+            environmental ethics, securing the vehicles and ecosystem for a longer run.
+          </p>
+          <a href="https://www.bbb.org/" class="text-link" target="_blank" rel="noopener">Check our BBB Listing and google reviews</a>
+          <p class="subheading-sm">Quality routine and repair services on the go!</p>
+          <div class="section__actions">
+            <a href="tel:+17808785221" class="btn btn--dark btn--lg">
+              <i class="fa-solid fa-phone-volume"></i> Call Us Now
+            </a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ MORE SERVICES ============ -->
+      <section id="more-services" class="section section--services" data-testid="more-services">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">More Services</h2>
+            <p class="section__lede">High-Quality repair and rebuild services are now within reach!</p>
+          </div>
+    
+          <div class="service-grid">
+            <article class="service-card">
+              <div class="service-card__media">
+                <img
+                  src="https://srbequipment.ca/wp-content/uploads/2025/11/exhaust-repair.jpg"
+                  alt="Emission system repair and service"
+                  width="715"
+                  height="340"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Emission System Repair/Service</h3>
+                <p>
+                  If you manage a fleet and your commercial truck has ample expenses, with exhaust and
+                  emission control and repair services, get the truck maintenance at optimal costs.
+                </p>
+                <a href="#" class="service-card__link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </article>
+    
+            <article class="service-card">
+              <div class="service-card__media">
+                <img
+                  src="https://srbequipment.ca/wp-content/uploads/2025/11/cvip-inspection.jpg"
+                  alt="CVIP inspections for commercial trucks"
+                  width="715"
+                  height="339"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="service-card__body">
+                <h3 class="service-card__title">CVIP Inspections</h3>
+                <p>
+                  Thorough CVIP inspections for heavy-duty truck and trailer repairs in California. Our
+                  team of experts will visit the site and conduct comprehensive CVIP inspections with
+                  utmost care.
+                </p>
+                <a href="#" class="service-card__link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </article>
+    
+            <article class="service-card">
+              <div class="service-card__media">
+                <img
+                  src="https://srbequipment.ca/wp-content/uploads/2025/11/DOT.jpg"
+                  alt="Truck engine repair service"
+                  width="715"
+                  height="340"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Engine Repair</h3>
+                <p>
+                  Keeping the heart of your vehicle healthy and operational with quality engine repair and
+                  rebuild services. Our team is committed to getting your vehicle back on the road with
+                  excellent services and exceptional experience.
+                </p>
+                <a href="#" class="service-card__link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </article>
+          </div>
+    
+          <div class="section__actions section__actions--center">
+            <a href="#" class="btn btn--dark btn--lg">All Services</a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ HAPPY CUSTOMERS ============ -->
+      <section id="reviews" class="section section--reviews" data-testid="reviews">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Happy Customers</h2>
+          </div>
+    
+          <div class="review-grid review-grid--simple">
+            <article class="review-card review-card--simple">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>Fast proficient and very professional.</p>
+              <strong>Nick Bochanesky</strong>
+            </article>
+    
+            <article class="review-card review-card--simple">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                SRB is a hidden jewel! This is where I get my CVIP's, and any other repairs I need. Shaun
+                has always been very thorough, and would advise if something is close to being replaced.
+                Certainly would recommend this place!
+              </p>
+              <strong>Claude Lafond</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ CONTACT ANCHOR ============ -->
+      <section id="contact" class="section section--gray" data-testid="contact">
+        <div class="container section__head section__head--center">
+          <h2 class="section__title">Book Your Truck Maintenance Service</h2>
+          <p class="section__lede">Call SRB Equipment today for routine maintenance and heavy-duty truck repairs in Edmonton.</p>
+          <div class="section__actions section__actions--center">
+            <a href="tel:+17808785221" class="btn btn--primary btn--lg">
+              <i class="fa-solid fa-phone-volume"></i> (780) 878-5221
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    

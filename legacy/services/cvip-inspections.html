@@ -1,0 +1,600 @@
+<style>
+    .cvip-hero {
+        background: var(--gray-bg);
+        padding: calc(120px + var(--safe-top)) 0 var(--space-6);
+      }
+      .cvip-hero .two-col { align-items: center; }
+      .cvip-hero .section__title { font-size: clamp(2rem, 4vw, 3rem); }
+      .cvip-stat-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+        margin-top: var(--space-5);
+        padding-top: var(--space-4);
+        border-top: 1px solid var(--border);
+      }
+      .cvip-stat-row strong {
+        display: block;
+        font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+        color: var(--dark);
+        line-height: 1.1;
+      }
+      .cvip-stat-row span {
+        display: block;
+        margin-top: 6px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-light);
+      }
+      .cvip-hero__media {
+        position: relative;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .cvip-hero__media img {
+        width: 100%;
+        height: clamp(360px, 50vw, 520px);
+        object-fit: cover;
+        display: block;
+      }
+      .cvip-hero__badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--primary-color);
+        color: var(--dark);
+        padding: 12px 18px;
+        border-radius: var(--radius-md);
+        font-weight: 700;
+      }
+      .cvip-hero__badge i { font-size: 1.4rem; }
+      .cvip-hero__badge small {
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.75;
+      }
+      .cvip-importance__note {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto var(--space-5);
+        font-weight: 600;
+        color: var(--dark);
+      }
+      .cvip-feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+      }
+      .cvip-feature-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        box-shadow: var(--shadow-sm);
+      }
+      .cvip-feature-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+      .cvip-feature-card__icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: var(--gray-bg);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--dark);
+        margin-bottom: var(--space-3);
+      }
+      .cvip-feature-card:nth-child(even) .cvip-feature-card__icon {
+        background: rgba(255, 242, 0, 0.25);
+      }
+      .cvip-feature-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .cvip-feature-card p {
+        color: var(--text-light);
+        font-size: 0.97rem;
+        margin: 0;
+        line-height: 1.65;
+      }
+      .cvip-process {
+        background: var(--surface-dark-1);
+        color: rgba(255, 255, 255, 0.86);
+      }
+      .cvip-process .section__title { color: var(--white); }
+      .cvip-process p { color: rgba(255, 255, 255, 0.78); }
+      .cvip-process__badge {
+        display: inline-block;
+        background: var(--primary-color);
+        color: var(--dark);
+        font-weight: 800;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        padding: 10px 22px;
+        border-radius: var(--radius-pill);
+        margin-bottom: var(--space-5);
+      }
+      .cvip-process__media {
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: 0 0 0 4px rgba(255, 242, 0, 0.15), var(--shadow-lg);
+      }
+      .cvip-process__media img {
+        width: 100%;
+        height: clamp(320px, 45vw, 480px);
+        object-fit: cover;
+        display: block;
+      }
+      .cvip-steps {
+        list-style: none;
+        padding: 0;
+        margin: var(--space-4) 0 var(--space-5);
+        display: grid;
+        gap: var(--space-3);
+      }
+      .cvip-steps li {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: var(--space-3);
+        align-items: start;
+      }
+      .cvip-steps__num {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--primary-color);
+        color: var(--dark);
+        font-weight: 900;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .cvip-steps h4 {
+        color: var(--white);
+        font-size: 1.1rem;
+        margin: 0 0 6px;
+      }
+      .cvip-steps p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+      .cvip-trusted .section__title em {
+        color: var(--primary-dark);
+        font-style: normal;
+      }
+      .cvip-trusted .section__title em::after { display: none; }
+      .cvip-benefit-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+        margin: var(--space-4) 0 var(--space-5);
+      }
+      .cvip-benefit {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .cvip-benefit__icon {
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 10px;
+        background: rgba(255, 242, 0, 0.2);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-dark);
+        font-size: 1rem;
+      }
+      .cvip-benefit strong {
+        display: block;
+        font-size: 1.05rem;
+        color: var(--dark);
+        margin-bottom: 4px;
+      }
+      .cvip-benefit span {
+        font-size: 0.92rem;
+        color: var(--text-light);
+        line-height: 1.5;
+      }
+      .cvip-trusted__media {
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+      .cvip-trusted__media img {
+        width: 100%;
+        height: clamp(360px, 45vw, 500px);
+        object-fit: cover;
+        display: block;
+      }
+      .cvip-final-cta {
+        background: var(--gray-bg);
+        text-align: center;
+      }
+      .cvip-final-cta .section__lede {
+        max-width: 640px;
+        margin: 0 auto var(--space-5);
+      }
+      .cvip-contact-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .cvip-contact-card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-5);
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+      }
+      .cvip-contact-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+      .cvip-contact-card__icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        margin: 0 auto var(--space-3);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+      .cvip-contact-card__icon--blue {
+        background: var(--dark);
+        color: var(--primary-color);
+      }
+      .cvip-contact-card__icon--green {
+        background: var(--primary-color);
+        color: var(--dark);
+      }
+      .cvip-contact-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+      }
+      .cvip-contact-card p {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        margin: 0;
+      }
+      @media (max-width: 1024px) {
+        .cvip-feature-grid { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 768px) {
+        .cvip-stat-row,
+        .cvip-feature-grid,
+        .cvip-benefit-grid,
+        .cvip-contact-cards { grid-template-columns: 1fr; }
+      }
+    </style>
+    
+    
+    <main>
+        <!-- ============ HERO ============ -->
+        <section class="section cvip-hero" data-testid="hero">
+          <div class="container two-col">
+            <div class="two-col__content">
+              <span class="eyebrow">Certified CVIP Inspection</span>
+              <h1 class="section__title">CVIP Inspection Services in Edmonton</h1>
+              <p class="section__lede">
+                Trusted Commercial Vehicle inspections (CVIP) for heavy-duty trucks and trailers that make
+                safety and compliance simple. Our experienced technicians deliver quick certification and
+                help you stay confident and road-ready.
+              </p>
+              <div class="section__actions">
+                <a href="#contact" class="btn btn--dark btn--lg">Book Your CVIP Inspection Now</a>
+              </div>
+              <div class="cvip-stat-row">
+                <div>
+                  <strong>1000+</strong>
+                  <span>Inspections Done</span>
+                </div>
+                <div>
+                  <strong>24 Hr</strong>
+                  <span>Turnaround Time</span>
+                </div>
+                <div>
+                  <strong>100%</strong>
+                  <span>Certified Technicians</span>
+                </div>
+              </div>
+            </div>
+            <div class="two-col__media">
+              <div class="cvip-hero__media">
+                <img
+                  src="https://srbequipment.ca/wp-content/uploads/2025/11/cvip-inspection.jpg"
+                  alt="CVIP inspection for commercial truck in Edmonton"
+                  width="715"
+                  height="339"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+                <div class="cvip-hero__badge">
+                  <i class="fa-solid fa-shield-halved"></i>
+                  <div>
+                    <strong>Safety First</strong>
+                    <small>100% Compliant</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+        <!-- ============ IMPORTANCE ============ -->
+        <section class="section" data-testid="importance">
+          <div class="container">
+            <div class="section__head section__head--center">
+              <h2 class="section__title">Importance of CVIP Inspections in Edmonton, AB</h2>
+              <p class="section__lede">
+                A Commercial Vehicle Inspection Program (CVIP) Inspection is a mandatory safety check for
+                commercial vehicles in Alberta. This inspection is important for trucks, trailers, and buses
+                to ensure they meet the safety standards set by the Alberta Transportation Authority. You must
+                get a CVIP inspection every year if your vehicle weighs 11,794 kg or more in Alberta or
+                4,500 kg or more when used outside the province.
+              </p>
+            </div>
+            <p class="cvip-importance__note">
+              We follow Alberta's official CVIP Inspection checklist to ensure every commercial vehicle
+              meets safety standards.
+            </p>
+      
+            <div class="cvip-feature-grid">
+              <article class="cvip-feature-card">
+                <span class="cvip-feature-card__icon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                <h3>Brake Systems</h3>
+                <p>
+                  We inspect all brake components (brake pads, air or hydraulic lines, and brake shoes) to
+                  ensure the vehicle stops safely.
+                </p>
+              </article>
+              <article class="cvip-feature-card">
+                <span class="cvip-feature-card__icon"><i class="fa-solid fa-gears"></i></span>
+                <h3>Steering & Suspension</h3>
+                <p>
+                  We ensure the steering and suspension (springs, airbags, joints, and shock absorbers) are
+                  functioning properly, keeping the vehicle stable on the road.
+                </p>
+              </article>
+              <article class="cvip-feature-card">
+                <span class="cvip-feature-card__icon"><i class="fa-solid fa-lightbulb"></i></span>
+                <h3>Lighting & Electrical</h3>
+                <p>
+                  All lights (headlights, brake lights, and turn signals) and electrical wiring are inspected
+                  to ensure they function correctly and safely, especially in low-light conditions.
+                </p>
+              </article>
+              <article class="cvip-feature-card">
+                <span class="cvip-feature-card__icon"><i class="fa-solid fa-truck"></i></span>
+                <h3>Frame & Body</h3>
+                <p>
+                  The vehicle's frame and body are inspected for rust, cracks, or other damage to ensure the
+                  structure is strong and safe.
+                </p>
+              </article>
+              <article class="cvip-feature-card">
+                <span class="cvip-feature-card__icon"><i class="fa-solid fa-compact-disc"></i></span>
+                <h3>Tires & Wheels</h3>
+                <p>
+                  We check tires for sufficient tread, no cracks or bulges, and proper inflation, and ensure
+                  that wheels/rims are not damaged, as tires and wheels keep the vehicle safely on the road.
+                </p>
+              </article>
+              <article class="cvip-feature-card">
+                <span class="cvip-feature-card__icon"><i class="fa-solid fa-oil-can"></i></span>
+                <h3>Engine & Exhaust</h3>
+                <p>
+                  Technicians check that the engine runs smoothly and that the exhaust system has no leaks,
+                  ensuring the vehicle runs safely and does not harm the environment.
+                </p>
+              </article>
+            </div>
+      
+            <div class="section__actions section__actions--center">
+              <a href="#contact" class="btn btn--dark btn--lg">Schedule Inspection Now</a>
+            </div>
+          </div>
+        </section>
+      
+        <!-- ============ PROCESS ============ -->
+        <section class="section cvip-process" data-testid="process">
+          <div class="container">
+            <div class="section__head section__head--center">
+              <span class="cvip-process__badge">Step-by-Step CVIP Inspection Process</span>
+            </div>
+            <div class="two-col">
+              <div class="two-col__media">
+                <div class="cvip-process__media">
+                  <img
+                    src="https://srbequipment.ca/wp-content/uploads/2026/02/truck-cvip-inspection-in-srb-equipment-shop-400x516.webp"
+                    alt="Mechanic performing CVIP truck inspection"
+                    width="400"
+                    height="516"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              </div>
+              <div class="two-col__content">
+                <p>
+                  At SRB Equipment, we understand how important a proper CVIP inspection is for keeping your
+                  truck or trailer safe, compliant, and performing at its best. Our certified team follows
+                  Alberta's strict CVIP standards to provide you with a clear, reliable assessment of your
+                  vehicle's condition. Here's how we handle your inspection from start to finish.
+                </p>
+                <ol class="cvip-steps">
+                  <li>
+                    <span class="cvip-steps__num">1</span>
+                    <div>
+                      <h4>Pre-Inspection Consultation</h4>
+                      <p>
+                        We review your vehicle's concerns and the manual to determine what to focus on during
+                        the inspection.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cvip-steps__num">2</span>
+                    <div>
+                      <h4>Comprehensive Inspection</h4>
+                      <p>
+                        Our certified technicians conduct a full CVIP inspection, checking every
+                        safety-critical component.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cvip-steps__num">3</span>
+                    <div>
+                      <h4>Detailed Reporting</h4>
+                      <p>
+                        You receive a clear CVIP inspection report and the official CVIP inspection form
+                        outlining all findings and required attention.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cvip-steps__num">4</span>
+                    <div>
+                      <h4>Repairs and Maintenance</h4>
+                      <p>
+                        If we spot a problem, we offer quick repair and maintenance options to get your truck
+                        or trailer back to compliance.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="cvip-steps__num">5</span>
+                    <div>
+                      <h4>Certification</h4>
+                      <p>Once your vehicle meets all requirements, we provide the official CVIP certification.</p>
+                    </div>
+                  </li>
+                </ol>
+                <div class="section__actions">
+                  <a href="#contact" class="btn btn--primary btn--lg">Get Your Truck Inspected</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+        <!-- ============ TRUSTED ============ -->
+        <section class="section cvip-trusted" data-testid="trusted">
+          <div class="container two-col">
+            <div class="two-col__content">
+              <h2 class="section__title">Trusted Alberta CVIP Inspections for <em>Trucks & Trailers</em></h2>
+              <p class="section__lede">
+                With years of expertise and a dedication to accuracy, we deliver reliable commercial vehicle
+                inspections that keep your fleet compliant, your drivers protected, and your operations running
+                smoothly.
+              </p>
+              <div class="cvip-benefit-grid">
+                <div class="cvip-benefit">
+                  <span class="cvip-benefit__icon"><i class="fa-solid fa-truck"></i></span>
+                  <div>
+                    <strong>Certified Technicians</strong>
+                    <span>Qualified Technicians with official CVIP certification</span>
+                  </div>
+                </div>
+                <div class="cvip-benefit">
+                  <span class="cvip-benefit__icon"><i class="fa-solid fa-clock"></i></span>
+                  <div>
+                    <strong>Quick Turnaround</strong>
+                    <span>Most inspections are completed within 24 hours</span>
+                  </div>
+                </div>
+                <div class="cvip-benefit">
+                  <span class="cvip-benefit__icon"><i class="fa-solid fa-clipboard-list"></i></span>
+                  <div>
+                    <strong>Detailed Reports</strong>
+                    <span>Clear CVIP Inspection reports showing all issues and findings</span>
+                  </div>
+                </div>
+                <div class="cvip-benefit">
+                  <span class="cvip-benefit__icon"><i class="fa-solid fa-shield-halved"></i></span>
+                  <div>
+                    <strong>Safety Focused</strong>
+                    <span>Thorough checks are designed to ensure maximum road safety</span>
+                  </div>
+                </div>
+                <div class="cvip-benefit">
+                  <span class="cvip-benefit__icon"><i class="fa-solid fa-dollar-sign"></i></span>
+                  <div>
+                    <strong>Competitive Pricing</strong>
+                    <span>Fair inspection rates with no hidden costs</span>
+                  </div>
+                </div>
+                <div class="cvip-benefit">
+                  <span class="cvip-benefit__icon"><i class="fa-solid fa-handshake"></i></span>
+                  <div>
+                    <strong>Customer Service</strong>
+                    <span>24/7 support is available throughout the process</span>
+                  </div>
+                </div>
+              </div>
+              <div class="section__actions">
+                <a href="#contact" class="btn btn--dark btn--lg">Get Inspected Now</a>
+              </div>
+            </div>
+            <div class="two-col__media">
+              <div class="cvip-trusted__media">
+                <img
+                  src="https://images.pexels.com/photos/4489741/pexels-photo-4489741.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Technician using diagnostic tablet during CVIP inspection"
+                  width="800"
+                  height="533"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      
+        <!-- ============ FINAL CTA ============ -->
+        <section id="contact" class="section cvip-final-cta" data-testid="contact">
+          <div class="container">
+            <div class="section__head section__head--center">
+              <h2 class="section__title">Ready to Get Your CVIP Certification?</h2>
+              <p class="section__lede">
+                Keep your fleet running without interruptions. Secure your CVIP appointment today and meet
+                all required safety standards.
+              </p>
+            </div>
+            <div class="cvip-contact-cards">
+              <a href="tel:+17808785221" class="cvip-contact-card">
+                <span class="cvip-contact-card__icon cvip-contact-card__icon--blue">
+                  <i class="fa-solid fa-phone-volume"></i>
+                </span>
+                <h3>Book Inspection</h3>
+                <p>Schedule your CVIP inspection quickly and easily</p>
+              </a>
+              <a href="mailto:info@srbequipment.ca" class="cvip-contact-card">
+                <span class="cvip-contact-card__icon cvip-contact-card__icon--green">
+                  <i class="fa-solid fa-envelope"></i>
+                </span>
+                <h3>Contact Us</h3>
+                <p>Have questions? Our team is ready to help you with any inquiries.</p>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      

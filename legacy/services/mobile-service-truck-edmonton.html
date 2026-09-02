@@ -1,0 +1,761 @@
+<style>
+    .feature-card__icon {
+      background: none !important;
+    }
+    .hero.hero--cinematic {
+      min-height: clamp(520px, 78vh, 680px);
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero--cinematic .hero__grid,
+    .hero--cinematic .hero__glow { display: none; }
+    .hero--cinematic .hero__pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: var(--space-4);
+    }
+    .hero--cinematic .hero__pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 242, 0, 0.12);
+      border: 1px solid rgba(255, 242, 0, 0.35);
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .hero--cinematic .hero__pill strong { color: var(--primary-color); }
+    .hero--cinematic .hero__lede {
+      color: rgba(255, 255, 255, 0.92);
+      text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+      max-width: 580px;
+    }
+    .hero--cinematic .hero__meta {
+      border-top-color: rgba(255, 255, 255, 0.18);
+    }
+    
+    /* Dark section — readable body text */
+    .section--dark p:not(.section__lede) {
+      color: rgba(255, 255, 255, 0.82);
+    }
+    .section--dark .section__lede {
+      color: rgba(255, 255, 255, 0.88);
+    }
+    .section--dark h3 {
+      color: var(--primary-color);
+    }
+    .section--dark .check-list li {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 500;
+    }
+    .section--dark .check-list i {
+      color: var(--primary-color);
+    }
+    .section--dark .contact-card p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+    
+    /* Benefit cards — stronger body text */
+    .feature-card p {
+      color: var(--text);
+    }
+    .feature-card--accent p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+    
+    /* Images — prevent collapse / broken layout */
+    .image-frame--short img {
+      width: 100%;
+      height: 420px;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
+      background: var(--gray-bg);
+    }
+    .contact-media img { height: 520px; min-height: 320px; }
+    
+    .contact-media {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .contact-media__caption {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      right: 20px;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: rgba(11, 18, 32, 0.88);
+      color: var(--white);}
+    .contact-media__caption strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-bottom: 4px;
+    }
+    .contact-media__caption span {
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .trust-strip {
+      background: var(--primary-color);
+      color: var(--dark);
+      padding: var(--space-4) 0;
+    }
+    .trust-strip__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      text-align: center;
+    padding-top: 0 !important;
+    }
+    .trust-strip__grid strong {
+      display: block;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.1;
+    }
+    .trust-strip__grid span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    
+    /* Area tags + callout */
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: var(--space-4) 0;
+    }
+    .tag-list li {
+      background: var(--gray-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 8px 16px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dark-light);
+    }
+    .callout {
+      margin: var(--space-4) 0;
+      padding: 16px 20px ;
+      padding-bottom: 16px !important;
+      border-left: 4px solid var(--primary-color);
+      background: rgba(255, 242, 0, 0.12);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    /* Numbered service list */
+    .service-list {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+    .service-row {
+      display: grid;
+      gap: var(--space-3);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
+      border-bottom: 1px solid var(--border);
+    }
+    .service-row:last-child { border-bottom: 0; }
+    .service-row:hover { background: rgba(255, 242, 0, 0.06); }
+    .service-row__num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #000;
+      background: #e8e41b;
+      padding: 12px;
+      border-radius: 10px;
+    }
+    .service-row h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    .service-row p { color: var(--text-light); font-size: 0.98rem; margin: 0; }
+    
+    .inline-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: var(--space-5);
+      background: var(--dark);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      margin-top: var(--space-5);
+    }
+    .inline-cta h3 { color: var(--white); font-size: clamp(1.2rem, 2.5vw, 1.6rem); margin: 0 0 var(--space-2); }
+    .inline-cta p { color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 52ch; }
+    
+    .cta-banner__inner--stack {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
+    }
+    
+    /* Stats on dark sections */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+      margin: var(--space-5) 0;
+    }
+    .stat-box {
+      text-align: center;
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 242, 0, 0.1);
+      border: 1px solid rgba(255, 242, 0, 0.28);
+    }
+    .stat-box strong {
+      display: block;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    .stat-box span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+    }
+    
+    .section--dark .tag-list--light li {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.85);
+    }
+    
+    /* FAQ sidebar layout */
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    
+    .bottom-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      padding: clamp(2rem, 4vw, 3rem);
+      background: var(--dark);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+    }
+    .bottom-cta h2 { color: var(--white); margin-bottom: var(--space-2); }
+    .bottom-cta p { color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 42ch; }
+    .bottom-cta__phone {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--primary-color);
+      white-space: nowrap;
+    }
+    .bottom-cta__phone:hover { color: #fff62e; }
+    
+    .spaced-top { margin-top: var(--space-6); }
+    .spaced-top-sm { margin-top: var(--space-3); }
+    
+    @media (min-width: 768px) {
+      .service-row {
+        grid-template-columns: 72px 1fr;
+        align-items: start;
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .faq-layout { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 768px) {
+      .trust-strip__grid { grid-template-columns: 1fr; gap: var(--space-3); }
+      .inline-cta,
+      .bottom-cta { text-align: center; justify-content: center; }
+    }
+    .cta-banner p {
+      margin: auto;
+    }
+    </style>
+    
+    <link rel="preload" as="image" href="https://srbequipment.ca/wp-content/uploads/2026/02/white-color-mobile-service-truck-edmonton.jpg" fetchpriority="high">
+    
+    <main>
+        <!-- Hero -->
+        <section class="hero hero--cinematic">
+          <div class="hero__photo">
+            <img src="https://srbequipment.ca/wp-content/uploads/2026/02/white-color-mobile-service-truck-edmonton.jpg" alt="Mobile truck repair service in Edmonton" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async">
+          </div>
+          <div class="hero__bg">
+            <div class="hero__grid"></div>
+            <div class="hero__glow hero__glow--y"></div>
+          </div>
+          <div class="container">
+            <div class="hero__content">
+              <span class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span> 24/7 Emergency Response</span>
+              <h1 class="hero__title"><em>Mobile Truck Repair</em> in Edmonton</h1>
+              <p class="hero__lede">Your truck broke down, and every minute it sits is costing you money. SRB Equipment sends a certified heavy-duty mechanic straight to your location, no tow truck, no shop wait, no lost day. We provide fast, on-site repairs for semi-trucks, trailers, and heavy-duty diesel vehicles throughout Edmonton.</p>
+              <div class="hero__actions">
+                <a href="#services" class="btn btn--primary btn--lg">Our Services</a>
+                <a href="tel:+17808785221" class="btn btn--ghost btn--lg">Call For Emergency Service</a>
+              </div>
+              <ul class="hero__pill-row">
+                <li class="hero__pill"><strong>24/7</strong> Emergency Service</li>
+                <li class="hero__pill"><strong>On-Site</strong> Repairs</li>
+                <li class="hero__pill"><strong>Certified</strong> Diesel Mechanics</li>
+              </ul>
+              <div class="hero__meta">
+                <div class="hero__phone">
+                  <span class="hero__phone-label">Call Anytime</span>
+                  <a href="tel:+17808785221" class="hero__phone-number">(780) 878-5221</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Trust strip -->
+        <div class="trust-strip">
+          <div class="container trust-strip__grid">
+            <div>
+              <strong>24/7</strong>
+              <span>Emergency Service</span>
+            </div>
+            <div>
+              <strong>Edmonton</strong>
+              <span>& Surrounding Areas</span>
+            </div>
+            <div>
+              <strong>Certified</strong>
+              <span>Diesel Mechanics</span>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Service areas -->
+        <section id="about" class="section section--about">
+          <div class="container two-col">
+            <div class="two-col__content">
+              <span class="eyebrow"><span class="eyebrow__dot"></span> Service Coverage</span>
+              <h2 class="section__title">On-Site Heavy-Duty Truck & Trailer Repair
+    </h2>
+              <p>SRB Equipment provides mobile truck and trailer repair across Edmonton and nearby areas. Our Mobile units carry the diagnostic equipment, tools, and parts needed to handle most commercial truck and trailer repairs without a tow. Our technicians work right where your equipment sits - a highway shoulder, a construction site, a fuel yard, or your own lot - and we treat every call with the same urgency you'd expect if it were our own truck losing money on the side of the road.
+    </p>
+              <p>We have 11 years of hands-on experience handling engine, brake, electrical, and trailer issues on-site. We work on all major commercial makes, including Kenworth, Peterbilt, Freightliner, International, Mack, Volvo, and Western Star.</p>
+            
+              <div class="section__actions">
+                <a href="#services" class="btn btn--dark">Our Services</a>
+              </div>
+            </div>
+            <div class="two-col__media">
+              <div class="image-frame image-frame--short">
+                <img src="https://srbequipment.ca/wp-content/uploads/2026/02/white-color-mobile-service-truck-edmonton.jpg" alt="Semi-truck on Edmonton highway" width="1200" height="800" loading="lazy" decoding="async">
+                <div class="image-frame__sticker">Mobile Service · Edmonton & Area</div>
+                <div class="image-frame__stat">
+                  <strong>24/7</strong>
+                  <span>Roadside Ready</span>
+                </div>
+              </div>
+                <h3 style="margin-top: 30px;">Key Areas We Serve:</h3>
+              <ul class="tag-list">
+                <li>Fort Saskatchewan</li>
+                <li>Leduc</li>
+                <li>Edmonton</li>
+                <li>Tofield</li>
+                <li>Camrose</li>
+                <li>Devon</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Services -->
+        <section id="services" class="section section--services">
+          <div class="container">
+            <div class="section__head">
+              <span class="eyebrow"><span class="eyebrow__dot"></span> Our Services</span>
+              <h2 class="section__title">Mobile Truck & Trailer Repair Services We Provide</h2>
+              <p class="section__lede">When your truck can't make it to the shop, we bring the Mobile Truck & Trailer Repair Services We Provideshop to you. Our mobile team arrives with professional tools, quality parts, and the expertise to handle most issues on-site. Here's what our roadside repair service covers.</p>
+            </div>
+    
+            <div class="service-list">
+              <article class="service-row">
+                <span class="service-row__num">01</span>
+                <div>
+                  <h3>Engine & Diesel Repairs</h3>
+                  <p>Engine trouble doesn't wait for business hours, and neither do we. Our mobile diesel mechanics diagnose and repair issues on-site — no-start conditions, overheating, fuel system faults, turbo problems, power loss, and rough running. We work on all major commercial makes, including Kenworth, Peterbilt, Freightliner, International, Mack, Volvo, and Western Star.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">02</span>
+                <div>
+                  <h3>Mobile Truck Tire Repair & Replacement</h3>
+                  <p>A blown tire on a loaded rig can shut down your whole route. SRB Equipment provides mobile truck tire repair across Edmonton - flat repairs, full replacements, and bead seating for both trucks and trailers. Our service trucks stock common commercial tire sizes, so most calls are resolved in a single visit without a tow.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">03</span>
+                <div>
+                  <h3>Trailer Repairs</h3>
+                  <p>Trailer downtime costs just as much as truck downtime. Our mobile truck and trailer repair service covers brake issues, landing gear, mud flaps, lights and wiring, kingpin wear, gladhand replacement, and air line problems. We work on both flatdeck and dry van trailers common across Alberta's industrial and agriculture sectors.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">04</span>
+                <div>
+                  <h3>Brake System & Brake Chamber Repairs</h3>
+                  <p>Air brake failures are a safety issue and a guaranteed roadside inspection fail. Our mechanics handle brake chamber replacement, slack adjusters, brake shoe replacement, air line repairs, and brake drum inspections - all on-site, all to standard.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">05</span>
+                <div>
+                  <h3>Electrical & ABS Diagnostics</h3>
+                  <p>Dead lights, faulty sensors, ABS codes, or wiring flagged during a roadside stop add up fast in fines and downtime. We use advanced diagnostic tools to find and fix electrical and ABS faults on location, so you stay compliant and keep moving.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">06</span>
+                <div>
+                  <h3>Air System & Suspension Repair</h3>
+                  <p>Alberta's temperature swings are hard on air systems. Air ride suspension failures, leaking air lines, and air dryer issues show up more in extreme cold or heat, and they directly affect how your load sits and how safely your truck handles. We carry the parts to repair air systems roadside and keep your suspension stable and your load legal.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">07</span>
+                <div>
+                  <h3>Transmission Repair</h3>
+                  <p>Clutch issues, fluid leaks, and worn components don't fix themselves, and ignoring them usually turns a small repair into a major one. We handle transmission repairs on-site to restore smooth shifting and reliable performance before a minor issue becomes a breakdown.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">08</span>
+                <div>
+                  <h3>Differential Repair</h3>
+                  <p>Our mechanics inspect and repair differential leaks, worn gears, and unusual noise on-site, making sure power reaches your wheels evenly and your drivetrain runs the way it should.</p>
+                </div>
+              </article>
+              <article class="service-row">
+                <span class="service-row__num">09</span>
+                <div>
+                  <h3>Battery & Jump Start</h3>
+                  <p>A dead battery shouldn't end your day. We provide on-site jump-starts, battery testing, and replacements, and we make sure your charging system is working properly before we leave — not just that the engine turns over.</p>
+                </div>
+                </div>
+    
+            <div class="service-list">
+              <article class="service-row">
+                <span class="service-row__num">10</span>
+                <div>
+                  <h3>Mobile Truck A/C Repair</h3>
+                  <p>Alberta summers get hot, and a failed cab A/C is more than uncomfortable — it's a fatigue and safety issue on long hauls. We service and repair commercial truck air conditioning on-site, including refrigerant recharging and compressor diagnostics.</p>
+                </div>
+                </div>
+    
+            <div class="service-list">
+              <article class="service-row">
+                <span class="service-row__num">11</span>
+                <div>
+                  <h3>Preventive Maintenance On-Site</h3>
+                  <p>Most breakdowns are preventable. We offer scheduled mobile preventive maintenance for fleets and owner-operators — oil changes, filter replacements, fluid checks, and pre-trip inspection support - done at your yard or job site instead of taking a truck out of service for a shop visit.</p>
+                </div>
+                </div>
+    
+            <div class="service-list">
+              <article class="service-row">
+                <span class="service-row__num">12</span>
+                <div>
+                  <h3>CVIP Inspection</h3>
+                  <p>Our certified technicians perform on-site CVIP inspections covering brakes, suspension, and other key systems, keeping your truck or trailer road-legal and compliant with Alberta safety standards without a shop appointment./p>
+                </div>
+              </article>
+              
+            </div>
+    
+            <div class="inline-cta">
+              <div>
+                <h3>Need a Service Not Listed?</h3>
+                <p>Our certified mechanics handle a wide range of truck and trailer repairs. Contact us to discuss your specific needs.</p>
+              </div>
+              <a href="tel:+17808785221" class="btn btn--primary">Call Now</a>
+            </div>
+          </div>
+        </section>
+    
+        <!-- CTA banner -->
+        <section class="cta-banner">
+          <div class="cta-banner__bg"><div class="cta-banner__grid"></div></div>
+          <div class="container cta-banner__inner cta-banner__inner--stack">
+            <i class="cta-banner__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/Artboard-34-1.webp" alt="Truck Icon here" width="64" height="64" decoding="async" /></i>
+            <div style="text-align: center;">
+              <h2 class="cta-banner__title">Can't Get to the Shop? Want a Mechanic to Come to You?</h2>
+              <p>We bring the on-site repair shop to your location with quick, professional roadside service across Edmonton.</p>
+            </div>
+            <div class="cta-banner__actions">
+              <a href="tel:+17808785221" class="btn btn--dark btn--lg">Call for Fast Repair</a>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Why us -->
+        <section id="why-us" class="section section--dark">
+          <div class="container">
+            <div class="section__head" style="margin: 0 auto 60px; text-align: center;">
+              <span class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span> Why Choose SRB Equipment</span>
+              <h2 class="section__title">Skip the Delay, Save Time & Money</h2>
+              <p class="section__lede">While mobile repair offers convenience and savings, SRB Equipment takes it a step further with professional expertise, reliability, and customer care that drivers trust. Here's why we're the preferred choice for mobile truck and trailer repair in Edmonton.</p>
+            </div>
+    
+            <div class="stat-row">
+              <div class="stat-box">
+                <strong>100%</strong>
+                <span>Mobile Service</span>
+              </div>
+              <div class="stat-box">
+                <strong>24/7</strong>
+                <span>Emergency Response</span>
+              </div>
+            </div>
+    
+            <div class="two-col">
+              <div class="two-col__media">
+                <div class="image-frame image-frame--dark image-frame--short">
+                  <img src="https://srbequipment.ca/wp-content/uploads/2025/10/truck-repair.jpg" alt="Mechanic working on truck engine" width="715" height="340" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div class="two-col__content">
+                <h3>Built for the Road</h3>
+                <p>Each of our service trucks is equipped with advanced tools, diagnostic systems, and quality parts, allowing us to complete most repairs right on-site.</p>
+                <ul class="check-list">
+                  <li><i>✓</i> 24/7 Roadside Assistance — available day or night, including weekends and holidays</li>
+                  <li><i>✓</i> Certified Mobile Truck Mechanics with years of hands-on diesel experience</li>
+                  <li><i>✓</i> Transparent Pricing — clear, upfront estimates with no hidden fees</li>
+                  <li><i>✓</i> Customer-First Approach — lasting repairs, not quick fixes</li>
+                </ul>
+              </div>
+            </div>
+    
+            <div class="two-col two-col--reverse spaced-top">
+              <div class="two-col__media">
+                <div class="image-frame image-frame--dark image-frame--short">
+                  <img src="https://srbequipment.ca/wp-content/uploads/2025/10/edmonton-truck.jpg" alt="Semi-truck on highway" width="715" height="340" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div class="two-col__content">
+                <h3>Complete Mobile Repair Solutions</h3>
+                <p>SRB Equipment offers full-service mobile repair for all types of trucks and trailers. From engines and drivetrains to electrical systems, brakes, and tires, our technicians handle it all on-site.</p>
+                <ul class="check-list">
+                  <li><i>✓</i> Built for Edmonton Drivers and Fleets — local knowledge for faster response</li>
+                  <li><i>✓</i> Single, dependable solution for every repair need</li>
+                  <li><i>✓</i> Fully equipped mobile units ready for any breakdown location</li>
+                </ul>
+                <div class="section__actions">
+                  <a href="tel:+17808785221" class="btn btn--primary">Book Mobile Truck Service Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Benefits -->
+        <section id="benefits" class="section section--why">
+          <div class="container">
+            <div class="section__head section__head--center">
+              <span class="eyebrow"><span class="eyebrow__dot"></span> Benefits</span>
+              <h2 class="section__title">Benefits of Mobile Truck and Trailer Repair Service in Edmonton</h2>
+              <p class="section__lede">Breakdowns can happen anywhere, and towing a heavy-duty truck often means lost time and extra cost. That's why mobile truck repair has become the smarter choice for drivers and fleet owners. It brings the shop to your location, offering fast, reliable service that keeps your trucks and trailers moving without long delays.</p>
+            </div>
+            <div class="feature-grid">
+              <article class="feature-card">
+                <span class="feature-card__num">01</span>
+                <span class="feature-card__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/Minimized-Downtime.webp" alt="Minimized Downtime icon" width="64" height="64" decoding="async" /></span>
+                <h3 class="feature-card__title">Minimized Downtime</h3>
+                <p>Mobile truck mechanics save valuable hours you'd lose waiting for towing or shop space. On-site truck repair fixes most issues on the spot, keeping your truck running and your schedule intact.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__num">02</span>
+                <span class="feature-card__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/lowest-cost.webp" alt="Lower Costs icon" width="64" height="64" decoding="async" /></span>
+                <h3 class="feature-card__title">Lower Costs</h3>
+                <p>Mobile repair is the smart, cost-effective choice for truck drivers and fleet owners. You avoid towing and shop storage fees while getting high-quality repairs right where you are.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__num">03</span>
+                <span class="feature-card__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/Convenience-Flexibility.webp" alt="Convenience & Flexibility icon" width="64" height="64" decoding="async" /></span>
+                <h3 class="feature-card__title">Convenience & Flexibility</h3>
+                <p>Our truck mechanics come to you, whether you are on the road, at your yard, or at a job site, providing reliable help whenever and wherever you need it.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__num">04</span>
+                <span class="feature-card__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/Fast-Emergency-Response.webp" alt="Fast Emergency Response icon" width="64" height="64" decoding="async" /></span>
+                <h3 class="feature-card__title">Fast Emergency Response</h3>
+                <p>Breakdowns can occur at any moment. Quick-response team ensures you're back on the road safely and efficiently, minimizing costly downtime.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__num">05</span>
+                <span class="feature-card__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/Experienced-Experts.webp" alt="Experienced Experts icon" width="64" height="64" decoding="async" /></span>
+                <h3 class="feature-card__title">Experienced Experts</h3>
+                <p>Mobile repair teams are trained and certified to handle heavy-duty trucks and trailers. They bring professional skill and the right tools to get the job done right the first time.</p>
+              </article>
+              <article class="feature-card">
+                <span class="feature-card__num">06</span>
+                <span class="feature-card__icon"><img src="https://srbequipment.ca/wp-content/uploads/2026/06/Fleet-Continuity.webp" alt="Fleet Continuity icon" width="64" height="64" decoding="async" /></span>
+                <h3 class="feature-card__title">Fleet Continuity</h3>
+                <p>For fleet operators, mobile repair ensures vehicles stay on schedule and in top condition. It's the best way to keep business moving without service interruptions.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+    
+        <!-- Contact -->
+        <section id="contact" class="section section--contact">
+          <div class="container two-col two-col--narrow">
+            <div class="two-col__content">
+              <span class="eyebrow"><span class="eyebrow__dot"></span> Service Coverage</span>
+              <h2 class="section__title">Truck Mobile Repair Service Across Edmonton & Beyond</h2>
+              <p>Here are the neighborhoods and surrounding zones in and around Edmonton where we regularly provide mobile repair:</p>
+             
+              <div class="contact-card">
+                <h3>Fast Response Guarantee</h3>
+                <p>We know every minute counts. That's why our team responds quickly to get you the help you need, right when you need it.</p>
+                <p class="spaced-top-sm">Our mobile service trucks cover key routes and are positioned at strategic points to reach you quickly and keep your downtime minimal.</p>
+                <ul class="contact-card__list spaced-top">
+                  <li>
+                    <i>📞</i>
+                    <div>
+                      <strong>Call Us 24/7</strong>
+                      <span><a href="tel:+17808785221">(780) 878-5221</a></span>
+                    </div>
+                  </li>
+                  <li>
+                    <i>✉</i>
+                    <div>
+                      <strong>Email</strong>
+                      <span><a href="mailto:info@srbequipment.ca">info@srbequipment.ca</a></span>
+                    </div>
+                  </li>
+                </ul>
+                
+              </div>
+            </div>
+            <div class="two-col__media">
+              <div class="contact-media">
+                <img src="https://srbequipment.ca/wp-content/uploads/2025/10/truck-repair-1.jpg" alt="Professional truck repair and maintenance" width="715" height="340" loading="lazy" decoding="async">
+                <div class="contact-media__caption">
+                  <strong>Professional Repair & Maintenance</strong>
+                  <span>We are available 24/7 for all your emergency mobile truck and trailer repair needs across Edmonton.</span>
+                </div>
+              </div>
+              
+               <h3 style="margin-top: 30px;">Primary Service Areas</h3>
+              <ul class="tag-list">
+                <li>Fort Saskatchewan</li>
+                <li>Leduc</li>
+                <li>Tofield</li>
+                <li>Edmonton</li>
+                <li>Devon</li>
+                <li>Camrose</li>
+              </ul>
+              <div class="section__actions">
+                <a href="tel:+17808785221" class="btn btn--primary btn--lg">Call Us Now</a>
+              </div>
+            </div>
+          </div>
+        </section>
+    
+        <!-- FAQ -->
+        <section id="faq" class="section section--faq">
+          <div class="container faq-layout">
+            <div class="section__head">
+              <span class="eyebrow"><span class="eyebrow__dot"></span> FAQ</span>
+              <h2 class="section__title">Frequently Asked Questions</h2>
+              <p class="section__lede">Common questions about our mobile truck and trailer repair services across Edmonton.</p>
+              <div class="section__actions">
+                <a href="tel:+17808785221" class="btn btn--dark">Call (780) 878-5221</a>
+              </div>
+            </div>
+            <div class="faq-list">
+              <details class="faq-item" open>
+                <summary>How Fast Does SRB Equipment Respond To A Mobile Truck Repair Call In Edmonton? <i>+</i></summary>
+                <p>For most Edmonton metro calls, we aim to arrive within 1–2 hours. For after-hours emergencies, we dispatch as fast as possible and give you an honest ETA the moment you call.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Do You Carry Parts On Your Mobile Service Truck? <i>+</i></summary>
+                <p>Yes, our mobile units are stocked with common wear parts, brake components, electrical supplies, tire repair equipment, and diagnostic tools for semi-trucks, trailers, and heavy-duty diesel vehicles, so most repairs can be completed on the first visit.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Can You Repair My Truck On The Highway Or A Remote Location? <i>+</i></summary>
+                <p>Yes. We perform roadside semi truck repair on highway shoulders, rest areas, job sites, and remote spots around Edmonton and central Alberta. We ask that you get your vehicle to a safe location if possible before we arrive, safety comes first for both our technicians and your driver.</p>
+              </details>
+              <details class="faq-item">
+                <summary>What Types Of Trucks Do You Repair? <i>+</i></summary>
+                <p>We service semi-trucks, trailers, heavy-duty diesel vehicles, and commercial trucks of all makes and models, including Kenworth, Peterbilt, Freightliner, International, Mack, Volvo, and Western Star. We handle Class 6 through Class 8 commercial vehicles and most trailer types across Edmonton and surrounding areas.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Is Your Mobile Truck Repair Service Available On Weekends And Holidays? <i>+</i></summary>
+                <p>Yes, SRB Equipment mobile truck repair service operates 24 hours a day, 7 days a week, including weekends and holidays, so you are never left stranded.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Can You Perform A CVIP Inspection On-Site? <i>+</i></summary>
+                <p>Yes, our certified technicians can perform Commercial Vehicle Inspection Program inspections at your location to keep your truck compliant with Alberta safety standards.</p>
+              </details>
+              <details class="faq-item">
+                <summary>What Should I Do While Waiting For Your Mobile Mechanic To Arrive? <i>+</i></summary>
+                <p>Pull your truck to a safe spot, turn on your hazard lights, and stay away from traffic. Our team will keep you updated on the arrival time.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Do you service the whole Edmonton Area?  <i>+</i></summary>
+                <p>Yes, All Edmonton quadrants and the greater metro area, including Sherwood Park, Spruce Grove, Leduc, Nisku, St. Albert, Devon, Fort Saskatchewan, Tofield, and Camrose. Call to confirm dispatch availability for your specific location.</p>
+              </details>
+              <details class="faq-item">
+                <summary>Do You Offer 24-hour Emergency Truck Repair Service? <i>+</i></summary>
+                <p>Yes. SRB Equipment provides 24/7 mobile truck and trailer repair across Edmonton. You can call anytime for roadside or on-site assistance.</p>
+              </details>
+               <details class="faq-item">
+                <summary>Do You Offer Mobile Tire Repair And Replacement?  <i>+</i></summary>
+                <p>Yes. We handle mobile truck tire repair and replacement on-site for both trucks and trailers, getting you back on the road without a tow.</p>
+              </details>
+              </details>
+              
+            </div>
+          </div>
+        </section>
+    
+        <!-- Bottom CTA -->
+        <section class="section">
+          <div class="container">
+            <div class="bottom-cta">
+              <div>
+                <h2>Ready to Get Your Truck Back on the Road?</h2>
+                <p>Book mobile truck service now — fast response, certified mechanics, and repairs at your location across Edmonton.</p>
+              </div>
+              <a href="tel:+17808785221" class="bottom-cta__phone">(780) 878-5221</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    
+      <a href="tel:+17808785221" class="floating-call">Call Now</a>
+    
+    

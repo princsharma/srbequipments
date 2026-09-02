@@ -1,0 +1,548 @@
+<style>
+    .hero.hero--cinematic {
+      min-height: clamp(480px, 72vh, 620px);
+      display: flex;
+      align-items: flex-end;
+      text-align: left;
+    }
+    .hero--cinematic .hero__grid,
+    .hero--cinematic .hero__glow { display: none; }
+    .hero--cinematic .hero__title {
+        max-width: 900px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .hero--cinematic .hero__price {
+        font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+        color: var(--primary-color);
+        font-weight: 800;
+        margin: 0 0 var(--space-4);
+      }
+    
+      .image-frame--short img {
+        width: 100%;
+        height: 420px;
+        min-height: 280px;
+        object-fit: cover;
+        display: block;
+        background: var(--gray-bg);
+      }
+    
+      .premium-band {
+        margin: var(--space-5) 0;
+        padding: var(--space-5);
+        background: linear-gradient(135deg, var(--surface-dark-1) 0%, var(--dark-light) 100%);
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(255, 242, 0, 0.15);
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+      }
+      .premium-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--overlay-grid);
+        background-size: var(--overlay-grid-size);
+        opacity: 0.35;
+        pointer-events: none;
+      }
+      .premium-band > * { position: relative; z-index: 1; }
+      .premium-band__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: var(--space-4);
+        padding: 6px 14px;
+        border-radius: var(--radius-pill);
+        background: rgba(255, 242, 0, 0.14);
+        border: 1px solid rgba(255, 242, 0, 0.35);
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--primary-color);
+      }
+    
+      .service-icon-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-2);
+      }
+      .service-icon-grid li {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: var(--space-3);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-md);
+      }
+      .service-icon-grid li:hover {
+        background: rgba(255, 242, 0, 0.08);
+        border-color: rgba(255, 242, 0, 0.35);
+      }
+      .service-icon-grid__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: var(--primary-color);
+        color: var(--dark);
+        font-size: 1.15rem;
+        box-shadow: var(--shadow-yellow);
+        flex-shrink: 0;
+      }
+      .service-icon-grid__label {
+        font-weight: 700;
+        font-size: 0.95rem;
+        line-height: 1.2;
+        color: var(--white);
+      }
+    
+      .detail-icon-grid {
+        list-style: none;
+        padding: 0;
+        margin: var(--space-4) 0 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+      }
+      .detail-icon-grid li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        padding: var(--space-4);
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+      }
+      .detail-icon-grid li:hover {
+        box-shadow: var(--shadow-md);
+        border-color: rgba(255, 242, 0, 0.55);
+      }
+      .detail-icon-grid__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: var(--dark);
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+      .detail-icon-grid__body h3 {
+        font-size: 1.1rem;
+        margin: 0 0 8px;
+        line-height: 1.2;
+      }
+      .detail-icon-grid__body p {
+        color: var(--text-light);
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+    
+      .symptom-block { margin-top: 0; }
+      .subsection-title--flush { margin-top: var(--space-2); }
+    
+      .cta-gradient {
+        background: linear-gradient(90deg, var(--dark) 0%, var(--primary-color) 100%);
+        color: var(--white);
+        text-align: center;
+        padding: var(--space-5) var(--space-4);
+        border-radius: var(--radius-lg);
+        margin: var(--space-5) 0 var(--space-4);
+      }
+      .cta-gradient p {
+        color: var(--white);
+        margin: 0;
+        font-weight: 800;
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        line-height: 1.4;
+      }
+    
+      @media (max-width: 1100px) {
+        .service-icon-grid { grid-template-columns: repeat(3, 1fr); }
+      }
+      @media (max-width: 768px) {
+        .service-icon-grid { grid-template-columns: repeat(2, 1fr); }
+        .detail-icon-grid { grid-template-columns: 1fr; }
+        .premium-band { padding: var(--space-4); }
+      }
+    </style>
+    
+    <link rel="preload" as="image" href="https://srbequipment.ca/wp-content/uploads/2025/11/coolant-repair-1.jpg" fetchpriority="high">
+    
+    <main>
+      <!-- Hero -->
+      <section class="hero hero--cinematic" data-testid="hero">
+        <div class="hero__photo" aria-hidden="true">
+          <img
+            src="https://srbequipment.ca/wp-content/uploads/2025/11/coolant-repair-1.jpg"
+            alt="Truck AC repair service in Edmonton"
+            width="1600"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+        <div class="hero__bg">
+          <div class="hero__grid"></div>
+          <div class="hero__glow hero__glow--y"></div>
+        </div>
+        <div class="container">
+          <div class="hero__content">
+            <h1 class="hero__title">Truck AC Repair in Edmonton</h1>
+            <p class="hero__price">Starting at $133/ hr.</p>
+            <div class="hero__actions">
+              <a href="#contact" class="btn btn--ghost btn--lg">Book an Appointment</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Intro -->
+      <section class="section" data-testid="intro">
+        <div class="container two-col">
+          <div class="two-col__content">
+            <h2 class="section__title">Edmonton Truck AC Repair Service</h2>
+            <p>
+              Air conditioning systems within the vehicles do not produce cold air but generally eradicate
+              heat from the air entering the system. The refrigerant used in the vehicles typically
+              alternates between a liquid and gaseous state.
+            </p>
+            <p>
+              There exists a whole process behind the air conditioning functioning. SRB Equipment understands
+              the technical know-how of the entire process and appropriately provides the repair services to
+              keep the vehicle running on the road.
+            </p>
+          </div>
+          <div class="two-col__media">
+            <div class="image-frame image-frame--short">
+              <img
+                src="https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Mechanic servicing truck air conditioning system"
+                width="800"
+                height="533"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="image-frame__sticker">AC Repair · Edmonton</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Signs -->
+      <section class="section section--gray" data-testid="signs">
+        <div class="container">
+          <div class="symptom-block">
+            <div class="two-col two-col--reverse">
+              <div class="two-col__content">
+                <span class="eyebrow"><span class="eyebrow__dot"></span> Warning Signs</span>
+                <h2 class="section__title subsection-title--flush">
+                  Signs Indicating Vehicles Require Air Conditioning Services!
+                </h2>
+              </div>
+              <div class="two-col__media">
+                <div class="image-frame image-frame--short">
+                  <img
+                    src="https://images.pexels.com/photos/3806287/pexels-photo-3806287.jpeg?auto=compress&cs=tinysrgb&w=800"
+                    alt="Technician inspecting truck front end and AC system"
+                    width="800"
+                    height="533"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div class="image-frame__stat">
+                    <strong>Stay</strong>
+                    <span>Cab Comfortable</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <ul class="detail-icon-grid">
+              <li>
+                <span class="detail-icon-grid__icon"><i class="fa-solid fa-snowflake"></i></span>
+                <div class="detail-icon-grid__body">
+                  <h3>The Air Conditioner is Not Cooling.</h3>
+                  <p>
+                    Mostly the air conditioner loses its cooling property due to lower refrigerant levels. This
+                    could be a strong indication that air conditioning requires repair.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="detail-icon-grid__icon"><i class="fa-solid fa-volume-high"></i></span>
+                <div class="detail-icon-grid__body">
+                  <h3>Strange Noises Come Up When the Air Conditioner is on</h3>
+                  <p>
+                    Generally, the awkward noise comes from the vehicle when the compressor is not functioning
+                    the way it is required. However, this can be due to using the wrong lubricant or
+                    cross-contaminated refrigerant.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="detail-icon-grid__icon"><i class="fa-solid fa-droplet"></i></span>
+                <div class="detail-icon-grid__body">
+                  <h3>Moisture Inside The Vehicle</h3>
+                  <p>
+                    This could be a reason as the debris or moisture trapped in the air conditioning can also
+                    lead to the requirement to repair the air conditioning.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="detail-icon-grid__icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+                <div class="detail-icon-grid__body">
+                  <h3>Leakage From The Air Conditioner</h3>
+                  <p>
+                    Leaking refrigerant can be dangerous and immediately needs to be addressed. With air
+                    conditioning repairs, this leakage issue can be addressed.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Partner + CTA -->
+      <section class="section" data-testid="partner">
+        <div class="container">
+          <h2 class="section__title">SRB Equipment – Your Reliable Air Conditioning Repair Partner!</h2>
+          <p><strong>Quality air conditioning repair services are now within your reach!</strong></p>
+          <p>
+            Our team of proficient experts has years of knowledge and combined experience to keep your
+            vehicle ready to go. From commercial vehicle inspection services to engine repairs, emission
+            control, and air conditioning repairs, we have got it all covered.
+          </p>
+    
+          <div class="cta-gradient">
+            <p>Connect Now and Access the Quality Truck AC Repair Services at Your Fingertips!</p>
+          </div>
+    
+          <div class="section__actions section__actions--center">
+            <a href="#contact" class="btn btn--primary btn--lg">Connect Now</a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Why trust -->
+      <section class="section section--gray" data-testid="trust">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Why Trust SRB Equipment?</h2>
+            <p class="section__lede">
+              Being a leading automotive service provider in Edmonton, we have built a stronger reputation in
+              the truck repair industry with
+            </p>
+          </div>
+    
+          <div class="premium-band">
+            <span class="premium-band__label"><i class="fa-solid fa-shield-halved"></i> Why Trust Us</span>
+            <ul class="service-icon-grid">
+              <li>
+                <span class="service-icon-grid__icon"><i class="fa-solid fa-user-gear"></i></span>
+                <span class="service-icon-grid__label">Highly trained professionals</span>
+              </li>
+              <li>
+                <span class="service-icon-grid__icon"><i class="fa-solid fa-boxes-stacked"></i></span>
+                <span class="service-icon-grid__label">High-quality parts</span>
+              </li>
+              <li>
+                <span class="service-icon-grid__icon"><i class="fa-solid fa-hand-holding-dollar"></i></span>
+                <span class="service-icon-grid__label">Fair prices</span>
+              </li>
+              <li>
+                <span class="service-icon-grid__icon"><i class="fa-solid fa-truck"></i></span>
+                <span class="service-icon-grid__label">Dedicated team for truck and trailer repairs</span>
+              </li>
+              <li>
+                <span class="service-icon-grid__icon"><i class="fa-solid fa-bolt"></i></span>
+                <span class="service-icon-grid__label">Quicker response times</span>
+              </li>
+            </ul>
+          </div>
+    
+          <div class="section__actions section__actions--center">
+            <a href="#contact" class="btn btn--dark btn--lg">Book an Appointment</a>
+          </div>
+        </div>
+      </section>
+    
+     <!-- Reviews -->
+     <section id="reviews" class="section section--reviews" data-testid="reviews">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <span class="eyebrow">Reviews</span>
+            <h2 class="section__title">Trusted by Truckers <em>Like You</em></h2>
+            <div class="reviews-summary">
+              <div class="reviews-summary__stars" aria-label="Rated 4.8 out of 5">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+              </div>
+              <strong>4.8 / 5.0</strong>
+              <span>· Based on verified Google reviews</span>
+            </div>
+          </div>
+    
+          <div class="review-grid" data-testid="review-grid">
+            <article class="review-card">
+              <div class="review-card__head">
+                <span class="review-card__avatar" style="background:#0ea5e9">SC</span>
+                <div>
+                  <strong>Steph Carvalho</strong>
+                  <span><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+              </div>
+              <div class="review-card__stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "We are a young company and have tried several mechanical shops and SRB Equipment is
+                by far the best. Shaun and his team are amazing to work with and so knowledgeable.
+                We have worked with them for 2 years and they are always there for us — from CVIP
+                to running out to diagnose breakdowns and everything in between."
+              </p>
+            </article>
+    
+            <article class="review-card">
+              <div class="review-card__head">
+                <span class="review-card__avatar" style="background:#f59e0b">BJ</span>
+                <div>
+                  <strong>Braeden Jones</strong>
+                  <span><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+              </div>
+              <div class="review-card__stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "Got me in last minute to do an emergency tire swap. They were fair and more than
+                helpful. Definitely recommend!"
+              </p>
+            </article>
+    
+            <article class="review-card">
+              <div class="review-card__head">
+                <span class="review-card__avatar" style="background:#10b981">CC</span>
+                <div>
+                  <strong>Charles Cameron</strong>
+                  <span><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+              </div>
+              <div class="review-card__stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "We at CDR Rentals have used Shaun as our go-to for our fleet for a couple of years.
+                Never misses a beat. Professional, personable and fair. Thanks Shaun!"
+              </p>
+            </article>
+    
+            <article class="review-card">
+              <div class="review-card__head">
+                <span class="review-card__avatar" style="background:#8b5cf6">PI</span>
+                <div>
+                  <strong>Piper</strong>
+                  <span><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+              </div>
+              <div class="review-card__stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "I have been going to SRB Equipment for the last two years. Shaun has never turned
+                me away for repairs on my truck. I'm always pleased with the repairs done. He does
+                my yearly inspection for me as well."
+              </p>
+            </article>
+    
+            <article class="review-card">
+              <div class="review-card__head">
+                <span class="review-card__avatar" style="background:#ef4444">CR</span>
+                <div>
+                  <strong>Craig Cranna</strong>
+                  <span><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+              </div>
+              <div class="review-card__stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "Knowledgeable old school mechanic able to troubleshoot and not only rely on a
+                computer. Reasonable rates and repairs done in a timely manner."
+              </p>
+            </article>
+    
+            <article class="review-card">
+              <div class="review-card__head">
+                <span class="review-card__avatar" style="background:#0f172a">JH</span>
+                <div>
+                  <strong>Josh Hesse</strong>
+                  <span><i class="fa-brands fa-google"></i> Google Review</span>
+                </div>
+              </div>
+              <div class="review-card__stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                "We have used SRB for all our truck and trailer repairs. Fast efficient service.
+                Definitely will continue sending all our equipment to SRB."
+              </p>
+            </article>
+          </div>
+    
+          <div class="section__actions section__actions--center">
+            <a href="#" class="btn btn--outline" data-testid="read-more-reviews">
+              Read More Reviews <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Contact -->
+      <section id="contact" class="section section--contact" data-testid="contact">
+        <div class="container two-col two-col--narrow">
+          <div class="two-col__content">
+            <div class="section__head section__head--center">
+              <h2 class="section__title">Book Truck AC Repair in Edmonton</h2>
+              <p class="section__lede">Call SRB Equipment for professional truck air conditioning repair and service.</p>
+              <div class="section__actions section__actions--center">
+                <a href="tel:+17808785221" class="btn btn--primary btn--lg">
+                  <i class="fa-solid fa-phone-volume"></i> (780) 878-5221
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="two-col__media">
+            <div class="image-frame image-frame--short">
+              <img
+                src="https://srbequipment.ca/wp-content/uploads/2025/11/coolant-repair-1.jpg"
+                alt="Book truck AC repair at SRB Equipment Edmonton"
+                width="715"
+                height="340"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    

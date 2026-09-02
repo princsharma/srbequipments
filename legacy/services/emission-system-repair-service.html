@@ -1,0 +1,316 @@
+<style>
+    /* Emission System Repair — page-only styles */
+    .hero.hero--service {
+      min-height: clamp(380px, 50vh, 480px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero--service .hero__title {
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      max-width: 900px;
+      margin: 0 auto var(--space-3);
+    }
+    .hero--service .hero__price {
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      color: rgba(255, 255, 255, 0.92);
+      margin: 0 0 var(--space-4);
+    }
+    .em-intro__media {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .em-intro__media img {
+      width: 100%;
+      height: clamp(280px, 38vw, 380px);
+      object-fit: cover;
+      display: block;
+    }
+    .em-pollutant {
+      margin-bottom: var(--space-3);
+    }
+    .em-pollutant strong {
+      color: var(--dark);
+      font-size: 1.05rem;
+    }
+    .em-indication {
+      margin-bottom: var(--space-4);
+    }
+    .em-indication h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .em-indication p {
+      color: var(--text-light);
+      margin: 0;
+      line-height: 1.65;
+    }
+    .cta-gradient {
+      background: linear-gradient(90deg, var(--dark) 0%, var(--primary-color) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: var(--space-5) var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    .cta-gradient p {
+      color: var(--white);
+      margin: 0 0 var(--space-2);
+      font-weight: 700;
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      line-height: 1.5;
+    }
+    .cta-gradient p:last-child { margin-bottom: 0; }
+    .cta-gradient--lg {
+      padding: var(--space-6) var(--space-4);
+      margin: var(--space-5) 0 var(--space-4);
+    }
+    .cta-gradient--lg h2 {
+      color: var(--white);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin: 0 0 var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .cta-gradient--lg p {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .review-grid--simple {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .review-card--simple {
+      text-align: center;
+    }
+    .review-card--simple .review-card__stars {
+      font-size: 1.1rem;
+      margin-bottom: var(--space-3);
+    }
+    .review-card--simple strong {
+      display: block;
+      margin-top: var(--space-3);
+      font-size: 1.15rem;
+      color: var(--dark);
+    }
+    @media (max-width: 768px) {
+      .review-grid--simple { grid-template-columns: 1fr; }
+    }
+    </style>
+    
+    <link rel="preload" as="image" href="https://srbequipment.ca/wp-content/uploads/2025/11/exhaust-repair.jpg" fetchpriority="high">
+    
+    <main>
+      <!-- ============ HERO ============ -->
+      <section class="hero hero--service" data-testid="hero">
+        <div class="hero__photo" aria-hidden="true">
+          <img
+            src="https://srbequipment.ca/wp-content/uploads/2025/11/exhaust-repair.jpg"
+            alt="Emission system repair service for trucks"
+            width="1600"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+        <div class="container">
+          <h1 class="hero__title">Emission System Repair Service</h1>
+          <p class="hero__price">Starting at $133/ hr.</p>
+          <a href="#contact" class="btn btn--ghost btn--lg">Book an Appointment</a>
+        </div>
+      </section>
+    
+      <!-- ============ INTRO ============ -->
+      <section class="section" data-testid="intro">
+        <div class="container two-col">
+          <div class="two-col__content">
+            <h2 class="section__title">Truck Exhaust Repair Edmonton</h2>
+            <p>
+              Every vehicle emits air pollution; however, the vehicle's emission system functions to diminish
+              the harmful gases liberated in the environment.
+            </p>
+            <p>
+              Therefore, SRB Equipment provide complete emission system repair services to keep the engines
+              running without much air pollution. Fuel system components, an array of sensors, exhaust
+              components, and computerized engine controls, everything functions altogether to control the
+              emission output of the vehicles.
+            </p>
+            <p>
+              The range of pollutants generated from vehicles requires attention, which is where the exhaust
+              system repair help.
+            </p>
+          </div>
+          <div class="two-col__media">
+            <div class="em-intro__media">
+              <img
+                src="https://srbequipment.ca/wp-content/uploads/2025/11/exhaust-repair.jpg"
+                alt="Truck exhaust system components"
+                width="715"
+                height="340"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ POLLUTANTS ============ -->
+      <section class="section section--gray" data-testid="pollutants">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Common Pollutants Released From Vehicles!</h2>
+          </div>
+    
+          <p class="em-pollutant">
+            <strong>Carbon Monoxide (CO):</strong> CO is an odorless, poisonless, and colorless gas that is
+            formed by gasoline combustion when the carbon present in the fuel doesn't burn completely.
+          </p>
+          <p class="em-pollutant">
+            <strong>Nitrogen Oxides (NOx):</strong> The fuel produces NOx when it combusts completely. This
+            type of air pollutant is generally present in areas having higher population density.
+          </p>
+          <p class="em-pollutant">
+            <strong>Hydrocarbons (HC):</strong> HC is a compound emitted into the atmosphere when combustion
+            doesn't occur appropriately.
+          </p>
+        </div>
+      </section>
+    
+      <!-- ============ INDICATIONS ============ -->
+      <section class="section" data-testid="indications">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Indications That Your Truck Requires Exhaust System Repairs!</h2>
+          </div>
+    
+          <article class="em-indication">
+            <h3>Your Check Engine Light Turns on.</h3>
+            <p>
+              Verify if the engine light turns on, this could indicate several things simultaneously. This may
+              include malfunctioning in the sensors, hose leakage, or even pressure loss in some components of
+              the emission system. This could be a sign that the system requires repairs.
+            </p>
+          </article>
+    
+          <article class="em-indication">
+            <h3>The Vehicle is Not Performing the Way it Should!</h3>
+            <p>
+              The vehicle's emissions system is linked to the whole fuel and exhaust system. So there is some
+              issue with the system that can directly impact its performance.
+            </p>
+          </article>
+    
+          <article class="em-indication">
+            <h3>The Smell of Gas or Fuel Inside or Outside the Car</h3>
+            <p>
+              If the vehicle is liberating the gas or you have noted some fuel smell, then take the car to the
+              emission repair service immediately. Inhaling this can be harmful, leading to nausea and headache.
+            </p>
+          </article>
+    
+          <article class="em-indication">
+            <h3>Getting Fewer Miles Per Gallon</h3>
+            <p>
+              Vehicle fuel evaporates swiftly and even when the vehicle is not in a running state. Therefore,
+              if something is wrong with the vehicle's emission system, you will also experience swift fuel
+              utilization, which indicates going to the repair services immediately.
+            </p>
+          </article>
+    
+          <div class="cta-gradient">
+            <p>Are you experiencing any of the issues mentioned above?</p>
+            <p>Connect with the emission repair experts today!</p>
+          </div>
+    
+          <div class="section__actions section__actions--center">
+            <a href="#contact" class="btn btn--dark btn--lg">Connect Now</a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ PARTNER ============ -->
+      <section class="section section--gray" data-testid="partner">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">SRB Equipment – Your Reliable Stop For Emissions Repair Service!</h2>
+            <p class="section__lede">
+              With several years of experience in the field, SRB Equipment has become the #1 truck and trailer
+              repair shop in Edmonton.
+            </p>
+            <p class="section__lede">
+              Our team of experts proficiently handles everything with the utmost care, so you do not have to
+              worry about vehicle-related issues while moving on the road.
+            </p>
+          </div>
+    
+          <div class="cta-gradient cta-gradient--lg">
+            <h2>High-Quality Truck Exhaust System Repair Edmonton</h2>
+            <p>Just a Call Away!</p>
+          </div>
+    
+          <div class="section__actions section__actions--center">
+            <a href="tel:+17808785221" class="btn btn--dark btn--lg">
+              <i class="fa-solid fa-phone-volume"></i> Call Now
+            </a>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ HAPPY CUSTOMERS ============ -->
+      <section id="reviews" class="section section--reviews" data-testid="reviews">
+        <div class="container">
+          <div class="section__head section__head--center">
+            <h2 class="section__title">Happy Customers</h2>
+          </div>
+    
+          <div class="review-grid review-grid--simple">
+            <article class="review-card review-card--simple">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>Fast proficient and very professional.</p>
+              <strong>Nick Bochanesky</strong>
+            </article>
+    
+            <article class="review-card review-card--simple">
+              <div class="review-card__stars" aria-label="5 out of 5 stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p>
+                SRB is a hidden jewel! This is where I get my CVIP's, and any other repairs I need. Shaun
+                has always been very thorough, and would advise if something is close to being replaced.
+                Certainly would recommend this place!
+              </p>
+              <strong>Claude Lafond</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+    
+      <!-- ============ CONTACT ============ -->
+      <section id="contact" class="section" data-testid="contact">
+        <div class="container section__head section__head--center">
+          <h2 class="section__title">Schedule Emission System Repair</h2>
+          <p class="section__lede">Call SRB Equipment for truck exhaust and emission system repair in Edmonton.</p>
+          <div class="section__actions section__actions--center">
+            <a href="tel:+17808785221" class="btn btn--primary btn--lg">
+              <i class="fa-solid fa-phone-volume"></i> (780) 878-5221
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
