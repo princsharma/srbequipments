@@ -1,11 +1,11 @@
-/* Homepage — Towis industrial rhythm */
+/* Homepage â Towis industrial rhythm */
 
 #home {
   overflow-x: clip;
 }
 
 /* ============================================================
-   Homepage hero — Towis light / centered road-help layout
+   Homepage hero â Towis light / centered road-help layout
    ============================================================ */
 #home .hero.hero--towis {
   position: relative;
@@ -144,7 +144,7 @@
   justify-content: center;
   align-items: flex-end;
   width: 100%;
-  max-width: 880px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-4);
   line-height: 0;
@@ -152,15 +152,15 @@
 
 #home .hero.hero--towis .hero__vehicle img,
 #home .hero.hero--towis .hero__vehicle > span {
-  width: min(100%, 560px) !important;
+  width: 100% !important;
   height: auto !important;
-  max-height: clamp(300px, 48vh, 520px);
+  max-height: none;
 }
 
 #home .hero.hero--towis .hero__vehicle img {
   object-fit: contain !important;
-  object-position: bottom center;
-  filter: drop-shadow(0 24px 40px rgba(11, 18, 32, 0.22));
+  object-position: center bottom;
+  filter: drop-shadow(0 18px 36px rgba(11, 18, 32, 0.18));
 }
 
 #home .hero.hero--towis .hero__stats-wrap {
@@ -201,7 +201,7 @@
 }
 
 /* ============================================================
-   Services — Towis split layout (intro + icon grid)
+   Services â Towis split layout (intro + icon grid)
    ============================================================ */
 #home .services-split {
   position: relative;
@@ -451,7 +451,7 @@
 }
 
 /* ============================================================
-   Why — Towis split layout (intro + feature grid)
+   Why â Towis split layout (intro + feature grid)
    ============================================================ */
 #home .why-split {
   position: relative;
@@ -893,11 +893,6 @@ img.hero_right_icon {
     font-size: clamp(1.75rem, 4.5vw, 2.65rem);
   }
 
-  #home .hero.hero--towis .hero__vehicle img,
-  #home .hero.hero--towis .hero__vehicle > span {
-    max-height: clamp(240px, 38vh, 360px);
-  }
-
   #home .image-frame > img {
     height: 380px;
   }
@@ -961,11 +956,6 @@ img.hero_right_icon {
     padding: 0 var(--space-3);
   }
 
-  #home .hero.hero--towis .hero__vehicle img,
-  #home .hero.hero--towis .hero__vehicle > span {
-    max-height: clamp(220px, 34vh, 300px);
-  }
-
   #home .hero__stats-wrap > .container {
     padding-left: calc(var(--space-4) + var(--safe-left));
     padding-right: calc(var(--space-4) + var(--safe-right));
@@ -987,7 +977,7 @@ img.hero_right_icon {
 }
 
 /* ============================================================
-   Homepage motion � Towis-inspired
+   Homepage motion ï¿½ Towis-inspired
    ============================================================ */
 @keyframes heroRise {
   from { opacity: 0; transform: translateY(28px); }

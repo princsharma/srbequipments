@@ -5,7 +5,7 @@ import HazardStripe from "@/components/HazardStripe";
 import { SITE } from "@/lib/site";
 
 const HERO_VEHICLE =
-  "/images/2026/02/white-color-mobile-service-truck-edmonton-400x516.webp";
+  "/images/Homepage/70a4df0f-f838-42fd-bae3-cd039671290f.webp";
 
 export default function HomeHero() {
   return (
@@ -63,11 +63,11 @@ export default function HomeHero() {
       <div className="hero__vehicle hero-anim hero-anim--vehicle">
         <Image
           src={HERO_VEHICLE}
-          alt="SRB Equipment mobile service truck in Edmonton"
-          width={800}
-          height={1032}
+          alt="SRB Equipment truck and trailer repair in Edmonton"
+          width={2170}
+          height={725}
           priority
-          sizes="(max-width: 768px) 85vw, 640px"
+          sizes="(max-width: 768px) 100vw, 1100px"
         />
       </div>
 
