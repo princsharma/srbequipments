@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 import { SITE } from "@/lib/site";
 import {
   REPAIR_SHOP_AREAS,
@@ -96,47 +97,16 @@ function ShopCard({ shop }: { shop: RepairShop }) {
 export default function RepairShopsPage() {
   return (
     <div id="srb-repair-shops">
-      <section className="hero hero--light">
-        <div className="container">
-          <div className="hero__inner">
-            <div className="hero__content">
-              <span className="eyebrow">
-                <span className="eyebrow__dot" /> Updated 2026
-              </span>
-              <h1 className="hero__title">
-                Best Truck Repair Shop <em>in Edmonton</em>
-              </h1>
-              <p className="hero__lede">
-                You can rely on the specialists to repair your vehicle
-                professionally and safely get you back on the road. Here is the
-                list of truck repair shop in Edmonton, provides CVIP Inspections,
-                Engine Repair, Emission System Repair/Service, Air Conditioning,
-                Oil Changes, Tire Maintenance, and much more.
-              </p>
-              <div className="hero__actions">
-                <a href="#listings" className="btn btn--dark btn--lg">
-                  View All Shops
-                </a>
-                <a href={SITE.phoneHref} className="btn btn--outline btn--lg">
-                  Call SRB Equipment
-                </a>
-              </div>
-            </div>
-            <div className="hero__visual">
-              <div className="hero__image-card">
-                <Image
-                  src={REPAIR_SHOPS_HERO}
-                  alt="Best Truck Repair in Edmonton"
-                  width={800}
-                  height={600}
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Updated 2026"
+        title={
+          <>
+            Best Truck Repair Shop <em>in Edmonton</em>
+          </>
+        }
+        lede="Rely on specialists to repair your vehicle professionally and get you back on the road. CVIP inspections, engine repair, emissions, A/C, oil changes, tires, and more."
+        image={REPAIR_SHOPS_HERO}
+      />
 
       <div className="trust-strip trust-strip--compact">
         <div className="container trust-strip__grid">

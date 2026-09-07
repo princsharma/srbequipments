@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 import { SITE } from "@/lib/site";
 import { GALLERY_HERO, GALLERY_ITEMS } from "@/lib/gallery-data";
 import GalleryLightbox from "@/components/gallery/GalleryLightbox";
@@ -7,31 +7,12 @@ import GalleryLightbox from "@/components/gallery/GalleryLightbox";
 export default function GalleryPage() {
   return (
     <div id="srb-gallery">
-      <section className="section gallery-hero section--dark">
-        <div className="gallery-hero__bg" aria-hidden="true">
-          <Image
-            src={GALLERY_HERO}
-            alt=""
-            width={1920}
-            height={720}
-            priority
-            sizes="100vw"
-          />
-        </div>
-        <div className="container">
-          <div className="section__head section__head--center">
-            <h1>Gallery</h1>
-            <span className="eyebrow eyebrow--light mb-20">
-              <span className="eyebrow__dot" aria-hidden="true" /> Inside Our
-              Workshop
-            </span>
-            <p className="section__lede">
-              A look at the engines, frames, and heavy-duty repairs our Edmonton
-              team handles every day — in the shop and on the road.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Inside Our Workshop"
+        title="Gallery"
+        lede="A look at the engines, frames, and heavy-duty repairs our Edmonton team handles every day — in the shop and on the road."
+        image={GALLERY_HERO}
+      />
 
       <section className="section gallery-grid-section">
         <div className="container">

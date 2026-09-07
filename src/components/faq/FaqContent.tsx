@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageHero from "@/components/PageHero";
 import { SITE } from "@/lib/site";
 
 const CTA_BG =
@@ -7,28 +8,14 @@ const CTA_BG =
 export default function FaqContent() {
   return (
     <>
-      <section
-        className="hero faq-page-hero"
-        data-testid="faq-hero"
-        aria-labelledby="faq-heading"
-      >
-        <div className="hero__bg" aria-hidden="true">
-          <div className="hero__grid" />
-          <div className="hero__mountains" />
-          <div className="hero__glow hero__glow--y" />
-        </div>
-        <div className="container hero__inner">
-          <div className="hero__content">
-            <h1 id="faq-heading" className="hero__title">
-              Frequently Asked Questions
-            </h1>
-            <p className="hero__lede">
-              Here are some frequently asked questions that fleet owners or truck
-              drivers inquiries often from us.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        id="faq-heading"
+        testId="faq-hero"
+        eyebrow="Answers Fast"
+        title="Frequently Asked Questions"
+        lede="Here are some frequently asked questions that fleet owners or truck drivers inquire about often."
+        image={CTA_BG}
+      />
 
       <section
         id="faq"

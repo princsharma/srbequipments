@@ -1,3 +1,4 @@
+import PageHero from "@/components/PageHero";
 import { SITE } from "@/lib/site";
 
 const [street, ...cityParts] = SITE.address.split(", ");
@@ -8,25 +9,14 @@ const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(SITE.address)
 export default function ContactContent() {
   return (
     <>
-      <section
-        className="hero contact-page-hero"
-        data-testid="contact-hero"
-        aria-labelledby="contact-heading"
-      >
-        <div className="hero__bg" aria-hidden="true">
-          <div className="hero__grid" />
-          <div className="hero__mountains" />
-          <div className="hero__glow hero__glow--y" />
-        </div>
-        <div className="container hero__inner">
-          <div className="hero__content">
-            <h1 id="contact-heading" className="hero__title">
-              Contact
-            </h1>
-            <p className="hero__lede">Get in Touch With Us</p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        id="contact-heading"
+        testId="contact-hero"
+        eyebrow="Get In Touch"
+        title="Contact Us"
+        lede="Call, email, or visit our Edmonton shop — we're ready to keep your trucks moving."
+        image="/images/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
+      />
 
       <section
         className="section section--gray"

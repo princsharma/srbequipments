@@ -1,8 +1,26 @@
-/* Footer enhancements — from Divi footer.html */
+/* Footer — Towis industrial */
 
 #srb-footer.site-footer {
-  border-top: 3px solid var(--primary-color);
+  border-top: none;
   margin-top: auto;
+  background: #080d16;
+  position: relative;
+  padding-top: 0;
+}
+
+#srb-footer > .hazard-stripe {
+  position: relative;
+  z-index: 2;
+}
+
+#srb-footer > .container {
+  position: relative;
+  z-index: 1;
+  padding-top: clamp(40px, 5vw, 64px);
+}
+
+#srb-footer .site-footer__bg {
+  opacity: 0.35;
 }
 
 #srb-footer .brand__logo {
@@ -13,37 +31,60 @@
 }
 
 #srb-footer .site-footer__brand-divider {
-  width: 48px;
-  height: 3px;
+  width: 56px;
+  height: 4px;
   background: var(--primary-color);
   margin: var(--space-3) 0;
-  border-radius: var(--radius-pill);
+  border-radius: 0;
 }
 
 #srb-footer .site-footer__tagline {
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--primary-color);
   line-height: 1.55;
-  max-width: 240px;
+  max-width: 280px;
   margin: 0;
 }
 
+#srb-footer .site-footer__brand > p:not(.site-footer__tagline) {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
 #srb-footer .site-footer__col h4 {
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.88rem;
 }
 
 #srb-footer .site-footer__col h4::after {
   content: "";
   display: block;
-  width: 42px;
+  width: 40px;
   height: 3px;
   background: var(--primary-color);
-  margin-top: 8px;
-  border-radius: var(--radius-pill);
+  margin-top: 10px;
+  border-radius: 0;
+}
+
+#srb-footer .site-footer__col ul a {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+#srb-footer .site-footer__col ul a:hover {
+  color: var(--primary-color);
+  padding-left: 4px;
 }
 
 #srb-footer .site-footer__contact-icon {
@@ -53,28 +94,45 @@
   flex-shrink: 0;
 }
 
+#srb-footer .site-footer__contact a {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+#srb-footer .site-footer__contact a:hover {
+  color: var(--primary-color);
+}
+
 #srb-footer .site-footer__social a {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: rgba(255, 242, 0, 0.1);
-  border: 1px solid rgba(255, 242, 0, 0.18);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 242, 0, 0.08);
+  border: 1px solid rgba(255, 242, 0, 0.22);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
+  color: var(--primary-color);
 }
 
 #srb-footer .site-footer__social a:hover {
   background: var(--primary-color);
   color: var(--dark);
   border-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 #srb-footer .site-footer__bottom {
   font-size: var(--small);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
 }
 
 @media (max-width: 768px) {
@@ -87,7 +145,8 @@
     margin-right: auto;
   }
 
-  #srb-footer .site-footer__tagline {
+  #srb-footer .site-footer__tagline,
+  #srb-footer .site-footer__brand > p:not(.site-footer__tagline) {
     margin-left: auto;
     margin-right: auto;
   }

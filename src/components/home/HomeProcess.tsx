@@ -1,3 +1,4 @@
+import Reveal from "@/components/Reveal";
 import { REPAIR_STEPS } from "@/lib/home-data";
 import { SITE } from "@/lib/site";
 
@@ -5,7 +6,8 @@ export default function HomeProcess() {
   return (
     <section className="section section--process" data-testid="repair-process">
       <div className="container">
-        <div className="section__head section__head--center">
+        <Reveal variant="up" className="section__head section__head--center">
+          <span className="eyebrow">How We Work</span>
           <h2 className="section__title">
             Our Truck and Trailer Repair Process
           </h2>
@@ -13,21 +15,26 @@ export default function HomeProcess() {
             We follow a clear repair process to keep your truck operating
             reliably.
           </p>
-        </div>
+        </Reveal>
 
         <ol className="repair-steps">
           {REPAIR_STEPS.map((step, index) => (
-            <li key={step.title}>
+            <Reveal
+              key={step.title}
+              as="li"
+              variant="up"
+              delay={index * 90}
+            >
               <span className="repair-steps__num" aria-hidden="true">
                 {index + 1}
               </span>
               <h3>{step.title}</h3>
               <p>{step.description}</p>
-            </li>
+            </Reveal>
           ))}
         </ol>
 
-        <div className="section__actions section__actions--center">
+        <Reveal variant="up" delay={200} className="section__actions section__actions--center">
           <a
             href={SITE.phoneHref}
             className="btn btn--primary btn--lg"
@@ -35,7 +42,7 @@ export default function HomeProcess() {
           >
             {SITE.phoneDisplay}
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

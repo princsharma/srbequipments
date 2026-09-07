@@ -8,6 +8,20 @@
   overflow: visible;
 }
 
+/* Towis page-hero is primary; keep light hero as fallback */
+#srb-repair-shops .page-hero h1 {
+  max-width: 18ch;
+}
+
+#srb-repair-shops .page-hero h1 em {
+  color: var(--primary-color);
+  font-style: normal;
+}
+
+#srb-repair-shops .page-hero h1 em::after {
+  background: var(--primary-color);
+}
+
 .hero--light .hero__bg,
 .hero--light .hero__grid,
 .hero--light .hero__glow {
@@ -135,16 +149,17 @@
   flex-direction: column;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   scroll-margin-top: calc(var(--total-header-height, 132px) + 20px);
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .shop-card:hover {
   box-shadow: var(--shadow-md);
-  border-color: rgba(255, 242, 0, 0.5);
+  border-color: var(--primary-color);
+  transform: translateY(-3px);
 }
 
 .shop-card__media {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HazardStripe from "@/components/HazardStripe";
 import HomeHero from "@/components/home/HomeHero";
 import HomeAbout from "@/components/home/HomeAbout";
 import HomeServices from "@/components/home/HomeServices";
@@ -23,13 +24,17 @@ export default function HomePage() {
       <HomeHero />
       <HomeAbout />
       <HomeServices />
+      <HazardStripe size="lg" />
       <HomeCtaBanner />
+      <HazardStripe size="lg" flip />
       <HomeGallery />
       <HomeWhy />
       <HomeProcess />
       <HomeReviews />
+      <HazardStripe />
       <HomeBrands />
       <HomeFaq />
+      <HazardStripe />
       <HomeContact />
     </div>
   );

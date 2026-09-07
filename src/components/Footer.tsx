@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import HazardStripe from "@/components/HazardStripe";
 import { SERVICE_LINKS, SITE, SOCIAL_LINKS } from "@/lib/site";
 
 export default function Footer() {
   return (
     <footer className="site-footer" id="srb-footer">
+      <HazardStripe size="lg" />
       <div className="site-footer__bg" aria-hidden="true">
         <div className="site-footer__grid" />
       </div>

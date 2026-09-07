@@ -1,38 +1,4 @@
-/* Contact page — layout only (uses global styles) */
-
-.hero.contact-page-hero {
-  min-height: auto;
-  padding: calc(120px + var(--safe-top)) 0 var(--space-5);
-  overflow: visible;
-}
-
-.contact-page-hero .hero__inner {
-  display: block;
-  text-align: center;
-  min-height: auto;
-}
-
-.contact-page-hero .hero__title {
-  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
-  margin: 0 0 var(--space-2);
-}
-
-.contact-page-hero .hero__lede {
-  max-width: none;
-  margin: 0 auto;
-  font-size: 1rem;
-}
-
-.contact-page-hero .hero__mountains {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.35;
-  background:
-    linear-gradient(165deg, transparent 42%, rgba(255, 255, 255, 0.06) 42%, rgba(255, 255, 255, 0.06) 44%, transparent 44%),
-    linear-gradient(155deg, transparent 52%, rgba(255, 255, 255, 0.05) 52%, rgba(255, 255, 255, 0.05) 54%, transparent 54%);
-  clip-path: polygon(0 100%, 8% 58%, 18% 72%, 28% 48%, 38% 65%, 48% 38%, 58% 55%, 68% 32%, 78% 50%, 88% 28%, 96% 45%, 100% 35%, 100% 100%);
-}
+/* Contact page — Towis industrial */
 
 .contact-quick-grid {
   display: grid;
@@ -42,45 +8,46 @@
 }
 
 .contact-quick-card {
-  background: var(--dark-light);
-  border-radius: var(--radius-lg);
+  background: var(--surface-dark-1);
+  border-radius: var(--radius-sm);
   padding: var(--space-5) var(--space-4);
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 4px solid var(--primary-color);
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition: transform var(--transition), border-color var(--transition);
 }
 
 .contact-quick-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
 .contact-quick-card__icon {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   margin: 0 auto var(--space-3);
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   background: var(--primary-color);
   color: var(--dark);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
-  box-shadow: var(--shadow-yellow);
+  font-size: 1.5rem;
 }
 
 .contact-quick-card h3 {
   color: var(--white);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .contact-quick-card p,
 .contact-quick-card a {
   color: rgba(255, 255, 255, 0.88);
   font-size: 1rem;
-  line-height: 1.65;
-  margin: 0;
 }
 
 .contact-quick-card a:hover {
@@ -88,43 +55,40 @@
 }
 
 .contact-page-details {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-5);
   align-items: stretch;
-  gap: var(--space-4);
 }
 
 .contact-page-details .contact-card {
-  flex: 1;
-  min-width: 0;
-  margin-bottom: 0;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary-color);
 }
 
-.contact-page-details .contact-map {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  min-height: 320px;
+.contact-map {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  min-height: 420px;
+  box-shadow: var(--shadow-sm);
 }
 
-.contact-page-details .contact-map iframe {
-  flex: 1;
+.contact-map iframe {
   width: 100%;
   height: 100%;
-  min-height: 320px;
+  min-height: 420px;
+  border: 0;
+  display: block;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .contact-quick-grid {
     grid-template-columns: 1fr;
-    max-width: 480px;
-    margin-inline: auto;
-    margin-bottom: var(--space-5);
   }
-}
 
-@media (max-width: 768px) {
   .contact-page-details {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }

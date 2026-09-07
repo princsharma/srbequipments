@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 import { BLOG_ARTICLES, slugFromHref } from "@/lib/blog-articles";
 import { BLOG_HERO, BLOG_POSTS } from "@/lib/blog-data";
 
@@ -38,31 +39,12 @@ export default function BlogPage() {
 
   return (
     <div id="srb-blog">
-      <section className="section blog-hero section--dark">
-        <div className="blog-hero__bg" aria-hidden="true">
-          <Image
-            src={BLOG_HERO}
-            alt=""
-            width={1920}
-            height={720}
-            priority
-            sizes="100vw"
-          />
-        </div>
-        <div className="container">
-          <div className="section__head section__head--center">
-            <h1>Blog</h1>
-            <span className="eyebrow eyebrow--light mb-20">
-              <span className="eyebrow__dot" aria-hidden="true" /> Truck Repair
-              Tips &amp; Insights
-            </span>
-            <p className="section__lede">
-              Expert advice on heavy-duty truck repair, maintenance, and roadside
-              service — from the SRB Equipment team in Edmonton.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Truck Repair Tips & Insights"
+        title="Blog"
+        lede="Expert advice on heavy-duty truck repair, maintenance, and roadside service — from the SRB Equipment team in Edmonton."
+        image={BLOG_HERO}
+      />
 
       <section className="section blog-list">
         <div className="container">

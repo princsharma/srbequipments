@@ -64,7 +64,7 @@
   position: relative;
   display: block;
   grid-column: span 2;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border);
@@ -77,6 +77,12 @@
   color: inherit;
   -webkit-appearance: none;
   appearance: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+#srb-gallery .gallery-page__item:hover {
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 #srb-gallery .gallery-page__item--feature {
@@ -105,7 +111,7 @@
 #srb-gallery .gallery-page__zoom {
   width: 52px;
   height: 52px;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   background: var(--primary-color);
   color: var(--dark);
   font-size: 1.15rem;
@@ -113,7 +119,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-yellow);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 #srb-gallery .gallery-page__item:hover .gallery-page__overlay,
@@ -128,10 +134,11 @@
 
 #srb-gallery .gallery-cta {
   background: var(--white);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-sm);
   padding: var(--space-6);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border);
+  border-left: 6px solid var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -242,7 +249,7 @@ html.srb-lightbox-open {
 .gallery-lightbox__close {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
@@ -297,7 +304,7 @@ html.srb-lightbox-open {
 .gallery-lightbox__nav {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.1);
   color: #fff;

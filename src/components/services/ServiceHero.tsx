@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
+import HazardStripe from "@/components/HazardStripe";
 import { SITE } from "@/lib/site";
 
 type Pill = { strong: string; label: string };
@@ -44,6 +45,7 @@ export default function ServiceHero({
     .join(" ");
 
   return (
+    <>
     <section className={sectionClass} data-testid="hero">
       <div className="hero__photo" aria-hidden="true">
         <Image
@@ -95,5 +97,7 @@ export default function ServiceHero({
         </div>
       </div>
     </section>
+    <HazardStripe />
+    </>
   );
 }

@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Reveal from "@/components/Reveal";
 import { SITE } from "@/lib/site";
 
 export default function HomeAbout() {
   return (
     <section id="about" className="section section--about" data-testid="about">
       <div className="container two-col two-col--reverse">
-        <div className="two-col__media">
+        <Reveal variant="left" className="two-col__media">
           <div className="image-frame">
             <Image
               src="/images/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
@@ -15,8 +16,8 @@ export default function HomeAbout() {
               sizes="(max-width: 768px) 100vw, 592px"
             />
           </div>
-        </div>
-        <div className="two-col__content">
+        </Reveal>
+        <Reveal variant="right" delay={100} className="two-col__content">
           <span className="eyebrow">About SRB Equipment</span>
           <h2 className="section__title">
             Edmonton&apos;s Trusted Truck Repair Shop <em>Since 2015</em>
@@ -34,13 +35,6 @@ export default function HomeAbout() {
             with responsive service and 24/7 roadside assistance, we provide
             support when and where it is needed most.
           </p>
-          <p className="section__lede">
-            At SRB Equipment, we believe strong customer relationships are built
-            on trust, consistency, and quality work. Every repair, inspection,
-            and maintenance service is completed with attention to detail so you
-            can get back on the road with confidence and keep your business
-            moving forward.
-          </p>
           <div className="section__actions">
             <a
               href={SITE.phoneHref}
@@ -55,10 +49,11 @@ export default function HomeAbout() {
               className="btn btn--dark btn--lg"
               data-testid="about-services-btn"
             >
-              Explore Services <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              Explore Services{" "}
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

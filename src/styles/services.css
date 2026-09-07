@@ -25,12 +25,13 @@
       align-items: center;
       gap: 8px;
       padding: 8px 14px;
-      border-radius: var(--radius-pill);
+      border-radius: var(--radius-sm);
       background: rgba(255, 242, 0, 0.12);
       border: 1px solid rgba(255, 242, 0, 0.35);
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.82rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.9);
     }

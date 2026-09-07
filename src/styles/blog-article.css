@@ -43,13 +43,13 @@
 .blog-article__category {
   display: inline-flex;
   padding: 4px 12px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 242, 0, 0.14);
-  border: 1px solid rgba(255, 242, 0, 0.3);
-  color: var(--primary-color);
-  font-weight: 700;
+  border-radius: var(--radius-sm);
+  background: var(--primary-color);
+  border: none;
+  color: var(--dark);
+  font-weight: 800;
   font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
