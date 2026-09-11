@@ -21,22 +21,22 @@
       gap: 8px;
       padding: 8px 14px;
       border-radius: var(--radius-pill);
-      background: rgba(255, 242, 0, 0.12);
-      border: 1px solid rgba(255, 242, 0, 0.35);
+      background: var(--brand-green-deep);
+      border: 1px solid var(--green-color-2);
       font-weight: 700;
       font-size: 0.82rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--soft-white-color);
     }
     .hero--cinematic .hero__pill strong { color: var(--primary-color); }
     .hero--cinematic .hero__lede {
       color: rgba(255, 255, 255, 0.92);
-      text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+      text-shadow: 0 1px 14px --shadow-color-1;
       max-width: 580px;
     }
     .hero--cinematic .hero__meta {
-      border-top-color: rgba(255, 255, 255, 0.18);
+      border-top-color:  var(--border-color-1);
     }
     
     /* Dark section — readable body text */
@@ -44,13 +44,12 @@
       color: rgba(255, 255, 255, 0.82);
     }
     .section--dark .section__lede {
-      color: rgba(255, 255, 255, 0.88);
-    }
+  color:var(--color-white-1);    }
     .section--dark h3 {
       color: var(--primary-color);
     }
     .section--dark .check-list li {
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--soft-white-color);
       font-weight: 500;
     }
     .section--dark .check-list i {
@@ -156,7 +155,7 @@
       padding: 16px 20px ;
       padding-bottom: 16px !important;
       border-left: 4px solid var(--primary-color);
-      background: rgba(255, 242, 0, 0.12);
+      background: var(--brand-green-deep);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       font-weight: 600;
       color: var(--dark);
@@ -203,7 +202,7 @@
       margin-top: var(--space-5);
     }
     .inline-cta h3 { color: var(--white); font-size: clamp(1.2rem, 2.5vw, 1.6rem); margin: 0 0 var(--space-2); }
-    .inline-cta p { color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 52ch; }
+    .inline-cta p { color: var(--light-white-color); margin: 0; max-width: 52ch; }
     
     .cta-banner__inner--stack {
       grid-template-columns: 1fr;
@@ -238,13 +237,13 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.65);
+      color: var(--light-white);
     }
     
     .section--dark .tag-list--light li {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--light-gray-color);
       border-color: rgba(255, 255, 255, 0.14);
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--brand-white-color);
     }
     
     /* FAQ sidebar layout */
@@ -267,14 +266,14 @@
       border-radius: var(--radius-lg);
     }
     .bottom-cta h2 { color: var(--white); margin-bottom: var(--space-2); }
-    .bottom-cta p { color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 42ch; }
+    .bottom-cta p { color: var(--light-white-color); margin: 0; max-width: 42ch; }
     .bottom-cta__phone {
       font-size: clamp(1.4rem, 3vw, 2rem);
       font-weight: 900;
       color: var(--primary-color);
       white-space: nowrap;
     }
-    .bottom-cta__phone:hover { color: #fff62e; }
+    .bottom-cta__phone:hover { color: --brand-yellow-soft; }
     
     .spaced-top { margin-top: var(--space-6); }
     .spaced-top-sm { margin-top: var(--space-3); }

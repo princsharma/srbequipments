@@ -25,7 +25,7 @@
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255, 255, 255, 0.85) 0%, transparent 70%),
+    radial-gradient(ellipse 80% 50% at 50% 0%, var(--brand-white-color) 0%, transparent 70%),
     linear-gradient(180deg, #f3f6fa 0%, #e4eaf1 55%, #d5dde8 100%);
   z-index: 0;
 }
@@ -149,6 +149,13 @@
   padding: 0 var(--space-4);
   line-height: 0;
 }
+.hero__vehicle-image {
+  display: block;
+  max-width:100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
 
 #home .hero.hero--towis .hero__vehicle img,
 #home .hero.hero--towis .hero__vehicle > span {
@@ -190,6 +197,25 @@
 
 #home .section--about {
   padding-top: clamp(72px, 9vw, 110px);
+}
+
+#home .section--about .section__title {
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+
+#home .section--about .section__lede {
+  font-size: clamp(1.2rem, 1.4vw, 1.125rem);
+  line-height: 1.7;
+}
+
+#home .section--about .eyebrow {
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+}
+
+#home .section--about [data-testid="about-call-btn"] {
+  font-size: 1.08rem;
 }
 
 #home .section__head {
@@ -249,13 +275,18 @@
 }
 
 #home .services-split__label {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
-  font-size: 0.78rem;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--dark);
+  background: var(--primary-color);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
   margin-bottom: var(--space-3);
 }
 
@@ -361,7 +392,7 @@
 
 #home .services-split__card p {
   margin: 0 0 var(--space-3);
-  font-size: 0.9rem;
+  font-size: 0.94rem;
   line-height: 1.6;
   color: var(--text-light);
   flex: 1;
@@ -370,7 +401,7 @@
 #home .services-split__link {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.87rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--dark);
@@ -421,8 +452,18 @@
 }
 
 #home .cta-banner {
-  padding: clamp(72px, 10vw, 120px) 0;
+  padding: clamp(72px, 10vw, 120px) ;
   margin: 0;
+}
+
+#home .cta-banner .eyebrow--light {
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
+}
+
+#home .cta-banner--cinematic .cta-banner__content {
+  text-align: left;
 }
 
 #home .cta-banner--cinematic .cta-banner__actions {
@@ -502,8 +543,7 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.9rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--dark);
@@ -650,12 +690,9 @@
 }
 
 #home .why-split__card--accent .why-split__card-num,
-#home .why-split__card--accent .why-split__card-title {
-  color: var(--white);
-}
-
+#home .why-split__card--accent .why-split__card-title,
 #home .why-split__card--accent p {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--white);
 }
 
 #home .why-split__card--accent:hover {
@@ -695,6 +732,13 @@
   #home .why-split__title {
     max-width: none;
   }
+}
+
+#home .section--process .eyebrow,
+#home .section--gallery .eyebrow {
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  margin-bottom: 12px;
 }
 
 #home .section--process .section__actions,
@@ -745,7 +789,7 @@
 
 .service-card__link {
   width: fit-content;
-  background: #fff;
+  background: var(--white);
   border: 1px solid var(--primary-color);
   border-radius: var(--radius-sm);
 }
@@ -885,7 +929,7 @@ img.hero_right_icon {
 }
 
 .section--reviews {
-  background: #fff;
+  background: var(--white);
 }
 
 @media (max-width: 1024px) {
@@ -917,7 +961,7 @@ img.hero_right_icon {
 
   #home .hero__stat {
     border-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid  var(--brand-trans-black);
   }
 }
 

@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   overflow: hidden;
 }
 
@@ -66,7 +66,7 @@
 }
 
 #srb-about .about-hero h1 {
-  color: #fff;
+  color: var(--white);
   font-size: clamp(2.75rem, 6vw, 4.5rem);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -79,7 +79,7 @@
   align-items: center;
   gap: 10px;
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--light-white);
 }
 
 #srb-about .about-hero__crumbs a {
@@ -88,7 +88,7 @@
 }
 
 #srb-about .about-hero__crumbs a:hover {
-  color: #fff;
+  color: var(--white);
 }
 
 /* ---------- Story intro ---------- */
@@ -251,7 +251,7 @@
 #srb-about .about-banner__scrim {
   position: absolute;
   inset: 0;
-  background: rgba(11, 18, 32, 0.72);
+  background:var(--surface-dark-2)
 }
 
 #srb-about .about-banner__inner {
@@ -261,7 +261,7 @@
 }
 
 #srb-about .about-banner h2 {
-  color: #fff;
+  color: var(--white);
   font-size: clamp(1.85rem, 4vw, 3rem);
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -279,7 +279,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  box-shadow: 0 0 0 0 rgba(255, 242, 0, 0.45);
+  box-shadow: 0 0 0 0 var(--green-shadow-color);
   animation: aboutPlayPulse 2.4s ease-in-out infinite;
   transition: transform 0.25s ease;
 }
@@ -290,7 +290,7 @@
 }
 
 @keyframes aboutPlayPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 242, 0, 0.5); }
+  0%, 100% { box-shadow: 0 0 0 0 var(--green-shadow-color-2); }
   50% { box-shadow: 0 0 0 18px rgba(255, 242, 0, 0); }
 }
 
@@ -362,7 +362,7 @@
   color: var(--dark);
 }
 
-#srb-about .about-trio__card--yellow p { color: rgba(15, 23, 42, 0.78); }
+#srb-about .about-trio__card--yellow p { color: var(--black-color-1); }
 #srb-about .about-trio__card--yellow a { color: var(--dark); }
 
 #srb-about .about-trio__big {
@@ -376,10 +376,10 @@
 
 #srb-about .about-trio__card--dark {
   background: var(--surface-dark-1);
-  color: #fff;
+  color: var(--white);
 }
 
-#srb-about .about-trio__card--dark p { color: rgba(255, 255, 255, 0.72); }
+#srb-about .about-trio__card--dark p { color: var(--light-white); }
 #srb-about .about-trio__card--dark a { color: var(--primary-color); }
 
 /* ---------- Stats ---------- */
@@ -411,7 +411,7 @@
   margin: var(--space-4) 0;
   padding: var(--space-3) var(--space-4);
   border-left: 4px solid var(--primary-color);
-  background: rgba(255, 242, 0, 0.12);
+  background: var(--brand-green-deep);
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 1.25rem;
@@ -494,6 +494,9 @@
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1;
   flex-shrink: 0;
   transition: transform 0.25s ease;
 }
@@ -538,27 +541,29 @@
 
 /* ---------- Brands ---------- */
 #srb-about .about-brands .brand-strip {
-  display: grid !important;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: var(--space-4);
+   display: grid !important;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: var(--space-4);
+      width: 100%;
 }
 
 #srb-about .brand-strip__item {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-sm);
-  padding: var(--space-4) var(--space-3);
-  min-height: 88px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ background: var(--white);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-3);
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform var(--transition), box-shadow var(--transition);
 }
 
 #srb-about .brand-strip__item img {
-  max-height: 48px;
-  width: auto;
-  object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
+    max-height: 92px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
 }
 
 /* ---------- Phone CTA ---------- */
@@ -580,7 +585,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--light-smooth-gray);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -593,7 +598,7 @@
   font-family: var(--font-display);
   font-weight: 900;
   font-size: clamp(2rem, 4.5vw, 3.25rem);
-  color: #fff;
+  color: var(--white);
   letter-spacing: 0.02em;
   line-height: 1;
 }
@@ -654,4 +659,12 @@
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+#srb-about .about-hero h1 {
+  font-size: var(--h1);
+}
+
+#srb-about .about-story__content h2 {
+  font-size: var(--h2);
 }

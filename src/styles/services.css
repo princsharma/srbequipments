@@ -26,23 +26,23 @@
       gap: 8px;
       padding: 8px 14px;
       border-radius: var(--radius-sm);
-      background: rgba(255, 242, 0, 0.12);
-      border: 1px solid rgba(255, 242, 0, 0.35);
+      background: var(--brand-green-deep) ;
+      border: 1px solid  var(--green-color-2);
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.82rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--soft-white-color);
     }
     .hero--cinematic .hero__pill strong { color: var(--primary-color); }
     .hero--cinematic .hero__lede {
       color: rgba(255, 255, 255, 0.92);
-      text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
+      text-shadow: 0 1px 14px --shadow-color-1;
       max-width: 580px;
     }
     .hero--cinematic .hero__meta {
-      border-top-color: rgba(255, 255, 255, 0.18);
+      border-top-color: var(--border-color-1);
     }
     
     /* Dark section — readable body text */
@@ -50,13 +50,13 @@
       color: rgba(255, 255, 255, 0.82);
     }
     .section--dark .section__lede {
-      color: rgba(255, 255, 255, 0.88);
+      color: var(--color-white-1);
     }
     .section--dark h3 {
       color: var(--primary-color);
     }
     .section--dark .check-list li {
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--soft-white-color);
       font-weight: 500;
     }
     .section--dark .check-list i {
@@ -162,7 +162,7 @@
       padding: 16px 20px ;
       padding-bottom: 16px !important;
       border-left: 4px solid var(--primary-color);
-      background: rgba(255, 242, 0, 0.12);
+      background: var(--brand-green-deep);
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
       font-weight: 600;
       color: var(--dark);
@@ -209,7 +209,7 @@
       margin-top: var(--space-5);
     }
     .inline-cta h3 { color: var(--white); font-size: clamp(1.2rem, 2.5vw, 1.6rem); margin: 0 0 var(--space-2); }
-    .inline-cta p { color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 52ch; }
+    .inline-cta p { color: var(--light-white-color); margin: 0; max-width: 52ch; }
     
     .cta-banner__inner--stack {
       grid-template-columns: 1fr;
@@ -244,13 +244,13 @@
       font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.65);
+      color: var(--light-white);
     }
     
     .section--dark .tag-list--light li {
-      background: rgba(255, 255, 255, 0.06);
+      background: var(--light-gray-color);
       border-color: rgba(255, 255, 255, 0.14);
-      color: rgba(255, 255, 255, 0.85);
+      color: var(--brand-white-color);
     }
     
     /* FAQ sidebar layout */
@@ -273,14 +273,14 @@
       border-radius: var(--radius-lg);
     }
     .bottom-cta h2 { color: var(--white); margin-bottom: var(--space-2); }
-    .bottom-cta p { color: rgba(255, 255, 255, 0.72); margin: 0; max-width: 42ch; }
+    .bottom-cta p { color: var(--soft-white); margin: 0; max-width: 42ch; }
     .bottom-cta__phone {
       font-size: clamp(1.4rem, 3vw, 2rem);
       font-weight: 900;
       color: var(--primary-color);
       white-space: nowrap;
     }
-    .bottom-cta__phone:hover { color: #fff62e; }
+    .bottom-cta__phone:hover { color: var(--brand-yellow-soft); }
     
     .spaced-top { margin-top: var(--space-6); }
     .spaced-top-sm { margin-top: var(--space-3); }
@@ -404,7 +404,7 @@
         margin-bottom: var(--space-3);
       }
       .cvip-feature-card:nth-child(even) .cvip-feature-card__icon {
-        background: rgba(255, 242, 0, 0.25);
+        background: VAR(--brand-dark-green);
       }
       .cvip-feature-card h3 {
         font-size: 1.2rem;
@@ -498,7 +498,7 @@
         height: 40px;
         flex-shrink: 0;
         border-radius: 10px;
-        background: rgba(255, 242, 0, 0.2);
+        background: var(--brand-green-color);
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -791,8 +791,8 @@
       margin-bottom: var(--space-4);
       padding: 6px 14px;
       border-radius: var(--radius-pill);
-      background: rgba(255, 242, 0, 0.14);
-      border: 1px solid rgba(255, 242, 0, 0.35);
+      background: var(--green-color-1);
+      border: 1px solid var(--green-color-2);
       font-family: var(--font-display);
       font-weight: 700;
       font-size: 0.78rem;
@@ -816,13 +816,13 @@
       gap: 12px;
       padding: var(--space-3);
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid  var(--brand-trans-black);
       border-radius: var(--radius-md);
       transition: background var(--transition), border-color var(--transition), transform var(--transition);
     }
     .service-icon-grid li:hover {
-      background: rgba(255, 242, 0, 0.08);
-      border-color: rgba(255, 242, 0, 0.35);
+      background: var(--dark-gray-color);
+      border-color: var(--green-color-2);
       transform: translateY(-3px);
     }
     .service-icon-grid__icon {
@@ -847,7 +847,7 @@
       letter-spacing: 0.01em;
     }
     .service-icon-grid li.is-accent {
-      background: rgba(255, 242, 0, 0.12);
+      background: var(--brand-green-deep);
       border-color: rgba(255, 242, 0, 0.4);
     }
     .service-icon-grid li.is-accent .service-icon-grid__icon {
@@ -971,7 +971,7 @@
       padding: var(--space-7) var(--space-4);
     }
     .cta-gradient p {
-      color: rgba(255, 255, 255, 0.88);
+      color: var(--color-white-1);
       margin: 0 0 var(--space-2);
       font-family: var(--font-display);
       font-weight: 700;
@@ -1082,8 +1082,8 @@
         margin-bottom: var(--space-4);
         padding: 6px 14px;
         border-radius: var(--radius-pill);
-        background: rgba(255, 242, 0, 0.14);
-        border: 1px solid rgba(255, 242, 0, 0.35);
+        background: var(--green-color-1);
+        border: 1px solid var(--green-color-2);
         font-weight: 700;
         font-size: 0.78rem;
         letter-spacing: 0.1em;
@@ -1106,12 +1106,12 @@
         gap: 12px;
         padding: var(--space-3);
         background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--brand-trans-black);
         border-radius: var(--radius-md);
       }
       .service-icon-grid li:hover {
-        background: rgba(255, 242, 0, 0.08);
-        border-color: rgba(255, 242, 0, 0.35);
+        background: var(--dark-gray-color);
+        border-color: var(--green-color-2);
       }
       .service-icon-grid__icon {
         display: flex;

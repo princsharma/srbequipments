@@ -57,7 +57,7 @@
 }
 
 .faq-page .faq-item:not([open]) summary:hover {
-  background: #fff62e;
+  background:var(--primary-hover)
 }
 
 .faq-page .faq-item[open] summary {
@@ -130,7 +130,7 @@
 }
 
 .faq-page-cta p {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--light-white-color);
   margin: 0 0 var(--space-4);
   font-size: 1.05rem;
 }
@@ -144,5 +144,5 @@
 }
 
 .faq-page-cta__phone:hover {
-  color: #fff62e;
+  color:var(--primary-hover);
 }

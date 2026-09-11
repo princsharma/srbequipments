@@ -10,7 +10,7 @@ export default function HomeWhy() {
 
       <div className="container why-split__layout">
         <Reveal variant="left" as="aside" className="why-split__intro">
-          <span className="why-split__label">Why SRB Equipment</span>
+          <span className="eyebrow why-split__label">Why SRB Equipment</span>
           <h2 className="why-split__title">Why Drivers Trust SRB Equipment</h2>
           <p className="why-split__lede">
             Our commitment to quality repairs, reliable service, and customer
