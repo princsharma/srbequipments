@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const HERO_IMAGE =
-  "/images/2025/11/coolant-repair-1.jpg";
+  "/images/2025/11/brake-repair.jpg";
 const INTRO_IMAGE =
   "https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg?auto=compress&cs=tinysrgb&w=800";
 const SIGNS_IMAGE =

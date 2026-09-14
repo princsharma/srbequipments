@@ -54,7 +54,7 @@ export default function EmissionSystemRepairPage() {
   return (
     <>
       <ServiceHero
-        variant="service"
+        variant="cinematic"
         image={HERO_IMAGE}
         imageAlt="Emission system repair service for trucks"
         title="Emission System Repair Service"
