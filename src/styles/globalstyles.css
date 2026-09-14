@@ -32,24 +32,24 @@
 
 
   /* Reusable aliases for shared page colors */
-  --brand-yellow: #fff200;
-  --brand-yellow-soft: #fff62e;
-  --brand-yellow-deep: #eab308;
+  --brand-yellow: var(--primary-color);
+  --brand-yellow-soft: var(--primary-hover);
+  --brand-yellow-deep: var(--primary-dark);
   --brand-light-green: #fffef2;
-  --navy-950: #0f172a;
-  --navy-900: #1e293b;
-  --navy-800: #0b1220;
-  --navy-700: #121c30;
+  --navy-950: var(--dark);
+  --navy-900: var(--dark-light);
+  --navy-800: var(--surface-dark-1);
+  --navy-700: var(--surface-dark-2);
   --navy-600: #0a101c;
   --navy-500: #1f2a44;
   --navy-400: #0a1424;
-  --text-900: #2d3748;
-  --text-700: #5a6577;
-  --text-500: #8a94a6;
-  --white-100: #ffffff;
-  --surface-50: #f3f4f6;
+  --text-900: var(--text);
+  --text-700: var(--text-light);
+  --text-500: var(--text-muted);
+  --white-100: var(--white);
+  --surface-50: var(--gray-bg);
   --surface-100: #f7f8fa;
-  --border-100: #dce0e6;
+  --border-100: var(--border);
   --border-200: #e6e8ed;
  
   /*  crumbs color */
