@@ -2369,6 +2369,7 @@ main#home~.floating-call {
   max-height: 92px;
   max-width: 100%;
   width: auto;
+  height: auto;
   object-fit: contain;
 }
 
