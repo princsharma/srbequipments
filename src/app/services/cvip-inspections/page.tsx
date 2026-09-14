@@ -47,7 +47,7 @@ export default function CvipInspectionsPage() {
           <div className="two-col__media">
             <div className="cvip-hero__media">
               <Image
-                src="/images/2025/11/cvip-inspection.jpg"
+                src="/images/2025/11/frightliner.jpg"
                 alt="CVIP inspection for commercial truck in Edmonton"
                 fill
                 priority

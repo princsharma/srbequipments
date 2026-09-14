@@ -155,6 +155,7 @@
   height: auto;
   object-fit: contain;
   object-position: center bottom;
+  margin-bottom:-18px;
 }
 
 #home .hero.hero--towis .hero__vehicle img,

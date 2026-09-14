@@ -5,7 +5,7 @@ import HazardStripe from "@/components/HazardStripe";
 import { SITE } from "@/lib/site";
 
 const HERO_VEHICLE =
-  "/images/Homepage/70a4df0f-f838-42fd-bae3-cd039671290f.webp";
+  "/images/Homepage/HomeBanner.webp";
 
 export default function HomeHero() {
   return (

@@ -17,7 +17,7 @@ const HERO_IMAGE =
 const INTRO_IMAGE =
   "https://images.pexels.com/photos/4489702/pexels-photo-4489702.jpeg?auto=compress&cs=tinysrgb&w=800";
 const SIGNS_IMAGE =
-  "https://images.pexels.com/photos/3806287/pexels-photo-3806287.jpeg?auto=compress&cs=tinysrgb&w=800";
+  "/images/2025/11/DOT.jpg";
 
 const SIGNS = [
   {

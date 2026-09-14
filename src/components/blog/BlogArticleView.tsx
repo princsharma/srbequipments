@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PageHero from "@/components/PageHero";
 import {
   getRelatedArticles,
   type BlogArticle,
@@ -78,24 +79,12 @@ export default function BlogArticleView({ article }: { article: BlogArticle }) {
 
   return (
     <article className="blog-article">
-      <header className="blog-article__hero">
-        <div className="container blog-article__hero-inner">
-          <nav className="blog-article__crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/blog">Blog</Link>
-            <span aria-hidden="true">/</span>
-            <span>{article.title}</span>
-          </nav>
-          <p className="blog-article__meta">
-            <span className="blog-article__category">{article.category}</span>
-            <time dateTime={article.dateIso}>{article.date}</time>
-            <span>{article.readingMinutes} min read</span>
-          </p>
-          <h1>{article.title}</h1>
-          <p className="blog-article__subtitle">{article.subtitle}</p>
-        </div>
-      </header>
+      <PageHero
+        eyebrow={article.category}
+        title={article.title}
+        lede={article.subtitle}
+        showCall={false}
+      />
 
       <div
         className={`container blog-article__layout${hasToc ? "" : " blog-article__layout--solo"}`}
