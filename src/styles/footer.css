@@ -3,7 +3,7 @@
 #srb-footer.site-footer {
   border-top: none;
   margin-top: auto;
-  background: #080d16;
+   background: #080d16;
   position: relative;
   padding-top: 0;
 }
@@ -113,7 +113,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  background: rgba(255, 242, 0, 0.08);
+  background: var(--dark-gray-color);
   border: 1px solid rgba(255, 242, 0, 0.22);
   font-size: 0.72rem;
   font-weight: 800;
@@ -130,7 +130,7 @@
 
 #srb-footer .site-footer__bottom {
   font-size: var(--small);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid  var(--brand-trans-black);
   margin-top: var(--space-6);
   padding-top: var(--space-4);
 }

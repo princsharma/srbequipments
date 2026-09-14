@@ -5,13 +5,12 @@ import HazardStripe from "@/components/HazardStripe";
 import { SITE } from "@/lib/site";
 
 const HERO_VEHICLE =
-  "/images/Homepage/70a4df0f-f838-42fd-bae3-cd039671290f.webp";
+  "/images/Homepage/HomeBanner.webp";
 
 export default function HomeHero() {
   return (
     <section className="hero hero--towis" data-testid="hero">
       <HazardStripe size="lg" />
-
       <div className="hero__sky" aria-hidden="true" />
 
       <div className="container hero__inner">
@@ -67,11 +66,13 @@ export default function HomeHero() {
           width={2170}
           height={725}
           priority
-          sizes="(max-width: 768px) 100vw, 1100px"
+          quality={75}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1100px"
+          className="hero__vehicle-image"
         />
       </div>
 
-      <div className="hero__stats-wrap">
+      {/* <div className="hero__stats-wrap">
         <div className="container">
           <div className="hero__stats" data-testid="hero-stats">
             <div className="hero__stat">
@@ -92,9 +93,9 @@ export default function HomeHero() {
               </strong>
               <span className="hero__stat-label">Mobile Roadside</span>
             </div>
-          </div>
-        </div>
-      </div>
+          </div> */}
+        {/* </div> */}
+      {/* </div> */}
     </section>
   );
 }

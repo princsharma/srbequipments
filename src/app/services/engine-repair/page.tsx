@@ -203,7 +203,7 @@ export default function Page() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <Image
-              src="https://images.pexels.com/photos/3806287/pexels-photo-3806287.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="/images/2025/11/electrical-repair.jpg"
               alt="Technicians rebuilding a heavy-duty truck engine"
               width={800}
               height={420}

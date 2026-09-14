@@ -144,7 +144,7 @@ export default function Header() {
           id="srbSiteNav"
           aria-label="Main navigation"
         >
-          <div className="site-nav__drawer-head">
+          {/* <div className="site-nav__drawer-head">
             <Link href="/" className="brand" aria-label={`${SITE.name} — Home`}>
               <Image
                 className="brand__logo"
@@ -154,7 +154,7 @@ export default function Header() {
                 height={60}
               />
             </Link>
-          </div>
+          / </div> */}
 
           {NAV_LINKS.slice(0, 4).map((link) => (
             <Link

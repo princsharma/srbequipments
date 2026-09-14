@@ -22,6 +22,7 @@ export default function HomePage() {
   return (
     <div id="home">
       <HomeHero />
+      <HomeBrands />
       <HomeAbout />
       <HomeServices />
       <HazardStripe size="lg" />
@@ -32,7 +33,6 @@ export default function HomePage() {
       <HomeProcess />
       <HomeReviews />
       <HazardStripe />
-      <HomeBrands />
       <HomeFaq />
       <HazardStripe />
       <HomeContact />

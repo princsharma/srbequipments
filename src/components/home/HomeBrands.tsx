@@ -2,15 +2,17 @@ import Image from "next/image";
 import { BRAND_LOGOS } from "@/lib/home-data";
 
 export default function HomeBrands() {
+  const brands = [...BRAND_LOGOS, ...BRAND_LOGOS];
+
   return (
-    <section className="section section--dark">
+    <section className="section section--dark home-brands">
       <div className="container">
         <div className="section__head section__head--center">
           <h2 className="section__title">Trusted by Leading Truck Brands</h2>
         </div>
         <div className="brand-strip">
-          {BRAND_LOGOS.map((brand) => (
-            <div key={brand.alt} className="brand-strip__item">
+          {brands.map((brand, index) => (
+            <div key={`${brand.alt}-${index}`} className="brand-strip__item">
               <Image
                 src={brand.src}
                 alt={brand.alt}

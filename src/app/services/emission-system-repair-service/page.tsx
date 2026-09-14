@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const HERO_IMAGE =
-  "/images/2025/11/exhaust-repair.jpg";
+  "/images/2025/11/electrical-repair.jpg";
 
 const POLLUTANTS = [
   {

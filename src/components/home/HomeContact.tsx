@@ -12,7 +12,7 @@ export default function HomeContact() {
               <li>
                 <span
                   className="feature-card__icon"
-                  style={{ background: "#fff", padding: 12 }}
+                  style={{ background: "var(--white)", padding: 12 }}
                 >
                   <Image
                     src="/images/2026/06/Edmonton-Alberta-150x150.webp"
@@ -29,7 +29,7 @@ export default function HomeContact() {
               <li>
                 <span
                   className="feature-card__icon"
-                  style={{ background: "#fff", padding: 12 }}
+                  style={{ background: "var(--white)", padding: 12 }}
                 >
                   <Image
                     src="/images/2026/06/phone-number-150x150.webp"
@@ -48,7 +48,7 @@ export default function HomeContact() {
               <li>
                 <span
                   className="feature-card__icon"
-                  style={{ background: "#fff", padding: 12 }}
+                  style={{ background: "var(--white)", padding: 12 }}
                 >
                   <Image
                     src="/images/2026/06/24-7-Emergency-Assistance-150x150.webp"

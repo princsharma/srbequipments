@@ -40,7 +40,7 @@ const MORE_SERVICES = [
     href: emissionHref,
     title: "Emission System Repair/Service",
     image:
-      "/images/2025/11/exhaust-repair.jpg",
+      "/images/2025/11/electrical-repair.jpg",
     imageAlt: "Emission system repair and service",
     text: "If you manage a fleet and your commercial truck has ample expenses, with exhaust and emission control and repair services, get the truck maintenance at optimal costs.",
   },
@@ -48,7 +48,7 @@ const MORE_SERVICES = [
     href: cvipHref,
     title: "CVIP Inspections",
     image:
-      "/images/2025/11/cvip-inspection.jpg",
+      "/images/2025/11/frightliner.jpg",
     imageAlt: "CVIP inspections for commercial trucks",
     text: "Thorough CVIP inspections for heavy-duty truck and trailer repairs in California. Our team of experts will visit the site and conduct comprehensive CVIP inspections with utmost care.",
   },

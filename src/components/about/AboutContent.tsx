@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import CountUp from "@/components/CountUp";
 import HazardStripe from "@/components/HazardStripe";
 import Reveal from "@/components/Reveal";
 import { BRAND_LOGOS, HOME_FAQS, WHY_FEATURES } from "@/lib/home-data";
 import { GALLERY_ITEMS } from "@/lib/gallery-data";
 import { SITE } from "@/lib/site";
+import HomeBrands from "../home/HomeBrands";
+
 
 const ABOUT_CHECKS = [
   "Red Seal-certified heavy-duty technicians",
@@ -25,6 +26,7 @@ const GALLERY_PREVIEW = GALLERY_ITEMS.slice(0, 4);
 const ABOUT_FAQS = HOME_FAQS.slice(0, 5);
 
 export default function AboutContent() {
+    const brands = [...BRAND_LOGOS, ...BRAND_LOGOS];
   return (
     <div id="srb-about">
       {/* 1. Hero */}
@@ -129,6 +131,7 @@ export default function AboutContent() {
         <div className="about-banner__scrim" aria-hidden="true" />
         <div className="container about-banner__inner">
           <Reveal variant="up">
+            
             <h2>
               24/7 Mobile Truck Repair
               <br />
@@ -223,15 +226,11 @@ export default function AboutContent() {
 
             <div className="about-stats__counters">
               <div>
-                <strong>
-                  <CountUp end={10} suffix="+" />
-                </strong>
+                <strong>10+</strong>
                 <span>Years Experience</span>
               </div>
               <div>
-                <strong>
-                  <CountUp end={5000} suffix="+" />
-                </strong>
+                <strong>5,000+</strong>
                 <span>Trucks Repaired</span>
               </div>
               <div>
@@ -301,20 +300,26 @@ export default function AboutContent() {
       </section>
 
       {/* 9. Brands */}
-      <section className="section section--dark about-brands">
-        <div className="container">
-          <Reveal variant="up" className="section__head section__head--center">
-            <h2 className="section__title">Trusted by Leading Truck Brands</h2>
-          </Reveal>
-          <div className="brand-strip">
-            {BRAND_LOGOS.map((brand) => (
-              <div key={brand.alt} className="brand-strip__item">
-                <Image src={brand.src} alt={brand.alt} width={120} height={48} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* <section className="section section--dark home-brands">
+         <div className="container">
+           <div className="section__head section__head--center">
+             <h2 className="section__title">Trusted by Leading Truck Brands</h2>
+           </div>
+           <div className="brand-strip">
+             {brands.map((brand, index) => (
+               <div key={`${brand.alt}-${index}`} className="brand-strip__item">
+                 <Image
+                   src={brand.src}
+                   alt={brand.alt}
+                   width={120}
+                   height={48}
+                 />
+               </div>
+             ))}
+           </div>
+         </div>
+       </section> */}
+       <HomeBrands/>
 
       {/* 10. Phone CTA */}
       <section className="about-phone-cta">
