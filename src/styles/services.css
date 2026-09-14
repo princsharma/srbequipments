@@ -714,7 +714,12 @@
       min-height: clamp(480px, 72vh, 620px);
       display: flex;
       align-items: flex-end;
-      text-align: left;
+      text-align: center;
+    }
+    .hero--cinematic.hero--priced .hero__content {
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero--cinematic.hero--priced .hero__photo {
       position: absolute;
@@ -746,6 +751,7 @@
       max-width: 900px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+      text-align: center;
     }
     .hero--cinematic.hero--priced .hero__price {
       font-family: var(--font-display);
@@ -753,6 +759,10 @@
       color: var(--primary-color);
       font-weight: 800;
       margin: 0 0 var(--space-4);
+      text-align: center;
+    }
+    .hero--cinematic.hero--priced .hero__actions {
+      justify-content: center;
     }
   
     .image-frame img {

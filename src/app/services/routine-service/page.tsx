@@ -65,7 +65,7 @@ export default function RoutineServicePage() {
   return (
     <>
       <ServiceHero
-        variant="service"
+        variant="cinematic"
         image={HERO_IMAGE}
         imageAlt="Truck maintenance services in Edmonton"
         title="Truck Maintenance Services in Edmonton"
