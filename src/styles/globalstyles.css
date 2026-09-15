@@ -1853,6 +1853,13 @@ li {
   display: none;
 }
 
+.faq-item summary h3 {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: capitalize;
+}
+
 .faq-item summary i {
   width: 32px;
   height: 32px;

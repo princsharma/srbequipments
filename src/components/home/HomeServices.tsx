@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { HOME_SERVICES } from "@/lib/home-data";
 import { SITE } from "@/lib/site";
@@ -14,6 +15,15 @@ const SERVICE_ICONS: Record<string, string> = {
   "CVIP Inspection": "fa-solid fa-clipboard-check",
   "Mobile Truck Repair": "fa-solid fa-truck",
 };
+const SERVICES_LINK = [
+  {LINK:SITE.phoneHref},
+   {LINK:SITE.phoneHref},
+    {LINK:SITE.phoneHref},
+    {LINK:SITE.phoneHref},
+    {LINK:SITE.phoneHref},
+    {LINK:"/services/emission-system-repair-service"}
+ 
+]
 
 const FEATURED_GRID = HOME_SERVICES.slice(0, 6);
 
@@ -59,10 +69,10 @@ export default function HomeServices() {
                     {service.title}
                   </h3>
                   <p>{service.description}</p>
-                  <a href={SITE.phoneHref} className="services-split__link">
+                  <Link href={service.href} className="services-split__link">
                     {service.cta}{" "}
                     <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="services-split__card-face services-split__card-face--back">
                   <Image
@@ -74,6 +84,13 @@ export default function HomeServices() {
                   />
                   <div className="services-split__card-overlay">
                     <h3>{service.title}</h3>
+                    <Link
+                      href={service.href}
+                      className="services-split__book-btn"
+                    >
+                      {service.cta}{" "}
+                      <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -9,6 +9,7 @@ export const HOME_SERVICES = [
       "/images/2025/11/brake-repair.jpg",
     alt: "Truck brake repair service",
     cta: "Book Service",
+    href: SITE.phoneHref,
     featured: false,
   },
   {
@@ -19,6 +20,7 @@ export const HOME_SERVICES = [
       "/images/2026/07/coolant-repair-system.webp",
     alt: "Truck coolant system repair",
     cta: "Book Service",
+    href: SITE.phoneHref,
     featured: false,
   },
   {
@@ -29,6 +31,7 @@ export const HOME_SERVICES = [
       "/images/2025/11/electrical-repair.jpg",
     alt: "Truck electrical repair",
     cta: "Book Service",
+    href: SITE.phoneHref,
     featured: false,
   },
   {
@@ -39,6 +42,7 @@ export const HOME_SERVICES = [
       "/images/2025/11/suspension-repair.jpg",
     alt: "Truck suspension repair",
     cta: "Book Service",
+    href: SITE.phoneHref,
     featured: false,
   },
   {
@@ -49,6 +53,7 @@ export const HOME_SERVICES = [
       "/images/2026/07/heavy-duty-truck-driveline-repair.webp",
     alt: "Transmission and clutch repair",
     cta: "Book Service",
+    href: SITE.phoneHref,
     featured: false,
   },
   {
@@ -58,6 +63,7 @@ export const HOME_SERVICES = [
     image: "/images/2025/11/DOT.jpg",
     alt: "Diesel engine repair and overhaul",
     cta: "Book Service",
+    href: "/services/engine-repair",
     featured: false,
   },
   {
@@ -68,6 +74,7 @@ export const HOME_SERVICES = [
       "/images/2026/07/truck-exhaust-repair-system.webp",
     alt: "Truck exhaust system repair",
     cta: "Book Service",
+    href: "/services/emission-system-repair-service",
     featured: false,
   },
   {
@@ -78,6 +85,7 @@ export const HOME_SERVICES = [
       "/images/2026/07/cvip-inspection.webp",
     alt: "CVIP truck inspection",
     cta: "Book Inspection",
+    href: "/services/cvip-inspections",
     featured: false,
   },
   {
@@ -88,6 +96,7 @@ export const HOME_SERVICES = [
       "/images/2026/07/mobile-truck-repair.webp",
     alt: "Mobile truck repair service",
     cta: "Call Now",
+    href: "/services/mobile-service-truck-edmonton",
     featured: true,
   },
 ] as const;

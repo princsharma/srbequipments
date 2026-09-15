@@ -26,7 +26,7 @@ export default function HomeFaq() {
           {HOME_FAQS.map((item, index) => (
             <details key={item.q} className="faq-item" open={index === 0}>
               <summary>
-                {item.q}
+                <h3>{item.q}</h3>
                 <i className="fa-solid fa-plus" aria-hidden="true" />
               </summary>
               <p>{item.a}</p>

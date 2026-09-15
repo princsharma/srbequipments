@@ -7,6 +7,93 @@
 .feature-card__icon {
       background: none !important;
     }
+    /* Match homepage's darker, more readable lede/body text color */
+    .section__lede {
+      color: var(--dark);
+    }
+    .section--why .feature-card__icon img {
+      filter: brightness(0) saturate(100%);
+    }
+    .section--why .feature-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .section--why .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--dark);
+    }
+
+    .cta-banner--cinematic .cta-banner__content,
+    .cta-banner--cinematic .cta-banner__content p {
+      text-align: left;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .cta-banner--cinematic .cta-banner__actions {
+      align-items: flex-start;
+    }
+
+    /* Mobile repair process steps — same layout/hover as HomeProcess */
+    .repair-steps {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-5) 0 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+    }
+    .repair-steps li {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--primary-color);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .repair-steps li:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--dark);
+    }
+    .repair-steps__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-sm);
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: var(--space-3);
+    }
+    .repair-steps h3 {
+      margin: 0 0 10px;
+      color: var(--dark);
+    }
+    .repair-steps p {
+      margin: 0;
+      font-size: 1rem;
+      color: var(--dark);
+      line-height: 1.65;
+      text-transform: none;
+      font-family: var(--font-body);
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    @media (max-width: 1024px) {
+      .repair-steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .repair-steps {
+        grid-template-columns: 1fr;
+      }
+    }
     .hero.hero--cinematic {
       min-height: clamp(520px, 78vh, 680px);
       display: flex;
@@ -194,7 +281,7 @@
       border-radius: 10px;
     }
     .service-row h3 { font-size: 1.25rem; margin-bottom: 8px; }
-    .service-row p { color: var(--text-light); font-size: 0.98rem; margin: 0; }
+    .service-row p { color: var(--dark); font-size: 0.98rem; margin: 0; }
     
     .inline-cta {
       display: flex;

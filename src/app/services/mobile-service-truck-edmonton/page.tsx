@@ -1,6 +1,5 @@
 ﻿import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import ServiceHero from "@/components/services/ServiceHero";
 import ServiceCtaBanner from "@/components/services/ServiceCtaBanner";
 import { SITE } from "@/lib/site";
@@ -79,48 +78,67 @@ const SERVICES = [
   },
 ] as const;
 
+const PROCESS_STEPS = [
+  {
+    title: "Give Us a Call",
+    body: `Reach our dispatch line at ${SITE.phoneDisplay}. Tell us what issue you're facing and the type of truck you have. We'll gather the details before heading your way.`,
+  },
+  {
+    title: "We Head to Your Location",
+    body: "We dispatch the mobile unit to your location without delay and provide a clear arrival time so you know exactly when to expect us.",
+  },
+  {
+    title: "On-Site Diagnosis & Repair",
+    body: "Our technician arrives, diagnoses the issue, walks you through what's needed, and gets to work. We focus on honest service with no unnecessary repairs.",
+  },
+  {
+    title: "Back on the Road",
+    body: "Before we leave, we confirm everything is running properly. You sign off, pay for the work done, and get back to hauling.",
+  },
+] as const;
+
 const BENEFITS = [
   {
     num: "01",
-    title: "Minimized Downtime",
-    icon: "/images/2026/06/Minimized-Downtime.webp",
-    iconAlt: "Minimized Downtime icon",
-    body: "Mobile truck mechanics save valuable hours you'd lose waiting for towing or shop space. On-site truck repair fixes most issues on the spot, keeping your truck running and your schedule intact.",
+    title: "No Tow Needed - We Come to You",
+    icon: "/images/2026/06/Convenience-Flexibility.webp",
+    iconAlt: "No tow needed icon",
+    body: "Towing a loaded truck is expensive and slow. Our mobile repair service eliminates the tow for most jobs - we bring the tools and parts to fix the problem where it happened.",
   },
   {
     num: "02",
-    title: "Lower Costs",
-    icon: "/images/2026/06/lowest-cost.webp",
-    iconAlt: "Lower Costs icon",
-    body: "Mobile repair is the smart, cost-effective choice for truck drivers and fleet owners. You avoid towing and shop storage fees while getting high-quality repairs right where you are.",
+    title: "Available 24/7 - Including Weekends & Holidays",
+    icon: "/images/2026/06/24-7-Emergency-Assistance-150x150.webp",
+    iconAlt: "24/7 availability icon",
+    body: "Breakdowns don't follow a schedule, and neither do we. SRB Equipment runs 24/7 mobile truck and trailer repair across Edmonton and the surrounding region, including emergency calls in the middle of the night.",
   },
   {
     num: "03",
-    title: "Convenience & Flexibility",
-    icon: "/images/2026/06/Convenience-Flexibility.webp",
-    iconAlt: "Convenience & Flexibility icon",
-    body: "Our truck mechanics come to you, whether you are on the road, at your yard, or at a job site, providing reliable help whenever and wherever you need it.",
+    title: "Certified Heavy-Duty Diesel Mechanics",
+    icon: "/images/2026/06/red-seal-1-150x150.webp",
+    iconAlt: "Certified mechanics icon",
+    body: "Every technician we send is a certified heavy-duty mechanic with hands-on experience on commercial equipment. You don't get someone learning on the job - you get someone who already knows diesel trucks.",
   },
   {
     num: "04",
-    title: "Fast Emergency Response",
-    icon: "/images/2026/06/Fast-Emergency-Response.webp",
-    iconAlt: "Fast Emergency Response icon",
-    body: "Breakdowns can occur at any moment. Quick-response team ensures you're back on the road safely and efficiently, minimizing costly downtime.",
+    title: "Fully Equipped Mobile Units",
+    icon: "/images/2026/06/Minimized-Downtime.webp",
+    iconAlt: "Fully equipped mobile units icon",
+    body: "Our service trucks carry diagnostic tools, common commercial parts, tire equipment, and the specialized gear heavy-duty work requires. Most calls are resolved in a single visit.",
   },
   {
     num: "05",
-    title: "Experienced Experts",
-    icon: "/images/2026/06/Experienced-Experts.webp",
-    iconAlt: "Experienced Experts icon",
-    body: "Mobile repair teams are trained and certified to handle heavy-duty trucks and trailers. They bring professional skill and the right tools to get the job done right the first time.",
+    title: "Transparent Pricing - No Hidden Shop Fees",
+    icon: "/images/2026/06/lowest-cost.webp",
+    iconAlt: "Transparent pricing icon",
+    body: "No shop overhead, no markup on bay time. You'll know what the job costs before we start, and that's what you'll pay.",
   },
   {
     num: "06",
-    title: "Fleet Continuity",
-    icon: "/images/2026/06/Fleet-Continuity.webp",
-    iconAlt: "Fleet Continuity icon",
-    body: "For fleet operators, mobile repair ensures vehicles stay on schedule and in top condition. It's the best way to keep business moving without service interruptions.",
+    title: "Built for Edmonton's Roads and Weather",
+    icon: "/images/2026/06/Edmonton-Alberta-150x150.webp",
+    iconAlt: "Built for Edmonton icon",
+    body: "We work in Edmonton every day. We know the routes, the seasonal extremes, and what local fleets deal with - that's what lets us respond fast and fix it right the first time.",
   },
 ] as const;
 
@@ -166,6 +184,14 @@ const FAQS = [
     q: "Do You Offer Mobile Tire Repair And Replacement?",
     a: "Yes. We handle mobile truck tire repair and replacement on-site for both trucks and trailers, getting you back on the road without a tow.",
   },
+  {
+    q: "Do You Work On Trailers As Well As Trucks?",
+    a: "Absolutely. Mobile truck and trailer repair is core to what we do - air lines, brakes, lights, landing gear, glad hands, and structural trailer issues are all within scope.",
+  },
+  {
+    q: "Do You Offer Fleet Maintenance Contracts?",
+    a: "We work with fleet operators on a scheduled basis for ongoing preventive maintenance. Call us to discuss your fleet size and a service schedule that fits.",
+  },
 ] as const;
 
 export default function Page() {
@@ -175,29 +201,26 @@ export default function Page() {
         variant="cinematic"
         image={HERO_IMAGE}
         imageAlt="Mobile truck repair service in Edmonton"
-        eyebrow="24/7 Emergency Response"
         title={
           <>
-            <em>Mobile Truck Repair</em> in Edmonton
+            <em>Mobile Truck Repair</em> in Edmonton - We Come to You, 24/7
           </>
         }
         lede={HERO_LEDE}
         actions={
           <>
-            <Link href="#services" className="btn btn--primary btn--lg">
-              Our Services
-            </Link>
+
             <a href={SITE.phoneHref} className="btn btn--ghost btn--lg">
               Call For Emergency Service
             </a>
           </>
         }
-        pills={[
-          { strong: "24/7", label: "Emergency Service" },
-          { strong: "On-Site", label: "Repairs" },
-          { strong: "Certified", label: "Diesel Mechanics" },
-        ]}
-        showPhoneMeta
+      // pills={[
+      //   { strong: "24/7", label: "Emergency Service" },
+      //   { strong: "On-Site", label: "Repairs" },
+      //   { strong: "Certified", label: "Diesel Mechanics" },
+      // ]}
+      // showPhoneMeta
       />
 
       <div className="trust-strip">
@@ -220,32 +243,29 @@ export default function Page() {
       <section id="about" className="section section--about">
         <div className="container two-col">
           <div className="two-col__content">
-            <span className="eyebrow">
-              <span className="eyebrow__dot" /> Service Coverage
-            </span>
             <h2 className="section__title">
-              On-Site Heavy-Duty Truck & Trailer Repair
+              On-Site Heavy-Duty Truck & Trailer Repair - Edmonton's Mobile Mechanics
             </h2>
             <p>
-              SRB Equipment provides mobile truck and trailer repair across
-              Edmonton and nearby areas. Our Mobile units carry the diagnostic
-              equipment, tools, and parts needed to handle most commercial truck
-              and trailer repairs without a tow. Our technicians work right
-              where your equipment sits - a highway shoulder, a construction
-              site, a fuel yard, or your own lot - and we treat every call with
-              the same urgency you&apos;d expect if it were our own truck losing
-              money on the side of the road.
+              SRB Equipment provides mobile truck and trailer repair across Edmonton and nearby areas.
+              Our Mobile units carry the diagnostic equipment, tools,
+              and parts needed to handle most commercial truck and
+              trailer repairs without a tow. Our technicians work right where your equipment sits
+              - a highway shoulder, a construction site,
+              a fuel yard, or your own lot - and we treat every call with the same
+              urgency you'd expect if it were our own truck losing money on the side of the road.
             </p>
             <p>
-              We have 11 years of hands-on experience handling engine, brake,
-              electrical, and trailer issues on-site. We work on all major
-              commercial makes, including Kenworth, Peterbilt, Freightliner,
-              International, Mack, Volvo, and Western Star.
+              We have 11 years of hands-on experience handling engine,
+              brake, electrical, and trailer issues on-site. We work on all major
+              commercial makes, including Kenworth, Peterbilt,
+              Freightliner, International, Mack, Volvo, and
+              Western Star.
             </p>
             <div className="section__actions">
-              <Link href="#services" className="btn btn--dark">
+              {/* <Link href="#services" className="btn btn--dark">
                 Our Services
-              </Link>
+              </Link> */}
             </div>
           </div>
           <div className="two-col__media">
@@ -260,9 +280,9 @@ export default function Page() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: "cover" }}
               />
-              <div className="image-frame__sticker">
+              {/* <div className="image-frame__sticker">
                 Mobile Service · Edmonton & Area
-              </div>
+              </div> */}
               <div className="image-frame__stat">
                 <strong>24/7</strong>
                 <span>Roadside Ready</span>
@@ -270,7 +290,7 @@ export default function Page() {
             </div>
             <h3 style={{ marginTop: 30 }}>Key Areas We Serve:</h3>
             <ul className="tag-list">
-              <li>Fort Saskatchewan</li>
+              <li>Edmonton</li>
               <li>Leduc</li>
               <li>Edmonton</li>
               <li>Tofield</li>
@@ -284,9 +304,6 @@ export default function Page() {
       <section id="services" className="section section--services">
         <div className="container">
           <div className="section__head">
-            <span className="eyebrow">
-              <span className="eyebrow__dot" /> Our Services
-            </span>
             <h2 className="section__title">
               Mobile Truck & Trailer Repair Services We Provide
             </h2>
@@ -337,148 +354,22 @@ export default function Page() {
         }
       />
 
-      <section id="why-us" className="section section--dark">
-        <div className="container">
-          <div
-            className="section__head"
-            style={{ margin: "0 auto 60px", textAlign: "center" }}
-          >
-            <span className="eyebrow eyebrow--light">
-              <span className="eyebrow__dot" /> Why Choose SRB Equipment
-            </span>
-            <h2 className="section__title">Skip the Delay, Save Time & Money</h2>
-            <p className="section__lede">
-              While mobile repair offers convenience and savings, SRB Equipment
-              takes it a step further with professional expertise, reliability,
-              and customer care that drivers trust. Here&apos;s why we&apos;re the
-              preferred choice for mobile truck and trailer repair in Edmonton.
-            </p>
-          </div>
-
-          <div className="stat-row">
-            <div className="stat-box">
-              <strong>100%</strong>
-              <span>Mobile Service</span>
-            </div>
-            <div className="stat-box">
-              <strong>24/7</strong>
-              <span>Emergency Response</span>
-            </div>
-          </div>
-
-          <div className="two-col">
-            <div className="two-col__media">
-              <div
-                className="image-frame image-frame--dark image-frame--short"
-                style={{ height: 420 }}
-              >
-                <Image
-                  src="/images/2025/10/truck-repair.jpg"
-                  alt="Mechanic working on truck engine"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </div>
-            <div className="two-col__content">
-              <h3>Built for the Road</h3>
-              <p>
-                Each of our service trucks is equipped with advanced tools,
-                diagnostic systems, and quality parts, allowing us to complete
-                most repairs right on-site.
-              </p>
-              <ul className="check-list">
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" /> 24/7
-                  Roadside Assistance — available day or night, including
-                  weekends and holidays
-                </li>
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" /> Certified
-                  Mobile Truck Mechanics with years of hands-on diesel experience
-                </li>
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" /> Transparent
-                  Pricing — clear, upfront estimates with no hidden fees
-                </li>
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" />{" "}
-                  Customer-First Approach — lasting repairs, not quick fixes
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="two-col two-col--reverse spaced-top">
-            <div className="two-col__media">
-              <div
-                className="image-frame image-frame--dark image-frame--short"
-                style={{ height: 420 }}
-              >
-                <Image
-                  src="/images/2025/10/edmonton-truck.jpg"
-                  alt="Semi-truck on highway"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-            </div>
-            <div className="two-col__content">
-              <h3>Complete Mobile Repair Solutions</h3>
-              <p>
-                SRB Equipment offers full-service mobile repair for all types of
-                trucks and trailers. From engines and drivetrains to electrical
-                systems, brakes, and tires, our technicians handle it all
-                on-site.
-              </p>
-              <ul className="check-list">
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" /> Built for
-                  Edmonton Drivers and Fleets — local knowledge for faster
-                  response
-                </li>
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" /> Single,
-                  dependable solution for every repair need
-                </li>
-                <li>
-                  <i className="fa-solid fa-check" aria-hidden="true" /> Fully
-                  equipped mobile units ready for any breakdown location
-                </li>
-              </ul>
-              <div className="section__actions">
-                <a href={SITE.phoneHref} className="btn btn--primary">
-                  Book Mobile Truck Service Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="benefits" className="section section--why">
+      <section id="why-us" className="section section--why">
         <div className="container">
           <div className="section__head section__head--center">
-            <span className="eyebrow">
-              <span className="eyebrow__dot" /> Benefits
-            </span>
             <h2 className="section__title">
-              Benefits of Mobile Truck and Trailer Repair Service in Edmonton
+              Why Edmonton Truckers Call SRB Equipment First
             </h2>
             <p className="section__lede">
-              Breakdowns can happen anywhere, and towing a heavy-duty truck often
-              means lost time and extra cost. That&apos;s why mobile truck repair
-              has become the smarter choice for drivers and fleet owners. It
-              brings the shop to your location, offering fast, reliable service
-              that keeps your trucks and trailers moving without long delays.
+              At SRB Equipment, we know how stressful a breakdown can be. That
+              is why Edmonton drivers and fleet owners call us first. We show
+              up fast, fix it right, and get you back on the road without the
+              hassle.
             </p>
           </div>
           <div className="feature-grid">
             {BENEFITS.map((benefit) => (
               <article key={benefit.num} className="feature-card">
-                <span className="feature-card__num">{benefit.num}</span>
                 <span className="feature-card__icon">
                   <Image
                     src={benefit.icon}
@@ -492,15 +383,79 @@ export default function Page() {
               </article>
             ))}
           </div>
+          <div className="section__actions" style={{ justifyContent: "center", marginTop: "var(--space-5)" }}>
+            <a href={SITE.phoneHref} className="btn btn--primary btn--lg">
+              Get a Mobile Mechanic Now
+            </a>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="section section--contact">
+      <section id="process" className="section section--process">
+        <div className="container">
+          <div className="section__head section__head--center">
+            <h2 className="section__title">
+              How Our Mobile Truck Repair Process Works
+            </h2>
+          </div>
+
+          <ol className="repair-steps">
+            {PROCESS_STEPS.map((step, index) => (
+              <li key={step.title}>
+                <span className="repair-steps__num" aria-hidden="true">
+                  {index + 1}
+                </span>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="section__actions section__actions--center">
+            <a href={SITE.phoneHref} className="btn btn--primary btn--lg">
+              Schedule Your Repair Today
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-banner cta-banner--cinematic" data-testid="urgent-cta">
+        <div className="cta-banner__photo" aria-hidden="true">
+          <Image
+            src="/images/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="cta-banner__scrim" aria-hidden="true" />
+
+        <div className="container cta-banner__inner">
+          <div className="cta-banner__content">
+            <h2 className="cta-banner__title">
+              Need Mobile Truck Repair in Edmonton?
+              <br />
+              We Are Ready to Help
+            </h2>
+            <p>
+              Our certified mechanics are available 24/7 to get your truck
+              back on the road fast. No towing, no waiting, just on-site
+              repair you can count on.
+            </p>
+          </div>
+          <div className="cta-banner__actions">
+            <a href={SITE.phoneHref} className="btn btn--primary btn--lg cta-pulse">
+              <i className="fa-solid fa-phone-volume" aria-hidden="true" /> Call
+              Us Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* <section id="contact" className="section section--contact">
         <div className="container two-col two-col--narrow">
           <div className="two-col__content">
-            <span className="eyebrow">
-              <span className="eyebrow__dot" /> Service Coverage
-            </span>
             <h2 className="section__title">
               Truck Mobile Repair Service Across Edmonton & Beyond
             </h2>
@@ -576,14 +531,11 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id="faq" className="section section--faq">
         <div className="container faq-layout">
           <div className="section__head">
-            <span className="eyebrow">
-              <span className="eyebrow__dot" /> FAQ
-            </span>
             <h2 className="section__title">Frequently Asked Questions</h2>
             <p className="section__lede">
               Common questions about our mobile truck and trailer repair services
@@ -591,7 +543,7 @@ export default function Page() {
             </p>
             <div className="section__actions">
               <a href={SITE.phoneHref} className="btn btn--dark">
-                Call {SITE.phoneDisplay}
+                Still Have Questions? Call Our Dispatch Line
               </a>
             </div>
           </div>
@@ -603,17 +555,25 @@ export default function Page() {
                 open={"open" in faq ? faq.open : undefined}
               >
                 <summary>
-                  {faq.q}{" "}
+                  <h3 style={{ textTransform: "capitalize", margin: 0, display: "inline" }}>
+                    {faq.q}
+                  </h3>{" "}
                   <i className="fa-solid fa-plus" aria-hidden="true" />
                 </summary>
                 <p>{faq.a}</p>
               </details>
             ))}
           </div>
+
+          {/* <div className="section__actions section__actions--center spaced-top">
+            <a href={SITE.phoneHref} className="btn btn--dark btn--lg">
+              Still Have Questions? Call Our Dispatch Line
+            </a>
+          </div> */}
         </div>
       </section>
 
-      <section className="section">
+      {/* <section className="section">
         <div className="container">
           <div className="bottom-cta">
             <div>
@@ -628,7 +588,7 @@ export default function Page() {
             </a>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

@@ -54,7 +54,6 @@ export default function HomeWhy() {
                 <span className="why-split__card-icon">
                   <Image src={feature.icon} alt="" width={48} height={48} />
                 </span>
-                <span className="why-split__card-num">{feature.num}</span>
               </div>
               <h3 className="why-split__card-title">{feature.title}</h3>
               <p>{feature.description}</p>

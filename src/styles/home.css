@@ -45,7 +45,7 @@
   max-width: var(--container);
   width: 100%;
   margin-inline: auto;
-  padding-top: clamp(28px, 4vh, 56px);
+  padding-top: clamp(48px, 7vh, 90px);
   padding-bottom: clamp(8px, 1.5vh, 18px);
   text-align: center;
 }
@@ -381,7 +381,10 @@
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 10px;
   padding: var(--space-3);
   background: linear-gradient(180deg, transparent 40%, rgba(15, 23, 42, 0.85) 100%);
 }
@@ -392,6 +395,35 @@
   font-size: 1.05rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+}
+
+#home .services-split__book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-color);
+  color: var(--dark);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#home .services-split__book-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+#home .services-split__book-btn i {
+  transition: transform 0.2s ease;
+}
+
+#home .services-split__book-btn:hover i {
+  transform: translateX(3px);
 }
 
 #home .services-split__icon {
@@ -697,6 +729,11 @@
   width: 48px;
   height: 48px;
   object-fit: contain;
+  filter: brightness(0) saturate(100%);
+}
+
+#home .why-split__card--accent .why-split__card-icon img {
+  filter: brightness(0) saturate(100%) invert(1);
 }
 
 #home .why-split__card-num {
@@ -1014,15 +1051,14 @@ img.hero_right_icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--radius-sm);
-  background: var(--white);
-  color: var(--dark);
-  border: 1px solid var(--border);
+  background: var(--dark);
+  color: var(--white);
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin-bottom: var(--space-3);
 }
 
@@ -1085,7 +1121,7 @@ img.hero_right_icon {
 
 @media (max-width: 768px) {
   #home .hero.hero--towis .hero__inner {
-    padding-top: clamp(36px, 6vh, 56px);
+    padding-top: clamp(48px, 8vh, 72px);
     padding-left: calc(var(--space-4) + var(--safe-left));
     padding-right: calc(var(--space-4) + var(--safe-right));
   }
