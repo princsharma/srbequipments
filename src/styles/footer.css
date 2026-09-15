@@ -163,7 +163,6 @@
 }
 
 
-/* Footer Map */
 #srb-footer .site-footer__map {
   min-width: 0;
 }
@@ -194,7 +193,7 @@
 
 #srb-footer .site-footer__social a {
   width: auto;
-  height: auto;
+  height:  auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
