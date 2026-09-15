@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingCall from "@/components/FloatingCall";
 import "./globals.css";
 import "@/styles/globalstyles.css";
 import "@/styles/header.css";
@@ -51,7 +50,6 @@ export default function RootLayout({
         <Header />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
-        <FloatingCall />
       </body>
     </html>
   );

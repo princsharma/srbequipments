@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import CountUp from "@/components/CountUp";
-import HazardStripe from "@/components/HazardStripe";
 import { SITE } from "@/lib/site";
 
 const HERO_VEHICLE =
@@ -10,22 +9,10 @@ const HERO_VEHICLE =
 export default function HomeHero() {
   return (
     <section className="hero hero--towis" data-testid="hero">
-      <HazardStripe size="lg" />
       <div className="hero__sky" aria-hidden="true" />
 
       <div className="container hero__inner">
         <div className="hero__content">
-          <a
-            href={SITE.phoneHref}
-            className="hero__phone-pill hero-anim hero-anim--1"
-            data-testid="hero-call-btn"
-          >
-            <span className="hero__phone-pill-icon" aria-hidden="true">
-              <i className="fa-solid fa-phone" />
-            </span>
-            <span className="hero__phone-pill-num">{SITE.phoneDisplay}</span>
-          </a>
-
           <h1
             className="hero__title hero-anim hero-anim--2"
             data-testid="hero-title"
@@ -53,7 +40,7 @@ export default function HomeHero() {
             </Link>
             <a href={SITE.phoneHref} className="btn btn--primary btn--lg">
               <i className="fa-solid fa-phone-volume" aria-hidden="true" />
-              Call Now
+              Call Now {SITE.phoneDisplay}
             </a>
           </div>
         </div>

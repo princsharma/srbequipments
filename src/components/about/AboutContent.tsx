@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import HazardStripe from "@/components/HazardStripe";
 import Reveal from "@/components/Reveal";
 import { BRAND_LOGOS, HOME_FAQS, WHY_FEATURES } from "@/lib/home-data";
 import { GALLERY_ITEMS } from "@/lib/gallery-data";
@@ -50,7 +49,6 @@ export default function AboutContent() {
           </nav>
         </div>
       </section>
-      <HazardStripe />
 
       {/* 2. Intro */}
       <section className="section about-story" aria-labelledby="about-story-heading">

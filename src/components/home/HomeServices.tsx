@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import { HOME_SERVICES } from "@/lib/home-data";
 import { SITE } from "@/lib/site";
@@ -29,7 +28,6 @@ export default function HomeServices() {
 
       <div className="container services-split__layout">
         <Reveal variant="left" as="aside" className="services-split__intro">
-          <span className="services-split__label">Our Services</span>
           <h2 className="services-split__title">
             Full Range of Truck &amp; Trailer Repair Services
           </h2>
@@ -37,25 +35,6 @@ export default function HomeServices() {
             Get essential commercial repairs completed in one place — from brakes
             and engines to CVIP inspections and 24/7 mobile roadside support.
           </p>
-
-          <div className="services-split__proof">
-            <Image
-              className="services-split__proof-logo"
-              src={SITE.logo}
-              alt=""
-              width={52}
-              height={52}
-            />
-            <div className="services-split__proof-text">
-              <strong>5,000+</strong>
-              <span>Customers Trust Us</span>
-            </div>
-          </div>
-
-          <Link href="/contact-us" className="btn btn--dark btn--lg">
-            Get a Quote
-            <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-          </Link>
         </Reveal>
 
         <div className="services-split__grid" data-testid="service-grid">
@@ -67,19 +46,37 @@ export default function HomeServices() {
               delay={i * 70}
               className="services-split__card"
             >
-              <span className="services-split__icon" aria-hidden="true">
-                <i
-                  className={
-                    SERVICE_ICONS[service.title] || "fa-solid fa-wrench"
-                  }
-                />
-              </span>
-              <h3 className="services-split__card-title">{service.title}</h3>
-              <p>{service.description}</p>
-              <a href={SITE.phoneHref} className="services-split__link">
-                {service.cta}{" "}
-                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </a>
+              <div className="services-split__card-inner">
+                <div className="services-split__card-face services-split__card-face--front">
+                  <span className="services-split__icon" aria-hidden="true">
+                    <i
+                      className={
+                        SERVICE_ICONS[service.title] || "fa-solid fa-wrench"
+                      }
+                    />
+                  </span>
+                  <h3 className="services-split__card-title">
+                    {service.title}
+                  </h3>
+                  <p>{service.description}</p>
+                  <a href={SITE.phoneHref} className="services-split__link">
+                    {service.cta}{" "}
+                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  </a>
+                </div>
+                <div className="services-split__card-face services-split__card-face--back">
+                  <Image
+                    src={service.image}
+                    alt={service.alt}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                  <div className="services-split__card-overlay">
+                    <h3>{service.title}</h3>
+                  </div>
+                </div>
+              </div>
             </Reveal>
           ))}
         </div>

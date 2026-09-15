@@ -18,7 +18,6 @@ export default function HomeAbout() {
           </div>
         </Reveal>
         <Reveal variant="right" delay={100} className="two-col__content">
-          <span className="eyebrow">About SRB Equipment</span>
           <h2 className="section__title">
             Edmonton&apos;s Trusted Truck Repair Shop <em>Since 2015</em>
           </h2>

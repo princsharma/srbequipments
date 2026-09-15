@@ -1,6 +1,5 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import HazardStripe from "@/components/HazardStripe";
 import { SITE } from "@/lib/site";
 
 type PageHeroProps = {
@@ -71,7 +70,6 @@ export default function PageHero({
           ) : null}
         </div>
       </section>
-      <HazardStripe />
     </>
   );
 }

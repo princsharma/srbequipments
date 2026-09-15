@@ -10,7 +10,6 @@ export default function HomeWhy() {
 
       <div className="container why-split__layout">
         <Reveal variant="left" as="aside" className="why-split__intro">
-          <span className="eyebrow why-split__label">Why SRB Equipment</span>
           <h2 className="why-split__title">Why Drivers Trust SRB Equipment</h2>
           <p className="why-split__lede">
             Our commitment to quality repairs, reliable service, and customer
@@ -19,27 +18,27 @@ export default function HomeWhy() {
           </p>
 
           <div className="why-split__proof">
-            <Image
+            {/* <Image
               className="why-split__proof-logo"
               src={SITE.logo}
               alt=""
               width={52}
               height={52}
-            />
-            <div className="why-split__proof-text">
+            /> */}
+            {/* <div className="why-split__proof-text">
               <strong>5,000+</strong>
               <span>Trucks Repaired &amp; Counting</span>
-            </div>
+            </div> */}
           </div>
 
-          <a
+          {/* <a
             href={SITE.phoneHref}
             className="btn btn--primary btn--lg"
             data-testid="why-quote-btn"
           >
             <i className="fa-solid fa-phone-volume" aria-hidden="true" />
             {SITE.phoneDisplay}
-          </a>
+          </a> */}
         </Reveal>
 
         <div className="why-split__grid">

@@ -36,16 +36,16 @@ export default function HomeCtaBanner() {
         </Reveal>
         <Reveal variant="up" delay={120}>
           <div className="cta-banner__actions">
-            <a
+            {/* <a
               href={SITE.phoneHref}
               className="cta-banner__phone"
               data-testid="banner-call-btn"
             >
               {SITE.phoneDisplay}
-            </a>
+            </a> */}
             <a href={SITE.phoneHref} className="btn btn--primary btn--lg cta-pulse">
               <i className="fa-solid fa-phone-volume" aria-hidden="true" /> Call
-              Now
+              Now (780) 878-5521
             </a>
           </div>
         </Reveal>

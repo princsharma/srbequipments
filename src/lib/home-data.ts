@@ -158,7 +158,7 @@ export const WHY_FEATURES = [
     description:
       "Quick roadside assistance and repair support when unexpected breakdowns disrupt your operations.",
     icon: "/images/2026/06/24-7-Emergency-Assistance-150x150.webp",
-    accent: true,
+    accent: false,
   },
 ] as const;
 

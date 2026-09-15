@@ -117,7 +117,7 @@
   /* Type */
   --font-body: var(--font-barlow), "Segoe UI", sans-serif;
   --font-display: var(--font-barlow-condensed), "Segoe UI", sans-serif;
-  --h1: clamp(2.6rem, 5.2vw, 4.75rem);
+  --h1: clamp(3.4rem, 4.3vw, 5.6rem);
   --h2: clamp(2rem, 3.6vw, 3.15rem);
   --h3: clamp(1.3rem, 2.2vw, 1.85rem);
   --body: 1.0625rem;
@@ -284,28 +284,28 @@ li {
 .hazard-stripe {
   display: block;
   width: 100%;
-  height: 14px;
+  height: 16px;
   flex-shrink: 0;
   background: repeating-linear-gradient(-45deg,
-      var(--primary-color) 0 10px,
-      var(--surface-dark-1) 10px 20px);
+      var(--primary-color) 0 14px,
+      var(--surface-dark-1) 14px 28px);
   border: 0;
   margin: 0;
   padding: 0;
 }
 
 .hazard-stripe--sm {
-  height: 10px;
+  height: 12px;
 }
 
 .hazard-stripe--lg {
-  height: 18px;
+  height: 22px;
 }
 
 .hazard-stripe--flip {
   background: repeating-linear-gradient(45deg,
-      var(--primary-color) 0 10px,
-      var(--surface-dark-1) 10px 20px);
+      var(--primary-color) 0 14px,
+      var(--surface-dark-1) 14px 28px);
 }
 
 .page-hero {
@@ -1204,7 +1204,7 @@ li {
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
+  gap: clamp(18px, 2vw, 30px);
 }
 
 .service-card {
@@ -1212,9 +1212,11 @@ li {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: var(--space-4);
+  padding: 0;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
   overflow: hidden;
+  perspective: 1400px;
+  cursor: pointer;
 }
 
 .service-card::before {
@@ -1227,6 +1229,36 @@ li {
   background: var(--primary-color);
   opacity: 0;
   transition: opacity var(--transition);
+}
+
+.service-card__inner {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.service-card__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.service-card__face--front {
+  z-index: 2;
+}
+
+.service-card__face--back {
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.service-card.is-flipped .service-card__inner {
+  transform: rotateY(180deg);
 }
 
 .service-card:hover {
@@ -1260,6 +1292,28 @@ li {
   letter-spacing: 0;
 }
 
+.service-card__face--front .service-card__body {
+  height: 100%;
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-card__face--back .service-card__media {
+  height: 58%;
+}
+
+.service-card__back-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  height: 42%;
+  background: var(--white);
+}
+
 .service-card__link {
   display: inline-flex;
   align-items: center;
@@ -1270,6 +1324,7 @@ li {
   letter-spacing: 0.08em;
   font-size: 0.88rem;
   color: var(--dark);
+  width: fit-content;
 }
 
 .service-card__link i {
@@ -1655,7 +1710,7 @@ li {
   align-items: center;
   gap: 8px;
   font-size: 0.95rem;
-  color: var(--text-light);
+  color: var(--dark);
   margin-top: var(--space-2);
   background: var(--white);
   border: 1px solid var(--border);
@@ -1664,7 +1719,7 @@ li {
 }
 
 .reviews-summary__stars {
-  color: var(--primary-dark);
+  color: var(--primary-color);
   letter-spacing: 2px;
 }
 
@@ -1730,7 +1785,7 @@ li {
 }
 
 .review-card__stars {
-  color: var(--primary-dark);
+  color: var(--primary-color);
   letter-spacing: 2px;
   margin-bottom: 10px;
 }
@@ -1813,7 +1868,7 @@ li {
 .faq-item p {
   padding: 0 22px 22px;
   margin: 0;
-  color: var(--text-light);
+  color: var(--dark);
   font-size: 1rem;
   line-height: 1.7;
   padding-bottom: 20px !important;
@@ -2045,7 +2100,7 @@ li {
      Floating call button (mobile)
      ============================================================ */
 .floating-call {
-  display: none;
+  display: inline-flex;
   position: fixed;
   bottom: calc(20px + var(--safe-bottom));
   right: calc(20px + var(--safe-right));
@@ -2069,13 +2124,6 @@ li {
   transform: translateY(-3px);
   box-shadow: 0 8px 0 rgba(0, 0, 0, 0.3), var(--shadow-yellow);
   color: var(--dark);
-}
-
-/* Homepage hero already shows phone + CTA — hide duplicate floating button */
-#home~.floating-call,
-main:has(#home)~.floating-call,
-main#home~.floating-call {
-  display: none !important;
 }
 
 /* ============================================================

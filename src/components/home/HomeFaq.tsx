@@ -6,7 +6,6 @@ export default function HomeFaq() {
     <section id="faq" className="section section--faq" data-testid="faq">
       <div className="container two-col two-col--narrow">
         <div className="two-col__content two-col__content--sticky">
-          <span className="eyebrow">FAQ</span>
           <h2 className="section__title">
             Frequently Asked <em>Questions</em>
           </h2>

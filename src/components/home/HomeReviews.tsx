@@ -5,7 +5,6 @@ export default function HomeReviews() {
     <section id="reviews" className="section section--reviews" data-testid="reviews">
       <div className="container">
         <div className="section__head section__head--center">
-          <span className="eyebrow">Reviews</span>
           <h2 className="section__title">
             Trusted by Truckers <em>Like You</em>
           </h2>

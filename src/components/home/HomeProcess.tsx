@@ -7,7 +7,6 @@ export default function HomeProcess() {
     <section className="section section--process" data-testid="repair-process">
       <div className="container">
         <Reveal variant="up" className="section__head section__head--center">
-          <span className="eyebrow">How We Work</span>
           <h2 className="section__title">
             Our Truck and Trailer Repair Process
           </h2>

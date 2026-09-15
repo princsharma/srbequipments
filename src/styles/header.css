@@ -25,9 +25,9 @@
   min-height: var(--utility-bar-height);
   max-height: var(--utility-bar-height);
   flex-shrink: 0;
-  background: var(--primary-color);
-  border-bottom: none;
-  color: var(--dark);
+  background: var(--surface-dark-1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 #srb-header-wrap .utility-bar__inner {
@@ -39,16 +39,16 @@
   font-size: 0.78rem;
   font-weight: 600;
   white-space: nowrap;
-  color: var(--dark);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 #srb-header-wrap .utility-bar__item a {
-  color: var(--dark);
+  color: var(--primary-color);
   font-weight: 700;
 }
 
 #srb-header-wrap .utility-bar__item a:hover {
-  color: var(--dark);
+  color: var(--white);
   text-decoration: underline;
 }
 
@@ -57,18 +57,18 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--dark);
+  color: var(--primary-color);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
-  background: rgba(11, 18, 32, 0.12);
-  border: 1px solid rgba(11, 18, 32, 0.2);
+  background: transparent;
+  border: 1px solid rgba(255, 242, 0, 0.35);
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
 #srb-header-wrap .utility-bar__promo:hover {
-  background: var(--dark);
-  color: var(--primary-color);
-  border-color: var(--dark);
+  background: var(--primary-color);
+  color: var(--dark);
+  border-color: var(--primary-color);
 }
 
 #srb-header-wrap .utility-bar__promo i {
