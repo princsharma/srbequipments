@@ -9,8 +9,44 @@
 }
 
 /* Towis page-hero is primary; keep light hero as fallback */
+#srb-repair-shops .page-hero {
+  background: var(--primary-color);
+}
+
+#srb-repair-shops .page-hero__bg::after {
+  background:
+    linear-gradient(90deg, rgba(255, 242, 0, 0.92) 0%, rgba(255, 242, 0, 0.78) 55%, rgba(255, 242, 0, 0.6) 100%),
+    linear-gradient(180deg, rgba(255, 242, 0, 0.3) 0%, rgba(255, 242, 0, 0.85) 100%);
+}
+
 #srb-repair-shops .page-hero h1 {
   max-width: 18ch;
+  color: var(--dark);
+}
+
+#srb-repair-shops .page-hero .eyebrow {
+  color: var(--dark);
+}
+
+#srb-repair-shops .page-hero .eyebrow__dot {
+  background: var(--dark);
+}
+
+#srb-repair-shops .page-hero .section__lede {
+  color: rgba(15, 23, 42, 0.75);
+}
+
+#srb-repair-shops .page-hero .page-hero__cta .btn--primary {
+  background: var(--dark);
+  color: var(--primary-color);
+}
+
+#srb-repair-shops .page-hero .phone-cta__label {
+  color: rgba(15, 23, 42, 0.6);
+}
+
+#srb-repair-shops .page-hero .phone-cta__number {
+  color: var(--dark);
 }
 
 #srb-repair-shops .page-hero h1 em {
@@ -78,8 +114,8 @@
 }
 
 .trust-strip--compact {
-  background: var(--dark);
-  color: var(--white);
+  background: var(--primary-color);
+  color: var(--dark);
   padding: var(--space-3) 0;
 }
 
@@ -94,7 +130,7 @@
 .trust-strip--compact strong {
   display: block;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
-  color: var(--primary-color);
+  color: var(--dark);
   line-height: 1.1;
 }
 
@@ -105,7 +141,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(15, 23, 42, 0.7);
 }
 
 .area-tags {

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HazardStripe from "@/components/HazardStripe";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 import "@/styles/globalstyles.css";
 import "@/styles/header.css";
@@ -22,13 +24,53 @@ const barlowCondensed = Barlow_Condensed({
   display: "swap",
 });
 
+const DEFAULT_DESCRIPTION =
+  "Red Seal–certified technicians delivering fast truck and trailer repairs, proactive maintenance, and 24/7 roadside service in Edmonton.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: {
     default: "SRB Equipment | Truck & Trailer Repair Shop in Edmonton",
     template: "%s | SRB Equipment",
   },
-  description:
-    "Red Seal–certified technicians delivering fast truck and trailer repairs, proactive maintenance, and 24/7 roadside service in Edmonton.",
+  description: DEFAULT_DESCRIPTION,
+  keywords: [
+    "truck repair Edmonton",
+    "trailer repair Edmonton",
+    "heavy-duty truck repair",
+    "CVIP inspection Edmonton",
+    "mobile truck repair",
+    "24/7 roadside assistance Edmonton",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: SITE.url,
+    siteName: SITE.name,
+    title: "SRB Equipment | Truck & Trailer Repair Shop in Edmonton",
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: SITE.logo,
+        width: 512,
+        height: 512,
+        alt: SITE.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SRB Equipment | Truck & Trailer Repair Shop in Edmonton",
+    description: DEFAULT_DESCRIPTION,
+    images: [SITE.logo],
+  },
 };
 
 export default function RootLayout({
@@ -48,6 +90,7 @@ export default function RootLayout({
       </head>
       <body>
         <Header />
+        <HazardStripe size="sm" />
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
       </body>

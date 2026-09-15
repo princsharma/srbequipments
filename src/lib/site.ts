@@ -1,5 +1,6 @@
 export const SITE = {
   name: "SRB Equipment",
+  url: "https://srbequipment.ca",
   phoneDisplay: "(780) 878-5221",
   phoneHref: "tel:+17808785221",
   email: "info@srbequipment.ca",

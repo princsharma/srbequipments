@@ -292,10 +292,22 @@ li {
   border: 0;
   margin: 0;
   padding: 0;
+  animation: stripeShift 22s linear infinite;
+}
+
+@keyframes stripeShift {
+  from { background-position: 0 0; }
+  to { background-position: 40px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hazard-stripe {
+    animation: none !important;
+  }
 }
 
 .hazard-stripe--sm {
-  height: 12px;
+  height: 8px;
 }
 
 .hazard-stripe--lg {
@@ -1108,10 +1120,9 @@ li {
 
 .image-frame {
   position: relative;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  border-left: 6px solid var(--primary-color);
 }
 
 .image-frame>img {
@@ -1835,7 +1846,7 @@ li {
   font-size: 1.1rem;
   color: var(--dark);
   list-style: none;
-  transition: color var(--transition);
+  transition: color var(--transition), font-size var(--transition);
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -1862,7 +1873,7 @@ li {
 }
 
 .faq-item summary:hover {
-  color: var(--primary-dark);
+  font-size: 1.18rem;
 }
 
 .faq-item p {

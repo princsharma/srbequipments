@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import HazardStripe from "@/components/HazardStripe";
 import { NAV_LINKS, SERVICE_LINKS, SITE } from "@/lib/site";
 
 const MOBILE = 1024;
@@ -216,7 +215,6 @@ export default function Header() {
           </a>
         </nav>
       </header>
-      <HazardStripe size="lg" />
     </div>
   );
 }

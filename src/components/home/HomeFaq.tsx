@@ -13,14 +13,13 @@ export default function HomeFaq() {
             Quick answers about our truck &amp; trailer repair services. Don&apos;t
             see your question? Call us anytime.
           </p>
-          <a
+          {/* <a
             href={SITE.phoneHref}
             className="btn btn--primary"
             data-testid="faq-call-btn"
           >
-            <i className="fa-solid fa-phone" aria-hidden="true" /> Talk to a
-            Technician
-          </a>
+            Talk to a Technician
+          </a> */}
         </div>
 
         <div className="faq-list" data-testid="faq-list">

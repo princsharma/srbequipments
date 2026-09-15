@@ -39,10 +39,11 @@ export default function HomeProcess() {
             className="btn btn--primary btn--lg"
             data-testid="process-schedule-btn"
           >
-            {SITE.phoneDisplay}
+           Schedule a Truck Repair
           </a>
         </Reveal>
       </div>
     </section>
+    
   );
 }

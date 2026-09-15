@@ -10,6 +10,7 @@ import HomeReviews from "@/components/home/HomeReviews";
 import HomeBrands from "@/components/home/HomeBrands";
 import HomeFaq from "@/components/home/HomeFaq";
 import HomeContact from "@/components/home/HomeContact";
+import HomeStructuredData from "@/components/home/HomeStructuredData";
 
 export const metadata: Metadata = {
   title: "Truck & Trailer Repair Shop in Edmonton",
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div id="home">
+      <HomeStructuredData />
       <HomeHero />
       <HomeBrands />
       <HomeAbout />
