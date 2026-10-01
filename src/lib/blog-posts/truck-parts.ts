@@ -169,6 +169,7 @@ const article: BlogArticle = {
     },
   ],
   relatedSlugs: [
+    "why-is-proper-wheel-alignment-crucial-for-trucks",
     "heavy-duty-mechanic-career-guide",
     "top-engine-maintenance-tips-for-your-kenworth-w900",
   ],

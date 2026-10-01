@@ -1,10 +1,6 @@
 import PageHero from "@/components/PageHero";
+import HomeContact from "@/components/home/HomeContact";
 import { SITE } from "@/lib/site";
-
-const [street, ...cityParts] = SITE.address.split(", ");
-const cityLine = cityParts.join(", ");
-
-const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(SITE.address)}&output=embed`;
 
 export default function ContactContent() {
   return (
@@ -12,9 +8,7 @@ export default function ContactContent() {
       <PageHero
         id="contact-heading"
         testId="contact-hero"
-        eyebrow="Get In Touch"
         title="Contact Us"
-        lede="Call, email, or visit our Edmonton shop — we're ready to keep your trucks moving."
         image="/images/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
       />
 
@@ -56,60 +50,7 @@ export default function ContactContent() {
         </div>
       </section>
 
-      <section
-        id="contact"
-        className="section section--contact"
-        data-testid="contact"
-      >
-        <div className="container contact-page-details">
-          <div className="contact-card">
-            <h3>{SITE.name}</h3>
-            <ul className="contact-card__list">
-              <li>
-                <i className="fa-solid fa-location-dot" aria-hidden="true" />
-                <div>
-                  <strong>{street}</strong>
-                  <span>{cityLine}</span>
-                </div>
-              </li>
-              <li>
-                <i className="fa-solid fa-phone-volume" aria-hidden="true" />
-                <div>
-                  <strong>
-                    <a href={SITE.phoneHref}>{SITE.phoneDisplay}</a>
-                  </strong>
-                  <span>24/7 Roadside Assistance</span>
-                </div>
-              </li>
-              <li>
-                <i className="fa-regular fa-envelope" aria-hidden="true" />
-                <div>
-                  <strong>
-                    <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-                  </strong>
-                  <span>We respond within 1 hour (business)</span>
-                </div>
-              </li>
-              <li>
-                <i className="fa-regular fa-clock" aria-hidden="true" />
-                <div>
-                  <strong>Mon – Fri · 7:00am – 6:00pm</strong>
-                  <span>Roadside service available 24/7</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div className="contact-map" data-testid="contact-map">
-            <iframe
-              title={`${SITE.name} location on Google Maps`}
-              src={mapSrc}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-        </div>
-      </section>
+      <HomeContact />
     </>
   );
 }

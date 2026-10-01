@@ -1,16 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+import FaqSection from "@/components/faq/FaqSection";
 import {
   getRelatedArticles,
   type BlogArticle,
   type BlogBlock,
 } from "@/lib/blog-articles";
+import BlogArticleToc from "@/components/blog/BlogArticleToc";
+import { prepareBlogHtml } from "@/lib/blog-html";
 import { SITE } from "@/lib/site";
 
-const FALLBACK_IMAGE =
-  "/images/2025/11/truck-repair-in-shop.jpg";
-
+const FALLBACK_IMAGE = "/images/2025/11/truck-repair-in-shop.jpg";
 function Block({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "p":
@@ -61,55 +63,81 @@ function Block({ block }: { block: BlogBlock }) {
           </ul>
         </aside>
       );
+    case "table":
+      return (
+        <div className="blog-article__table-wrap">
+          <table className="blog-article__table">
+            {block.head.length ? (
+              <thead>
+                <tr>
+                  {block.head.map((cell, i) => (
+                    <th key={i} scope="col">
+                      {cell}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+            ) : null}
+            <tbody>
+              {block.rows.map((row, r) => (
+                <tr key={r}>
+                  {row.map((cell, c) => (
+                    <td key={c}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
     default:
       return null;
   }
 }
 
 export default function BlogArticleView({ article }: { article: BlogArticle }) {
-  const related = getRelatedArticles(
-    article.relatedSlugs.length
-      ? article.relatedSlugs
-      : []
-  );
+  const related = getRelatedArticles(article.relatedSlugs, 3, article.slug);
   const image = article.image || FALLBACK_IMAGE;
   const hasToc = article.toc.length > 0;
   const hasBlocks = Boolean(article.blocks?.length);
   const hasHtml = Boolean(article.html?.trim());
+  const htmlBody =
+    hasHtml && !hasBlocks ? prepareBlogHtml(article.html!) : null;
 
   return (
-    <article className="blog-article">
+    <article className="blog-article" id="srb-blog-article">
       <PageHero
-        eyebrow={article.category}
+        id="blog-article-heading"
+        testId="blog-article-hero"
         title={article.title}
-        lede={article.subtitle}
-        showCall={false}
       />
 
+      {/* <div className="blog-article__mast">
+        <div className="container blog-article__mast-inner">
+          <nav className="blog-article__crumbs" aria-label="Breadcrumb">
+            <Link href="/">Home</Link>
+            <span aria-hidden="true">/</span>
+            <Link href="/blog">Blog</Link>
+            <span aria-hidden="true">/</span>
+            <span>{article.title}</span>
+          </nav>
+          <ul className="blog-article__meta">
+            <li>
+              <span className="blog-article__category">{article.category}</span>
+            </li>
+            <li>
+              <time dateTime={article.dateIso}>{article.date}</time>
+            </li>
+            <li>{article.readingMinutes} min read</li>
+          </ul>
+        </div>
+      </div> */}
+
       <div
+        id="blog-article-layout"
         className={`container blog-article__layout${hasToc ? "" : " blog-article__layout--solo"}`}
       >
-        {hasToc ? (
-          <aside className="blog-article__toc" aria-label="Table of contents">
-            <div className="blog-article__toc-card">
-              <p className="blog-article__toc-title">On this page</p>
-              <ol>
-                {article.toc.map((item) => (
-                  <li key={item.id}>
-                    <a href={`#${item.id}`}>{item.label}</a>
-                  </li>
-                ))}
-              </ol>
-              <a
-                href={SITE.phoneHref}
-                className="btn btn--primary blog-article__toc-cta"
-              >
-                <i className="fa-solid fa-phone" aria-hidden="true" /> Call{" "}
-                {SITE.phoneDisplay}
-              </a>
-            </div>
-          </aside>
-        ) : null}
+        {hasToc ? <BlogArticleToc items={article.toc} /> : null}
 
         <div className="blog-article__content">
           <figure className="blog-article__feature">
@@ -119,13 +147,17 @@ export default function BlogArticleView({ article }: { article: BlogArticle }) {
               width={1200}
               height={675}
               priority
-              sizes="(max-width: 900px) 100vw, 720px"
+              sizes="(max-width: 960px) 100vw, 720px"
             />
           </figure>
 
+          {article.subtitle ? (
+            <p className="blog-article__dek">{article.subtitle}</p>
+          ) : null}
+
           {article.keyPoints?.length ? (
             <aside className="blog-article__keypoints" id="key-points">
-              <h2>Key Points</h2>
+              <h2 className="blog-article__keypoints-title">Key Points</h2>
               <ul>
                 {article.keyPoints.map((point) => (
                   <li key={point}>{point}</li>
@@ -134,18 +166,20 @@ export default function BlogArticleView({ article }: { article: BlogArticle }) {
             </aside>
           ) : null}
 
-          {hasBlocks
-            ? article.blocks!.map((block, i) => (
-                <Block key={`${block.type}-${i}`} block={block} />
-              ))
-            : null}
+          <div className="blog-article__prose">
+            {hasBlocks
+              ? article.blocks!.map((block, i) => (
+                  <Block key={`${block.type}-${i}`} block={block} />
+                ))
+              : null}
 
-          {hasHtml && !hasBlocks ? (
-            <div
-              className="blog-article__html"
-              dangerouslySetInnerHTML={{ __html: article.html! }}
-            />
-          ) : null}
+            {htmlBody ? (
+              <div
+                className="blog-article__html"
+                dangerouslySetInnerHTML={{ __html: htmlBody }}
+              />
+            ) : null}
+          </div>
 
           <div className="blog-article__cta">
             <div>
@@ -168,23 +202,14 @@ export default function BlogArticleView({ article }: { article: BlogArticle }) {
       </div>
 
       {article.faqs.length > 0 ? (
-        <section className="blog-article__faq" aria-labelledby="blog-faq-heading">
-          <div className="container">
-            <h2 id="blog-faq-heading">Frequently Asked Questions</h2>
-            <div className="blog-article__faq-grid">
-              {article.faqs.map((faq, index) => (
-                <details
-                  key={faq.q}
-                  className="blog-article__faq-item"
-                  open={index < 2}
-                >
-                  <summary>{faq.q}</summary>
-                  <p>{faq.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <FaqSection id="blog-article-faq">
+          <FaqAccordion
+            items={article.faqs.map((faq) => ({
+              question: faq.q,
+              answer: faq.a,
+            }))}
+          />
+        </FaqSection>
       ) : null}
 
       {related.length > 0 ? (
@@ -193,7 +218,11 @@ export default function BlogArticleView({ article }: { article: BlogArticle }) {
           aria-labelledby="related-heading"
         >
           <div className="container">
-            <h2 id="related-heading">Related Articles</h2>
+            <div className="section__head section__head--center">
+              <h2 id="related-heading" className="section__title">
+                Related <em>Articles</em>
+              </h2>
+            </div>
             <div className="blog-article__related-grid">
               {related.map((post) => (
                 <Link

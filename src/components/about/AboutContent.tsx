@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+import FaqSection from "@/components/faq/FaqSection";
 import { BRAND_LOGOS, HOME_FAQS, WHY_FEATURES } from "@/lib/home-data";
 import { GALLERY_ITEMS } from "@/lib/gallery-data";
 import { SITE } from "@/lib/site";
@@ -42,11 +44,11 @@ export default function AboutContent() {
         </div>
         <div className="container about-hero__inner">
           <h1 id="about-heading">About Us</h1>
-          <nav className="about-hero__crumbs" aria-label="Breadcrumb">
+          {/* <nav className="about-hero__crumbs" aria-label="Breadcrumb">
             <Link href="/">Home</Link>
             <span aria-hidden="true">/</span>
             <span>About Us</span>
-          </nav>
+          </nav> */}
         </div>
       </section>
 
@@ -244,30 +246,22 @@ export default function AboutContent() {
         </div>
       </section>
 
-      {/* 7. FAQ */}
-      <section className="section about-faq section--gray">
-        <div className="container">
-          <Reveal variant="up" className="section__head section__head--center">
-            <h2 className="section__title">Frequently Asked Questions</h2>
-          </Reveal>
-          <div className="about-faq__list">
-            {ABOUT_FAQS.map((faq) => (
-              <details key={faq.q} className="about-faq__item">
-                <summary>
-                  {faq.q}
-                  <i className="fa-solid fa-plus" aria-hidden="true" />
-                </summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-          <div className="section__actions section__actions--center">
-            <Link href="/faq" className="btn btn--dark btn--lg">
-              View All FAQs
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* 7. FAQ — same layout as home */}
+      <FaqSection
+        id="about-faq"
+        actions={
+          <Link href="/faq" className="btn btn--dark btn--lg">
+            View All FAQs
+          </Link>
+        }
+      >
+        <FaqAccordion
+          items={ABOUT_FAQS.map((faq) => ({
+            question: faq.q,
+            answer: faq.a,
+          }))}
+        />
+      </FaqSection>
 
       {/* 8. Gallery */}
       <section className="section about-gallery">
