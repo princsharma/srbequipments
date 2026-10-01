@@ -18,15 +18,17 @@ export default function PageHero({
   lede,
   eyebrow,
   image,
-  showCall = true,
-  align = "left",
+  showCall = false,
+  align = "center",
   id,
   testId,
 }: PageHeroProps) {
+  const isMinimal = !eyebrow && !lede && !showCall;
+
   return (
     <>
       <section
-        className={`page-hero${align === "center" ? " page-hero--center" : ""}`}
+        className={`page-hero${align === "center" ? " page-hero--center" : ""}${isMinimal ? " page-hero--title-only" : ""}`}
         data-testid={testId}
         aria-labelledby={id}
       >

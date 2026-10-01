@@ -1,86 +1,32 @@
-/* FAQ page — Towis industrial */
+/* FAQ page — CTA; accordion uses global .section--faq styles (same as home) */
 
-.faq-page-panel {
-  background: var(--gray-bg);
-  border-radius: 0;
-  margin-top: 0;
-  position: relative;
-  z-index: 1;
-}
-
-.faq-page-panel .section__title {
-  color: var(--dark);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  margin-bottom: var(--space-4);
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.faq-page .faq-list {
-  gap: 12px;
-}
-
-.faq-page .faq-item {
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--white);
-  border-left: 4px solid transparent;
-}
-
-.faq-page .faq-item[open] {
-  border-left-color: var(--primary-color);
-  box-shadow: var(--shadow-sm);
-}
-
-.faq-page .faq-item:not([open]) {
-  border-color: var(--border);
-  background: var(--white);
-}
-
-.faq-page .faq-item summary {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  font-size: 1rem;
-}
-
-.faq-page .faq-item:not([open]) summary {
-  background: var(--primary-color);
-  color: var(--dark);
-  border-radius: var(--radius-sm);
-  padding: 16px 20px;
-}
-
-.faq-page .faq-item:not([open]) summary i {
-  background: rgba(15, 23, 42, 0.12);
-  color: var(--dark);
-}
-
-.faq-page .faq-item:not([open]) summary:hover {
-  background:var(--primary-hover)
-}
-
-.faq-page .faq-item[open] summary {
-  border-bottom: 1px solid var(--border);
-}
-
-.faq-page .faq-item ul {
+/* Long-form answers on the dedicated FAQ page (lists, links) */
+.section--faq .faq-item ul {
   margin: 0 0 var(--space-3);
-  padding-left: 1.25rem;
+  padding: 0 22px 0 calc(22px + 1.25rem);
   color: var(--text-light);
   line-height: 1.7;
 }
 
-.faq-page .faq-item ul li {
+.section--faq .faq-item ul li {
   margin-bottom: 8px;
+  list-style-type: disc;
 }
 
-.faq-page .faq-item p + p {
-  margin-top: var(--space-3);
+.section--faq .faq-item p + p {
+  margin-top: 0;
 }
 
-.faq-page .faq-item strong {
+.section--faq .faq-item a {
   color: var(--dark);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
+  text-underline-offset: 3px;
+}
+
+.section--faq .faq-item a:hover {
+  color: var(--primary-dark);
 }
 
 .faq-page-cta {
@@ -130,7 +76,7 @@
 }
 
 .faq-page-cta p {
-  color: var(--light-white-color);
+  color: var(--soft-white-color);
   margin: 0 0 var(--space-4);
   font-size: 1.05rem;
 }
@@ -144,5 +90,5 @@
 }
 
 .faq-page-cta__phone:hover {
-  color:var(--primary-hover);
+  color: var(--primary-hover);
 }

@@ -98,13 +98,13 @@ export default function RepairShopsPage() {
   return (
     <div id="srb-repair-shops">
       <PageHero
-        eyebrow="Updated 2026"
+        id="repair-shops-heading"
+        testId="repair-shops-hero"
         title={
           <>
             Best Truck Repair Shop <em>in Edmonton</em>
           </>
         }
-        lede="Rely on specialists to repair your vehicle professionally and get you back on the road. CVIP inspections, engine repair, emissions, A/C, oil changes, tires, and more."
         image={REPAIR_SHOPS_HERO}
       />
 

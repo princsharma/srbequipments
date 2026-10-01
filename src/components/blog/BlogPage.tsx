@@ -16,11 +16,12 @@ function resolvePost(listing: (typeof BLOG_POSTS)[number]) {
     image: article?.image || listing.image,
     alt: article?.imageAlt || listing.alt,
     featured: listing.featured,
+    category: article?.category || "Insights",
+    readingMinutes: article?.readingMinutes || 5,
   };
 }
 
 export default function BlogPage() {
-  // Prefer listing order from blog-data; append any API-only posts not in listing
   const listingSlugs = new Set(BLOG_POSTS.map((p) => slugFromHref(p.href)));
   const fromListing = BLOG_POSTS.map(resolvePost);
   const extras = BLOG_ARTICLES.filter((a) => !listingSlugs.has(a.slug)).map(
@@ -33,27 +34,74 @@ export default function BlogPage() {
       image: a.image,
       alt: a.imageAlt,
       featured: false as boolean | undefined,
+      category: a.category,
+      readingMinutes: a.readingMinutes,
     })
   );
   const posts = [...fromListing, ...extras];
+  const featured = posts.find((p) => p.featured) ?? posts[0];
+  const rest = posts.filter((p) => p.slug !== featured?.slug);
 
   return (
     <div id="srb-blog">
       <PageHero
-        eyebrow="Truck Repair Tips & Insights"
+        id="blog-heading"
+        testId="blog-hero"
         title="Blog"
-        lede="Expert advice on heavy-duty truck repair, maintenance, and roadside service — from the SRB Equipment team in Edmonton."
+        // lede="Expert advice on heavy-duty truck repair, maintenance, and roadside service — from the SRB Equipment team in Edmonton."
         image={BLOG_HERO}
       />
 
-      <section className="section blog-list">
-        <div className="container">
+      <section className="section blog-list" aria-label="Blog articles">
+        <div className="container blog-list__shell">
+          <div className="blog-list__intro section__head section__head--center">
+            <h2 className="section__title">
+              Truck Repair <em>Insights</em>
+            </h2>
+            <p className="section__lede">
+              Maintenance guides, fleet tips, and expert advice from SRB Equipment
+              in Edmonton.
+            </p>
+          </div>
+
+          {featured ? (
+            <article className="blog-spotlight">
+              <Link className="blog-spotlight__link" href={featured.href}>
+                <figure className="blog-spotlight__media">
+                  <Image
+                    src={
+                      featured.image ||
+                      "/images/2025/11/truck-repair-in-shop.jpg"
+                    }
+                    alt={featured.alt}
+                    width={1280}
+                    height={720}
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                  />
+                  <span className="blog-spotlight__badge">Featured</span>
+                  <span className="blog-card__media-shade" aria-hidden="true" />
+                </figure>
+                <div className="blog-spotlight__body">
+                  <div className="blog-card__meta">
+                    <span className="blog-card__pill">{featured.category}</span>
+                    <time dateTime={featured.date}>{featured.date}</time>
+                    <span>{featured.readingMinutes} min read</span>
+                  </div>
+                  <h2 className="blog-spotlight__title">{featured.title}</h2>
+                  <p className="blog-spotlight__excerpt">{featured.excerpt}</p>
+                  <span className="blog-card__cta blog-card__cta--spotlight">
+                    Read Article
+                    <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+                  </span>
+                </div>
+              </Link>
+            </article>
+          ) : null}
+
           <div className="blog-grid">
-            {posts.map((post) => (
-              <article
-                key={post.slug}
-                className={`blog-card${post.featured ? " blog-card--featured" : ""}`}
-              >
+            {rest.map((post) => (
+              <article key={post.slug} className="blog-card">
                 <Link className="blog-card__link" href={post.href}>
                   <figure className="blog-card__media">
                     <Image
@@ -64,19 +112,28 @@ export default function BlogPage() {
                       alt={post.alt}
                       width={640}
                       height={400}
-                      sizes={
-                        post.featured
-                          ? "(max-width: 1024px) 100vw, 48vw"
-                          : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      }
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
+                    <span className="blog-card__pill blog-card__pill--overlay">
+                      {post.category}
+                    </span>
+                    <span className="blog-card__media-shade" aria-hidden="true" />
+                    <span className="blog-card__media-chip">
+                      <i className="fa-solid fa-book-open" aria-hidden="true" />
+                      Read
+                    </span>
                   </figure>
                   <div className="blog-card__body">
-                    <time className="blog-card__date">{post.date}</time>
+                    <div className="blog-card__meta">
+                      <time className="blog-card__date">{post.date}</time>
+                      <span className="blog-card__dot" aria-hidden="true" />
+                      <span>{post.readingMinutes} min</span>
+                    </div>
                     <h2 className="blog-card__title">{post.title}</h2>
                     <p className="blog-card__excerpt">{post.excerpt}</p>
                     <span className="blog-card__cta">
-                      Read Article <span aria-hidden="true">→</span>
+                      Read Article
+                      <i className="fa-solid fa-arrow-right" aria-hidden="true" />
                     </span>
                   </div>
                 </Link>
@@ -87,10 +144,10 @@ export default function BlogPage() {
       </section>
 
       <section className="section blog-newsletter" id="newsletter">
-        <div className="container">
+        <div className="container blog-list__shell">
           <div className="blog-newsletter__card">
             <div className="blog-newsletter__content">
-              <div className="section__head">
+              <div className="section__head section__head--center">
                 <span className="blog-newsletter__badge">
                   <i className="fa-solid fa-envelope" aria-hidden="true" /> Stay
                   Updated
@@ -123,8 +180,8 @@ export default function BlogPage() {
                 </div>
               </form>
               <p className="blog-newsletter__note">
-                We respect your privacy. Your email is only used for SRB Equipment
-                updates.
+                We respect your privacy. Your email is only used for SRB
+                Equipment updates.
               </p>
             </div>
           </div>

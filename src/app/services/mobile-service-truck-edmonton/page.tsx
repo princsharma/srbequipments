@@ -1,5 +1,7 @@
 ﻿import type { Metadata } from "next";
 import Image from "next/image";
+import FaqAccordion from "@/components/faq/FaqAccordion";
+import FaqSection from "@/components/faq/FaqSection";
 import ServiceHero from "@/components/services/ServiceHero";
 import ServiceCtaBanner from "@/components/services/ServiceCtaBanner";
 import { SITE } from "@/lib/site";
@@ -533,45 +535,15 @@ export default function Page() {
         </div>
       </section> */}
 
-      <section id="faq" className="section section--faq">
-        <div className="container faq-layout">
-          <div className="section__head">
-            <h2 className="section__title">Frequently Asked Questions</h2>
-            <p className="section__lede">
-              Common questions about our mobile truck and trailer repair services
-              across Edmonton.
-            </p>
-            <div className="section__actions">
-              <a href={SITE.phoneHref} className="btn btn--dark">
-                Still Have Questions? Call Our Dispatch Line
-              </a>
-            </div>
-          </div>
-          <div className="faq-list">
-            {FAQS.map((faq) => (
-              <details
-                key={faq.q}
-                className="faq-item"
-                open={"open" in faq ? faq.open : undefined}
-              >
-                <summary>
-                  <h3 style={{ textTransform: "capitalize", margin: 0, display: "inline" }}>
-                    {faq.q}
-                  </h3>{" "}
-                  <i className="fa-solid fa-plus" aria-hidden="true" />
-                </summary>
-                <p>{faq.a}</p>
-              </details>
-            ))}
-          </div>
-
-          {/* <div className="section__actions section__actions--center spaced-top">
-            <a href={SITE.phoneHref} className="btn btn--dark btn--lg">
-              Still Have Questions? Call Our Dispatch Line
-            </a>
-          </div> */}
-        </div>
-      </section>
+      <FaqSection lede="Common questions about our mobile truck and trailer repair services across Edmonton.">
+        <FaqAccordion
+          items={FAQS.map((faq) => ({
+            question: faq.q,
+            answer: faq.a,
+            open: "open" in faq ? faq.open : undefined,
+          }))}
+        />
+      </FaqSection>
 
       {/* <section className="section">
         <div className="container">

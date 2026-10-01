@@ -343,7 +343,11 @@ li {
 }
 
 .page-hero--center h1 {
-  max-width: 20ch;
+  max-width: min(100%, 32ch);
+}
+
+.page-hero--title-only h1 {
+  margin-bottom: 0;
 }
 
 .page-hero__bg {
@@ -1816,6 +1820,25 @@ li {
   background: var(--gray-bg);
 }
 
+.section--faq--center .section__head {
+  max-width: 720px;
+  margin-bottom: var(--space-5);
+}
+
+.section--faq--center .section__lede {
+  max-width: 52ch;
+}
+
+.section--faq--center .faq-list {
+  max-width: 820px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.section--faq--center .faq-section__actions {
+  margin-top: var(--space-5);
+}
+
 .faq-list {
   display: flex;
   flex-direction: column;
@@ -1853,11 +1876,13 @@ li {
   display: none;
 }
 
+.faq-item summary h2,
 .faq-item summary h3 {
   margin: 0;
   font: inherit;
   color: inherit;
   text-transform: capitalize;
+  letter-spacing: normal;
 }
 
 .faq-item summary i {

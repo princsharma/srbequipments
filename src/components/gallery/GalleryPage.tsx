@@ -8,9 +8,9 @@ export default function GalleryPage() {
   return (
     <div id="srb-gallery">
       <PageHero
-        eyebrow="Inside Our Workshop"
+        id="gallery-heading"
+        testId="gallery-hero"
         title="Gallery"
-        lede="A look at the engines, frames, and heavy-duty repairs our Edmonton team handles every day — in the shop and on the road."
         image={GALLERY_HERO}
       />
 
