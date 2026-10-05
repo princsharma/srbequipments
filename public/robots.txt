@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /wp-includes/
+Disallow: /cgi-bin/
+Disallow: /*?s=
+Disallow: /*?p=
+Disallow: /search/
+Disallow: /*/feed/
+Disallow: /*/trackback/
+Disallow: /*/comments/feed/
+Disallow: /?attachment_id=
+
+Sitemap: https://srbequipment.ca/sitemap.xml
