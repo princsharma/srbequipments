@@ -10,16 +10,16 @@ const MOBILE = 1024;
 const SCROLL_THRESHOLD = 200;
 
 function getHeaderHeight() {
-  if (typeof window === "undefined") return "90px";
-  if (window.innerWidth <= 480) return "68px";
-  if (window.innerWidth <= MOBILE) return "76px";
-  return "90px";
+  if (typeof window === "undefined") return "110px";
+  if (window.innerWidth <= 480) return "80px";
+  if (window.innerWidth <= MOBILE) return "92px";
+  return "110px";
 }
 
 function getUtilityBarHeight() {
-  if (typeof window === "undefined") return "42px";
-  if (window.innerWidth <= MOBILE) return "36px";
-  return "42px";
+  if (typeof window === "undefined") return "52px";
+  if (window.innerWidth <= MOBILE) return "46px";
+  return "52px";
 }
 
 export default function Header() {
@@ -119,8 +119,8 @@ export default function Header() {
               className="brand__logo"
               src={SITE.logo}
               alt={`${SITE.name} logo`}
-              width={72}
-              height={72}
+              width={96}
+              height={96}
               priority
             />
           </Link>

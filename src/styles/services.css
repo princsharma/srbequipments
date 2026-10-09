@@ -1306,6 +1306,122 @@
         .premium-band { padding: var(--space-4); }
       }
 
+/* HVAC System Repair — layout, consistency, responsiveness */
+#srb-hvac-service .hero--cinematic .hero__lede {
+  max-width: min(52ch, 100%);
+}
+
+#srb-hvac-service .hvac-services-grid {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
+#srb-hvac-service .feature-card--hvac-service {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 22rem;
+}
+
+#srb-hvac-service .feature-card--hvac-service .feature-card__title {
+  min-height: 2.75em;
+}
+
+#srb-hvac-service .feature-card--hvac-service .check-list {
+  flex: 1;
+  margin-top: var(--space-3);
+}
+
+#srb-hvac-service [data-testid="why-choose"] .feature-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+#srb-hvac-service .detail-icon-grid__body h3 {
+  font-size: clamp(0.98rem, 1.5vw, 1.1rem);
+  line-height: 1.35;
+}
+
+#srb-hvac-service #services .feature-card__title {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.25;
+}
+
+#srb-hvac-service .tag-list li {
+  font-size: clamp(0.75rem, 1.2vw, 0.88rem);
+}
+
+#srb-hvac-service .check-list {
+  margin: var(--space-3) 0 0;
+}
+
+#srb-hvac-service .check-list li {
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.45;
+}
+
+#srb-hvac-service .check-list i {
+  color: var(--dark);
+  background: var(--primary-color);
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (min-width: 1100px) {
+  #srb-hvac-service [data-testid="why-choose"] .feature-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  #srb-hvac-service .hvac-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #srb-hvac-service [data-testid="service-area"] .section__actions .btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #srb-hvac-service .hvac-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #srb-hvac-service .feature-card--hvac-service {
+    min-height: 0;
+  }
+
+  #srb-hvac-service .feature-card--hvac-service .feature-card__title {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  #srb-hvac-service [data-testid="why-choose"] .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #srb-hvac-service .detail-icon-grid li {
+    padding: var(--space-3);
+  }
+
+  #srb-hvac-service .image-frame__stat,
+  #srb-hvac-service .image-frame__sticker {
+    font-size: 0.72rem;
+    padding: 10px 12px;
+  }
+}
+
 /* --- from emission-system-repair-service --- */
 /* Emission System Repair — page-only styles */
     .hero.hero--service {

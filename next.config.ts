@@ -1,6 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/services/air-conditioning",
+        destination: "/services/hvac-system-repair",
+        permanent: true,
+      },
+      {
+        source: "/services/air-conditioning/",
+        destination: "/services/hvac-system-repair",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

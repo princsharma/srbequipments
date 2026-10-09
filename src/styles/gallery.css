@@ -140,15 +140,20 @@
   border: 1px solid var(--border);
   border-left: 6px solid var(--primary-color);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--space-5);
-  flex-wrap: wrap;
+  text-align: center;
 }
 
 #srb-gallery .gallery-cta .section__head {
-  margin-bottom: 0;
-  max-width: 560px;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+#srb-gallery .gallery-cta .section__lede {
+  color: var(--dark);
 }
 
 #srb-gallery .gallery-cta__actions {
@@ -156,6 +161,7 @@
   flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 1024px) {
@@ -183,7 +189,7 @@
   #srb-gallery .gallery-cta {
     padding: var(--space-5);
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     text-align: center;
   }
 

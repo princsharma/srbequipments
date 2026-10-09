@@ -21,7 +21,7 @@ export type RepairShop = {
 };
 
 export const REPAIR_SHOPS_HERO =
-  "/images/2022/09/best-truck-repair-in-edmonton_image-1.jpg";
+  "/images/2025/06/download.webp";
 
 export const REPAIR_SHOP_AREAS = [
   { href: "#shop-1", label: "Edmonton", shopId: "shop-1" },
@@ -47,7 +47,7 @@ export const REPAIR_SHOPS: RepairShop[] = [
     rank: '#1',
     title: 'SRB EQUIPMENT | Truck and Trailer Repair Shop',
     area: 'Edmonton',
-    image: '/images/2022/09/SRB-Equipment-Truck-Trailer-repair-shop_image.jpg',
+    image: '/images/2026/01/unnamed.webp',
     alt: 'SRB Equipment - Truck & Trailer repair shop',
     rating: 5,
     meta: [
