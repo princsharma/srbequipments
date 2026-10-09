@@ -25,7 +25,7 @@ export const SERVICE_LINKS = [
   { href: "/services/cvip-inspections", label: "CVIP Inspections" },
   { href: "/services/routine-service", label: "Routine Service" },
   { href: "/services/engine-repair", label: "Engine Repair" },
-  { href: "/services/air-conditioning", label: "Air Conditioning" },
+  { href: "/services/hvac-system-repair", label: "HVAC System Repair" },
   {
     href: "/services/emission-system-repair-service",
     label: "Emission System Repair/Service",

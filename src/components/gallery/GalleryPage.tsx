@@ -40,9 +40,9 @@ export default function GalleryPage() {
                   <strong>{SITE.phoneDisplay}</strong>
                 </span>
               </a>
-              <Link href="/contact-us" className="btn btn--dark btn--lg">
+              {/* <Link href="/contact-us" className="btn btn--dark btn--lg">
                 Book an Appointment
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

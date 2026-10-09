@@ -66,7 +66,7 @@ export default function AboutContent() {
           </Reveal>
 
           <Reveal variant="right" delay={100} className="about-story__content">
-            <span className="about-story__label">Who We Are</span>
+            {/* <span className="about-story__label">Who We Are</span> */}
             <h2 id="about-story-heading">
               Professional Truck &amp; Trailer Repair Services for Edmonton Drivers
             </h2>

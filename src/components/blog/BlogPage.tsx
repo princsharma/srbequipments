@@ -54,7 +54,7 @@ export default function BlogPage() {
 
       <section className="section blog-list" aria-label="Blog articles">
         <div className="container blog-list__shell">
-          <div className="blog-list__intro section__head section__head--center">
+          {/* <div className="blog-list__intro section__head section__head--center">
             <h2 className="section__title">
               Truck Repair <em>Insights</em>
             </h2>
@@ -62,7 +62,7 @@ export default function BlogPage() {
               Maintenance guides, fleet tips, and expert advice from SRB Equipment
               in Edmonton.
             </p>
-          </div>
+          </div> */}
 
           {featured ? (
             <article className="blog-spotlight">
@@ -79,12 +79,12 @@ export default function BlogPage() {
                     priority
                     sizes="(max-width: 1024px) 100vw, 58vw"
                   />
-                  <span className="blog-spotlight__badge">Featured</span>
+                  {/* <span className="blog-spotlight__badge">Featured</span> */}
                   <span className="blog-card__media-shade" aria-hidden="true" />
                 </figure>
                 <div className="blog-spotlight__body">
                   <div className="blog-card__meta">
-                    <span className="blog-card__pill">{featured.category}</span>
+                    {/* <span className="blog-card__pill">{featured.category}</span> */}
                     <time dateTime={featured.date}>{featured.date}</time>
                     <span>{featured.readingMinutes} min read</span>
                   </div>
@@ -114,9 +114,9 @@ export default function BlogPage() {
                       height={400}
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
-                    <span className="blog-card__pill blog-card__pill--overlay">
+                    {/* <span className="blog-card__pill blog-card__pill--overlay">
                       {post.category}
-                    </span>
+                    </span> */}
                     <span className="blog-card__media-shade" aria-hidden="true" />
                     <span className="blog-card__media-chip">
                       <i className="fa-solid fa-book-open" aria-hidden="true" />
@@ -143,7 +143,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="section blog-newsletter" id="newsletter">
+      {/* <section className="section blog-newsletter" id="newsletter">
         <div className="container blog-list__shell">
           <div className="blog-newsletter__card">
             <div className="blog-newsletter__content">
@@ -186,7 +186,7 @@ export default function BlogPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

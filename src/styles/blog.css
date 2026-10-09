@@ -96,7 +96,8 @@
 }
 
 #srb-blog .blog-spotlight__title {
-  font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+  font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+  font-weight: 600;
   line-height: 1.12;
   color: var(--white);
   margin: 0 0 var(--space-3);
@@ -119,8 +120,9 @@
   align-items: center;
   gap: 8px 12px;
   margin-bottom: var(--space-2);
-  font-size: 0.82rem;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
 }
 
 #srb-blog .blog-spotlight__body .blog-card__meta {
@@ -287,11 +289,12 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--dark);
 }
 
 #srb-blog .blog-card__title {
-  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 600;
   line-height: 1.2;
   margin: var(--space-2) 0 var(--space-2);
   text-transform: capitalize;
@@ -302,9 +305,9 @@
 }
 
 #srb-blog .blog-card__excerpt {
-  font-size: var(--small);
-  color: var(--text-light);
-  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--dark);
+  line-height: 1.7;
   margin: 0 0 10px;
   flex: 1;
   display: -webkit-box;

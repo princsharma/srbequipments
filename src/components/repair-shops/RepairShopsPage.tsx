@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import PageHero from "@/components/PageHero";
+import ServiceHero from "@/components/services/ServiceHero";
 import { SITE } from "@/lib/site";
 import {
   REPAIR_SHOP_AREAS,
@@ -97,15 +97,26 @@ function ShopCard({ shop }: { shop: RepairShop }) {
 export default function RepairShopsPage() {
   return (
     <div id="srb-repair-shops">
-      <PageHero
-        id="repair-shops-heading"
-        testId="repair-shops-hero"
+      <ServiceHero
+        variant="cinematic"
+        image={REPAIR_SHOPS_HERO}
+        imageAlt="Best truck repair shop in Edmonton"
         title={
           <>
-            Best Truck Repair Shop <em>in Edmonton</em>
+            <em>Best Truck Repair Shop</em> in Edmonton
           </>
         }
-        image={REPAIR_SHOPS_HERO}
+        lede="You can rely on the specialists to repair your vehicle professionally and safely get you back on the road. Here is the list of truck repair shop in Edmonton, provides CVIP Inspections, Engine Repair, Emission System Repair/Service, Air Conditioning, Oil Changes, Tire Maintenance, and much more."
+        actions={
+          <>
+            <a href="#listings" className="btn btn--primary btn--lg">
+              View All Shops
+            </a>
+            <a href={SITE.phoneHref} className="btn btn--ghost btn--lg">
+              Call SRB Equipment
+            </a>
+          </>
+        }
       />
 
       <div className="trust-strip trust-strip--compact">
@@ -128,9 +139,6 @@ export default function RepairShopsPage() {
       <section id="listings" className="section section--listings section--gray">
         <div className="container">
           <div className="section__head section__head--center">
-            <span className="eyebrow">
-              <span className="eyebrow__dot" /> Local Directory
-            </span>
             <h2 className="section__title">
               Find <em>Truck Repair Shop</em> Near Me
             </h2>

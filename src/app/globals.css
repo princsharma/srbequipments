@@ -1,7 +1,7 @@
 html {
   height: 100%;
-  --header-height: 90px;
-  --utility-bar-height: 42px;
+  --header-height: 110px;
+  --utility-bar-height: 52px;
   --total-header-height: calc(var(--header-height) + var(--utility-bar-height));
 }
 
@@ -16,19 +16,19 @@ body {
   display: flex;
   flex-direction: column;
   /* Reserve space for fixed header (utility bar + main nav) */
-  padding-top: var(--total-header-height, 132px);
+  padding-top: var(--total-header-height, 162px);
 }
 
 @media (max-width: 1024px) {
   html {
-    --header-height: 76px;
-    --utility-bar-height: 36px;
+    --header-height: 92px;
+    --utility-bar-height: 46px;
   }
 }
 
 @media (max-width: 480px) {
   html {
-    --header-height: 68px;
+    --header-height: 80px;
   }
 }
 
