@@ -1,334 +1,217 @@
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
-import FaqAccordion from "@/components/faq/FaqAccordion";
-import FaqSection from "@/components/faq/FaqSection";
-import { BRAND_LOGOS, HOME_FAQS, WHY_FEATURES } from "@/lib/home-data";
-import { GALLERY_ITEMS } from "@/lib/gallery-data";
+import ServiceHero from "@/components/services/ServiceHero";
+import {
+  ABOUT_AUDIENCE,
+  ABOUT_CTA,
+  ABOUT_DIFFERENTIATORS,
+  ABOUT_HERO,
+  ABOUT_ORIGIN,
+  ABOUT_TEAM,
+} from "@/lib/about-data";
 import { SITE } from "@/lib/site";
-import HomeBrands from "../home/HomeBrands";
-
-
-const ABOUT_CHECKS = [
-  "Red Seal-certified heavy-duty technicians",
-  "In-shop and 24/7 mobile truck repair",
-  "CVIP inspections and fleet maintenance",
-  "Honest diagnostics — no costly downtime",
-];
-
-const FEATURE_ICONS = [
-  "fa-solid fa-certificate",
-  "fa-solid fa-clock-rotate-left",
-  "fa-solid fa-bolt",
-  "fa-solid fa-truck",
-];
-
-const GALLERY_PREVIEW = GALLERY_ITEMS.slice(0, 4);
-const ABOUT_FAQS = HOME_FAQS.slice(0, 5);
 
 export default function AboutContent() {
-    const brands = [...BRAND_LOGOS, ...BRAND_LOGOS];
   return (
     <div id="srb-about">
-      {/* 1. Hero */}
-      <section className="about-hero" data-testid="about-hero">
-        <div className="about-hero__bg" aria-hidden="true">
-          <Image
-            src="/images/2025/11/truck-repair-in-shop.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-        <div className="container about-hero__inner">
-          <h1 id="about-heading">About Us</h1>
-          {/* <nav className="about-hero__crumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-            <span aria-hidden="true">/</span>
-            <span>About Us</span>
-          </nav> */}
-        </div>
-      </section>
-
-      {/* 2. Intro */}
-      <section className="section about-story" aria-labelledby="about-story-heading">
-        <div className="container about-story__grid">
-          <Reveal variant="left" className="about-story__media">
-            <Image
-              src="/images/2026/02/truck-cvip-inspection-in-srb-equipment-shop-400x516.webp"
-              alt="Truck repair and inspection at SRB Equipment workshop in Edmonton"
-              width={520}
-              height={670}
-              sizes="(max-width: 1024px) 100vw, 520px"
-            />
-          </Reveal>
-
-          <Reveal variant="right" delay={100} className="about-story__content">
-            {/* <span className="about-story__label">Who We Are</span> */}
-            <h2 id="about-story-heading">
-              Professional Truck &amp; Trailer Repair Services for Edmonton Drivers
-            </h2>
-            <p>
-              Starting from a small-scale truck repair shop in Edmonton, we have
-              grown into a reputed truck repair company serving reliable
-              services. From heavyweight truck servicing to inspection,
-              maintenance, and everything in between — we have it covered.
-            </p>
-            <ul className="about-story__checks">
-              {ABOUT_CHECKS.map((item) => (
-                <li key={item}>
-                  <i className="fa-solid fa-check" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <div className="about-story__actions">
-              <a href={SITE.phoneHref} className="btn btn--primary btn--lg">
-                <i className="fa-solid fa-phone-volume" aria-hidden="true" />
-                Call {SITE.phoneDisplay}
-              </a>
-              <Link href="/contact-us" className="btn btn--dark btn--lg">
-                Contact Us
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 3. Icon features */}
-      <section className="section about-features" aria-label="Why choose SRB">
-        <div className="container about-features__grid">
-          {WHY_FEATURES.slice(0, 4).map((feature, i) => (
-            <Reveal
-              key={feature.num}
-              variant="up"
-              delay={i * 80}
-              className="about-features__item"
-            >
-              <span className="about-features__icon" aria-hidden="true">
-                <i className={FEATURE_ICONS[i]} />
-              </span>
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. Cinematic banner */}
-      <section className="about-banner">
-        <div className="about-banner__bg" aria-hidden="true">
-          <Image
-            src="/images/2026/03/white-semi-truck-repair-in-srb-equipment-workshop.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-        <div className="about-banner__scrim" aria-hidden="true" />
-        <div className="container about-banner__inner">
-          <Reveal variant="up">
-            
-            <h2>
-              24/7 Mobile Truck Repair
-              <br />
-              When You Need It Most
-            </h2>
-            <a href={SITE.phoneHref} className="about-banner__play" aria-label={`Call ${SITE.phoneDisplay}`}>
-              <i className="fa-solid fa-phone" aria-hidden="true" />
-            </a>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 5. Trio cards */}
-      <section className="section about-trio">
-        <div className="container">
-          <Reveal variant="up" className="section__head section__head--center">
-            <h2 className="section__title">
-              Expanded Assistance for Trucks &amp; Trailers
-            </h2>
-            <p className="section__lede">
-              In-shop expertise and mobile roadside support for commercial fleets
-              across Edmonton.
-            </p>
-          </Reveal>
-
-          <div className="about-trio__grid">
-            <Reveal variant="up" delay={0} className="about-trio__card about-trio__card--light">
-              <i className="fa-solid fa-clipboard-check" aria-hidden="true" />
-              <h3>CVIP Inspections</h3>
-              <p>
-                Licensed CVIP inspections so your truck or trailer meets Alberta
-                safety standards and stays road-ready.
-              </p>
-              <Link href="/services/cvip-inspections">
-                Learn More <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </Reveal>
-
-            <Reveal variant="up" delay={80} className="about-trio__card about-trio__card--yellow">
-              <strong className="about-trio__big">100%</strong>
-              <h3>Fleet Focused</h3>
-              <p>
-                Dedicated support for commercial drivers, owner-operators, and
-                fleet managers who can&apos;t afford downtime.
-              </p>
-              <Link href="/contact-us">
-                Learn More <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </Reveal>
-
-            <Reveal variant="up" delay={160} className="about-trio__card about-trio__card--dark">
-              <i className="fa-solid fa-truck" aria-hidden="true" />
-              <h3>24/7 Mobile Service</h3>
-              <p>
-                Fully equipped mobile unit for yard calls and roadside breakdowns
-                across Edmonton and surrounding areas.
-              </p>
-              <Link href="/services/mobile-service-truck-edmonton">
-                Learn More <i className="fa-solid fa-arrow-right" aria-hidden="true" />
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Stats */}
-      <section className="section about-stats">
-        <div className="container about-stats__grid">
-          <Reveal variant="left" className="about-stats__media">
-            <Image
-              src="/images/2026/02/white-color-mobile-service-truck-edmonton-400x516.webp"
-              alt="SRB Equipment mobile service truck"
-              width={560}
-              height={720}
-              sizes="(max-width: 1024px) 100vw, 480px"
-            />
-          </Reveal>
-
-          <Reveal variant="right" delay={100} className="about-stats__content">
-            <span className="eyebrow">Our Track Record</span>
-            <h2 className="section__title">
-              Providing Expert &amp; Honest Service For Years
-            </h2>
-            <p>
-              {SITE.name} is a full-service truck repair company. We believe
-              quality services shouldn&apos;t be hard to access — that&apos;s why
-              we offer both in-shop and 24/7 mobile repairs in Edmonton.
-            </p>
-            <blockquote className="about-stats__quote">
-              &quot;You can count on us!!&quot;
-            </blockquote>
-
-            <div className="about-stats__counters">
-              <div>
-                <strong>10+</strong>
-                <span>Years Experience</span>
-              </div>
-              <div>
-                <strong>5,000+</strong>
-                <span>Trucks Repaired</span>
-              </div>
-              <div>
-                <strong>24/7</strong>
-                <span>Roadside Help</span>
-              </div>
-              <div>
-                <strong>100%</strong>
-                <span>Fleet Focused</span>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* 7. FAQ — same layout as home */}
-      <FaqSection
-        id="about-faq"
-        actions={
-          <Link href="/faq" className="btn btn--dark btn--lg">
-            View All FAQs
-          </Link>
+      <ServiceHero
+        variant="cinematic"
+        image={ABOUT_HERO.image}
+        imageAlt={ABOUT_HERO.imageAlt}
+        title={
+          <>
+            {ABOUT_HERO.titleLine1}
+            <br />
+            <em>{ABOUT_HERO.titleLine2}</em>
+          </>
         }
-      >
-        <FaqAccordion
-          items={ABOUT_FAQS.map((faq) => ({
-            question: faq.q,
-            answer: faq.a,
-          }))}
-        />
-      </FaqSection>
+        lede={ABOUT_HERO.lede}
+        actions={<></>}
+      />
 
-      {/* 8. Gallery */}
-      <section className="section about-gallery">
-        <div className="container">
-          <Reveal variant="up" className="section__head section__head--center">
-            <span className="eyebrow">Inside Our Shop</span>
-            <h2 className="section__title">Workshop Gallery</h2>
+      <section
+        className="section section--gray about-origin"
+        aria-labelledby="about-origin-heading"
+      >
+        <div className="container two-col">
+          <Reveal variant="up" className="two-col__content">
+            <h2 id="about-origin-heading" className="section__title">
+              {ABOUT_ORIGIN.title}
+            </h2>
+            <p>
+              SRB Equipment was founded by{" "}
+              <strong>{ABOUT_ORIGIN.founderName}</strong>
+              {ABOUT_ORIGIN.introAfterName}
+            </p>
+            <p>{ABOUT_ORIGIN.secondParagraph}</p>
+            <div className="section__actions about-origin__actions">
+              <Link href={ABOUT_ORIGIN.servicesHref} className="btn btn--primary btn--lg">
+                Our Services
+                <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+              </Link>
+            </div>
           </Reveal>
-          <div className="about-gallery__grid">
-            {GALLERY_PREVIEW.map((item, i) => (
-              <Reveal key={item.src} variant="scale" delay={i * 70} className="about-gallery__item">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={480}
-                  height={360}
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
+
+          <Reveal variant="up" delay={60} className="two-col__media">
+            <div className="image-frame about-origin__figure">
+              <Image
+                src={ABOUT_ORIGIN.founderImage}
+                alt={ABOUT_ORIGIN.founderAlt}
+                width={720}
+                height={480}
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
+              />
+              <div className="about-origin__caption">
+                <span className="about-origin__caption-bar" aria-hidden="true" />
+                <div>
+                  <strong>{ABOUT_ORIGIN.founderName}</strong>
+                  <span>{ABOUT_ORIGIN.founderRole}</span>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section
+        className="section section--gray about-audience"
+        aria-labelledby="about-audience-heading"
+      >
+        <div className="container about-audience__layout">
+          <Reveal variant="up" className="about-audience__intro">
+            <h2 id="about-audience-heading" className="section__title">
+              {ABOUT_AUDIENCE.title}
+            </h2>
+            <p className="about-audience__lede">{ABOUT_AUDIENCE.lede}</p>
+          </Reveal>
+
+          <div className="about-audience__columns">
+            {ABOUT_AUDIENCE.items.map((item, i) => (
+              <Reveal
+                key={item.title}
+                variant="up"
+                delay={i * 50}
+                className="about-audience__card"
+              >
+                <span className="about-audience__icon" aria-hidden="true">
+                  <i className={item.icon} />
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
               </Reveal>
             ))}
           </div>
-          <div className="section__actions section__actions--center">
-            <Link href="/gallery" className="btn btn--outline-dark btn--lg">
-              View Full Gallery
-            </Link>
+        </div>
+      </section>
+
+      <section
+        className="section section--dark about-team"
+        aria-labelledby="about-team-heading"
+      >
+        <div className="container about-team__grid">
+          <Reveal variant="up" className="about-team__content">
+            <h2 id="about-team-heading" className="section__title">
+              {ABOUT_TEAM.title}
+            </h2>
+            <p className="about-team__lede">{ABOUT_TEAM.lede}</p>
+            <ul className="about-team__highlights">
+              {ABOUT_TEAM.highlights.map((item) => (
+                <li key={item.label}>
+                  <span className="about-team__highlight-icon" aria-hidden="true">
+                    <i className={item.icon} />
+                  </span>
+                  <span>{item.label}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal variant="up" delay={80} className="about-team__mosaic">
+            <div className="about-team__mosaic-main">
+              <Image
+                src={ABOUT_TEAM.mosaic.main.src}
+                alt={ABOUT_TEAM.mosaic.main.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className="about-team__mosaic-stack">
+              {ABOUT_TEAM.mosaic.secondary.map((img) => (
+                <div key={img.src} className="about-team__mosaic-thumb">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 28vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section
+        className="section section--gray about-differentiators"
+        aria-labelledby="about-differentiators-heading"
+      >
+        <div className="container about-differentiators__layout">
+          <Reveal variant="up" className="about-differentiators__intro">
+            <h2 id="about-differentiators-heading" className="section__title">
+              {ABOUT_DIFFERENTIATORS.title}
+            </h2>
+            <p className="about-differentiators__lede">{ABOUT_DIFFERENTIATORS.lede}</p>
+          </Reveal>
+
+          <div className="about-differentiators__columns">
+            {ABOUT_DIFFERENTIATORS.items.map((item, i) => (
+              <Reveal
+                key={item.title}
+                variant="up"
+                delay={i * 50}
+                className="about-differentiators__card"
+              >
+                <span className="about-differentiators__icon" aria-hidden="true">
+                  <i className={item.icon} />
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 9. Brands */}
-    {/* <section className="section section--dark home-brands">
-         <div className="container">
-           <div className="section__head section__head--center">
-             <h2 className="section__title">Trusted by Leading Truck Brands</h2>
-           </div>
-           <div className="brand-strip">
-             {brands.map((brand, index) => (
-               <div key={`${brand.alt}-${index}`} className="brand-strip__item">
-                 <Image
-                   src={brand.src}
-                   alt={brand.alt}
-                   width={120}
-                   height={48}
-                 />
-               </div>
-             ))}
-           </div>
-         </div>
-       </section> */}
-       <HomeBrands/>
-
-      {/* 10. Phone CTA */}
-      <section className="about-phone-cta">
-        <div className="container about-phone-cta__inner">
-          <div>
-            <span className="about-phone-cta__label">
-              <i className="fa-regular fa-clock" aria-hidden="true" /> 24/7
-              Roadside Assistance
-            </span>
-            <a href={SITE.phoneHref} className="about-phone-cta__number">
+      <section className="about-cta-v2" data-testid="about-cta">
+        <div className="about-cta-v2__bg" aria-hidden="true">
+          <Image
+            src={ABOUT_CTA.image}
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="about-cta-v2__scrim" aria-hidden="true" />
+        <div className="container about-cta-v2__inner">
+          <Reveal variant="up" className="about-cta-v2__content">
+            <h2>{ABOUT_CTA.title}</h2>
+            <p>{ABOUT_CTA.lede}</p>
+          </Reveal>
+          <Reveal variant="up" delay={80} className="about-cta-v2__actions">
+            <a href={SITE.phoneHref} className="btn btn--primary btn--lg">
+              <i className="fa-solid fa-phone-volume" aria-hidden="true" />
               {SITE.phoneDisplay}
             </a>
-          </div>
-          <a href={SITE.phoneHref} className="btn btn--primary btn--lg">
-            <i className="fa-solid fa-phone-volume" aria-hidden="true" /> Call
-            Now
-          </a>
+            <Link href={ABOUT_CTA.contactHref} className="btn btn--ghost btn--lg">
+              Book a Service
+              <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            </Link>
+          </Reveal>
         </div>
       </section>
     </div>
